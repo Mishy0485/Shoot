@@ -12,5 +12,4 @@ private:
 public:
 
 	Plane(int posX, int posY, int v, Texture tex, int vit) : x(posX), y(posY), vie(v), texture(tex), vitesse(vit) {}
-
 };
