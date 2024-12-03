@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jayite\\Documents\\GitHub\\Shoot\\Shmup\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\jayite\\Documents\\GitHub\\Shoot\\Shmup\\Shmup\\Avion.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\Avion.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Avion.cpp",
+              "DocumentMoniker": "C:\\Users\\jayite\\Documents\\GitHub\\Shoot\\Shmup\\Shmup\\Avion.cpp",
+              "RelativeDocumentMoniker": "Shmup\\Avion.cpp",
+              "ToolTip": "C:\\Users\\jayite\\Documents\\GitHub\\Shoot\\Shmup\\Shmup\\Avion.cpp",
+              "RelativeToolTip": "Shmup\\Avion.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-03T14:30:41.396Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
