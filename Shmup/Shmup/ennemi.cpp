@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <vector>
 using namespace sf;
 
 
@@ -9,7 +10,7 @@ private:
 	int type; // 1, 2 ou 3 : quel ennemi
 	Texture texture;
 	int vie;
-
+	
 public:
 
 	Ennemi(int t, Texture tex, int v) : type(t), texture(tex), vie(v) {} // avoir pour position
