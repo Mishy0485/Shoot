@@ -1,3 +1,5 @@
-﻿  ennemi.cpp
-  projectile.cpp
-LINK : fatal error LNK1181: impossible d'ouvrir le fichier en entrée 'kernel32.lib'
+﻿  Génération de code en cours
+  Previous IPDB not found, fall back to full compilation.
+  All 17 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  Shmup.vcxproj -> C:\Users\sbrossard\Source\Repos\Mishy0485\Shoot\Shmup\x64\Release\Shmup.exe
