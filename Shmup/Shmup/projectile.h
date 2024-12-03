@@ -13,7 +13,7 @@ private:
 	int type;
 public:
 
-	Projectile(int x, int y, int v, int t) : x(x), y(y), vitesse(v), type(t) {}
+	Projectile(int x, int y, int v, int t);
 
 };
 
