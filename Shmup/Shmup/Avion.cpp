@@ -2,24 +2,27 @@
 using namespace sf;
 #include"projectile.cpp"
 #include"texture.cpp"
+#include"shmup.cpp"
 
 class Plane
 {
 private:
 	int x, y;
 	int vie;
-	Texture texture;
 	int vitesse;
-
+	Texture piupiu;
+	Sprite Avion;
+	
 public:
 
-	Plane(int posX, int posY, int v, Texture tex, int vit) : x(posX), y(posY), vie(v), texture(tex), vitesse(vit) {}
+	Plane(int posX, int posY, int v, Texture tex, int vit) : x(posX), y(posY), piupiu(tex), vie(v), vitesse(vit) { Avion.setTexture(piupiu); }
 
+	Texture getTex() const { return piupiu; }
 	void deplacement()
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
-			rec.move(Vector2f(-200.f, 0.f) * lastFrameTime);
+			Avion.move(Vector2f(-200.f, 0.f) * lastFrameTime);
 			if (rec.getPosition().x < 0)
 			{
 				rec.setPosition(Vector2f(0.f, rec.getPosition().y));
