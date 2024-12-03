@@ -8,7 +8,6 @@ Clock clocky;
 
 int main() 
 {
-    getTex().loadFromFile("plane.png");
 
     // Création de la fenêtre
     RenderWindow window(VideoMode(800, 600), "Fenêtre SFML");
