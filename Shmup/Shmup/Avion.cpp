@@ -17,7 +17,13 @@ public:
 	{}
 
 	void tir()
-	{}
+	{
 
+	}
+
+	void degat(int degats)
+	{
+		vie -= degats;
+	}
 	
 };
