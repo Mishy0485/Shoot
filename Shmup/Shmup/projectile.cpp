@@ -1,14 +1,2 @@
-#include <SFML/Graphics.hpp>
-using namespace sf;
+#include "projectile.h"
 
-class Projectile {
-private:
-	int x;
-	int y;
-	int vitesse;
-	int type;
-public:
-
-	Projectile(int x, int y, int v, int t) : x(x), y(y), vitesse(v), type(t) {}
-
-};

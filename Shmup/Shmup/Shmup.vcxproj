@@ -140,6 +140,10 @@
     <ClCompile Include="shmup.cpp" />
     <ClCompile Include="texture.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jeu.h" />
+    <ClInclude Include="projectile.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
