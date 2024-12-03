@@ -5,9 +5,9 @@ class Plane;
 using namespace sf;
 
 
+
 int main() 
 {
-
     // Création de la fenêtre
     RenderWindow window(VideoMode(800, 600), "Fenêtre SFML");
 
@@ -17,6 +17,7 @@ int main()
 
     // Boucle principale
     while (window.isOpen()) {
+
 
         Event event;
         while (window.pollEvent(event)) {

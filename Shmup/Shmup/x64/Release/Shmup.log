@@ -1,13 +1,7 @@
-﻿  Avion.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\shmup.cpp(33,21): error C2065: 'rec' : identificateur non déclaré
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\Avion.cpp(29,39): error C2065: 'lastFrameTime' : identificateur non déclaré
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\Avion.cpp(38,38): error C2065: 'lastFrameTime' : identificateur non déclaré
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\Avion.cpp(47,38): error C2065: 'lastFrameTime' : identificateur non déclaré
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\Avion.cpp(56,39): error C2065: 'lastFrameTime' : identificateur non déclaré
-  ennemi.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.cpp(4,10): error C2084: la fonction 'Ennemi::Ennemi(int,sf::Texture,int)' a déjà un corps
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.h(20,2): message : voir la définition précédente de '{ctor}'
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.cpp(26,1): error C2059: erreur de syntaxe : '}'
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.cpp(26,1): error C2143: erreur de syntaxe : absence de ';' avant '}'
-  shmup.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\shmup.cpp(33,21): error C2065: 'rec' : identificateur non déclaré
+﻿  texture.cpp
+  Génération de code en cours
+  1 of 4 functions (25.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Fin de la génération du code
+  Shmup.vcxproj -> C:\Users\sbrossard\Source\Repos\Mishy0485\Shoot\Shmup\x64\Release\Shmup.exe

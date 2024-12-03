@@ -6,13 +6,6 @@ using namespace sf;
 
 // texture avion principal
 
-void init() {
-	Texture plane;
-	plane.loadFromFile("plane.png");
-
-	Sprite Avion;
-	Avion.setTexture(plane);
-}
 	// texture ennemis1
 	// texture ennemis2
 	// texture ennemis3

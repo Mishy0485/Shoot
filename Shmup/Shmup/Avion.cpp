@@ -2,7 +2,6 @@
 using namespace sf;
 #include"projectile.cpp"
 #include"texture.cpp"
-#include"shmup.cpp"
 
 class Plane
 {
