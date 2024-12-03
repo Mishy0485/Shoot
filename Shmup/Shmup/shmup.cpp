@@ -1,7 +1,12 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-int main() {
+int main() 
+{
+
+    Clock clocky;
+    lastFrameTime
+
     // Création de la fenêtre
     RenderWindow window(VideoMode(800, 600), "Fenêtre SFML");
 
