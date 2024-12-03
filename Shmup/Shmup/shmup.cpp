@@ -6,14 +6,14 @@ int main()
 {
 
     Clock clocky;
-    lastFrameTime
+    lastFrameTime;
 
     // Création de la fenêtre
     RenderWindow window(VideoMode(800, 600), "Fenêtre SFML");
 
     // Création d'un cercle
     CircleShape shape(50); // Rayon de 50 pixels
-    shape.setFillColor(Color::Green);
+    shape.setFillColor(Color::Green);   
 
     // Boucle principale
     while (window.isOpen()) {

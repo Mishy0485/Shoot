@@ -1,38 +1,25 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
-using namespace sf;
+#include "ennemi.h"
 
 
-class Ennemi
-{
-private:
-	int x, y;
-	int type; // 1, 2 ou 3 : quel ennemi
-	Texture texture;
-	int vie;
-	
+	Ennemi::Ennemi(int t, Texture tex, int v) : type(t), texture(tex), vie(v) {} // avoir pour position
 
-public:
-
-	Ennemi(int t, Texture tex, int v) : type(t), texture(tex), vie(v) {} // avoir pour position
-
-	void attaque(int degats)
+	void Ennemi::attaque(int degats)
 	{
 
 	}
 
 	// avoir s'ils se deplacent
 
-	void tir()
+	void Ennemi::tir()
 	{}
 
-	void degats()
+	void Ennemi::degats()
 	{
 		int degats;
 		vie -= degats;
 	}
 
-	bool EstVivant()
+	bool Ennemi::EstVivant()
 	{
 		return vie<=0;
 	}
