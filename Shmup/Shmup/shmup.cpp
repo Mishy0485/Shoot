@@ -1,15 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
-
-class Plane;
 using namespace sf;
-
-
+class Plane;
 
 int main() 
 {
+    Plane plane = new ;
+
     // Création de la fenêtre
-    RenderWindow window(VideoMode(800, 600), "Fenêtre SFML");
+    RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
 
     // Création d'un cercle
     CircleShape shape(50); // Rayon de 50 pixels

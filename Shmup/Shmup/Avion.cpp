@@ -8,19 +8,21 @@ class Plane
 private:
 	int x, y;
 	int vie;
-	int vitesse;
-	Texture piupiu;
+	float vitesse;
 	Sprite Avion;
 	
 public:
 
-	Plane(int posX, int posY, int v, Texture tex, int vit) : x(posX), y(posY), piupiu(tex), vie(v), vitesse(vit) 
+	Texture piupiu;
+
+	Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
 	{ 
 		piupiu.loadFromFile("plane.png");
 		Avion.setTexture(piupiu); 
 	}
 
 	Texture getTex() const { return piupiu; }
+
 	void deplacement()
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Left))
