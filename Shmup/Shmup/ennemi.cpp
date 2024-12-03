@@ -21,7 +21,10 @@ public:
 
 	// avoir s'ils se deplacent
 
-	void degat()
+	void tir()
+	{}
+
+	void degats()
 	{
 		int degats;
 		vie -= degats;
