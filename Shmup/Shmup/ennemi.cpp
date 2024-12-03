@@ -11,6 +11,7 @@ private:
 	Texture texture;
 	int vie;
 	
+
 public:
 
 	Ennemi(int t, Texture tex, int v) : type(t), texture(tex), vie(v) {} // avoir pour position
