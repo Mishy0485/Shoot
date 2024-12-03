@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="Avion.cpp" />
     <ClCompile Include="ennemi.cpp" />
+    <ClCompile Include="jeu.cpp" />
     <ClCompile Include="projectile.cpp" />
     <ClCompile Include="shmup.cpp" />
     <ClCompile Include="texture.cpp" />
