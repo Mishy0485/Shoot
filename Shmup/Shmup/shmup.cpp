@@ -4,7 +4,6 @@
 class Plane;
 using namespace sf;
 
-Clock clocky;
 
 int main() 
 {
@@ -19,8 +18,6 @@ int main()
     // Boucle principale
     while (window.isOpen()) {
 
-        float lastFrameTime = clocky.restart().asSeconds();
-
         Event event;
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed)
@@ -30,7 +27,7 @@ int main()
         // Effacer la fenêtre
         window.clear();
         // Dessiner la forme
-        window.draw(rec);
+        window.draw(shape);
         // Afficher le contenu
         window.display();
     }

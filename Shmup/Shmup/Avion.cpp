@@ -26,7 +26,7 @@ public:
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
-			Avion.move(Vector2f(-200.f, 0.f) * lastFrameTime);
+			Avion.move(Vector2f(-200.f, 0.f));
 			if (Avion.getPosition().x < 0)
 			{
 				Avion.setPosition(Vector2f(0.f, Avion.getPosition().y));
@@ -35,7 +35,7 @@ public:
 
 		if (Keyboard::isKeyPressed(Keyboard::Right))
 		{
-			Avion.move(Vector2f(200.f, 0.f) * lastFrameTime);
+			Avion.move(Vector2f(200.f, 0.f));
 			if (Avion.getPosition().x > 849) // ( si chgt de taille de fenetre changer la valeur)
 			{
 				Avion.setPosition(Vector2f(849.f, Avion.getPosition().y));
@@ -44,7 +44,7 @@ public:
 
 		if (Keyboard::isKeyPressed(Keyboard::Down))
 		{
-			Avion.move(Vector2f(0.f, 200.f) * lastFrameTime);
+			Avion.move(Vector2f(0.f, 200.f));
 			if (Avion.getPosition().y > 625)
 			{
 				Avion.setPosition(Vector2f(Avion.getPosition().x, 625.f));
@@ -53,7 +53,7 @@ public:
 
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			Avion.move(Vector2f(0.f, -200.f) * lastFrameTime);
+			Avion.move(Vector2f(0.f, -200.f));
 			if (Avion.getPosition().y < 350)
 			{
 				Avion.setPosition(Vector2f(Avion.getPosition().x, 350.f));
