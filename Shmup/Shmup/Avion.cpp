@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
+#include"projectile.cpp"
 
 class Plane
 {
@@ -59,11 +60,6 @@ public:
 			}
 		}
 	}
-
-	//void tir()
-	//{
-	//	Projectile(x,y, 200, 0); // type a changer
-	//}
 
 	void degat(int degats)
 	{
