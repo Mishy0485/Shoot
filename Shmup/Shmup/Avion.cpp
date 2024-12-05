@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 #include"projectile.cpp"
-#include"texture.cpp"
 
 class Plane
 {
@@ -60,11 +59,6 @@ public:
 				Avion.setPosition(Vector2f(Avion.getPosition().x, 0.f));
 			}
 		}
-	}
-
-	void tir()
-	{
-		Projectile(x,y, 200, 0); // type a changer
 	}
 
 	void degat(int degats)

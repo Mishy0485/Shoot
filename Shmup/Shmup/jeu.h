@@ -11,9 +11,10 @@ using namespace sf;
 #include "projectile.h"
 class Ennemi;
 
-class Jeu {
+class Jeu 
+{
 private:
-	vector<Projectile*> projectiles;
+
 	vector<Ennemi*> ennemis;
 };
 

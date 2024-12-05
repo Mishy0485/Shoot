@@ -20,7 +20,8 @@ int main()
 
 
         Event event;
-        while (window.pollEvent(event)) {
+        while (window.pollEvent(event)) 
+        {
             if (event.type == Event::Closed)
                 window.close(); // Fermer la fenêtre
         }
