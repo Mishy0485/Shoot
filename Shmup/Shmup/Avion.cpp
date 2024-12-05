@@ -25,9 +25,9 @@
 		if (Keyboard::isKeyPressed(Keyboard::Right))
 		{
 			Avion.move(Vector2f(vitesse, 0.f));
-			if (Avion.getPosition().x > 1000) // ( si chgt de taille de fenetre changer la valeur)
+			if (Avion.getPosition().x > 1820) // ( si chgt de taille de fenetre changer la valeur)
 			{
-				Avion.setPosition(Vector2f(1000.f, Avion.getPosition().y));
+				Avion.setPosition(Vector2f(1820.f, Avion.getPosition().y));
 			}
 		}
 
