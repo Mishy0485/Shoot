@@ -7,8 +7,7 @@ using namespace sf;
 
 class Projectile {
 private:
-	int x;
-	int y;
+	int x, y;
 	int vitesse;
 	int type;
 public:

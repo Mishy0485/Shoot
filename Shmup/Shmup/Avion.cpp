@@ -21,13 +21,13 @@ public:
 		Avion.setTexture(piupiu); 
 	}
 
-	Texture getTex() const { return piupiu; }
+	Sprite getTex() const { return Avion; }
 
 	void deplacement()
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
-			Avion.move(Vector2f(-200.f, 0.f));
+			Avion.move(Vector2f(vitesse, 0.f));
 			if (Avion.getPosition().x < 0)
 			{
 				Avion.setPosition(Vector2f(0.f, Avion.getPosition().y));
@@ -36,28 +36,28 @@ public:
 
 		if (Keyboard::isKeyPressed(Keyboard::Right))
 		{
-			Avion.move(Vector2f(200.f, 0.f));
-			if (Avion.getPosition().x > 849) // ( si chgt de taille de fenetre changer la valeur)
+			Avion.move(Vector2f(vitesse, 0.f));
+			if (Avion.getPosition().x > 1000) // ( si chgt de taille de fenetre changer la valeur)
 			{
-				Avion.setPosition(Vector2f(849.f, Avion.getPosition().y));
+				Avion.setPosition(Vector2f(1000.f, Avion.getPosition().y));
 			}
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Down))
 		{
-			Avion.move(Vector2f(0.f, 200.f));
-			if (Avion.getPosition().y > 625)
+			Avion.move(Vector2f(0.f, vitesse));
+			if (Avion.getPosition().y > 1079)
 			{
-				Avion.setPosition(Vector2f(Avion.getPosition().x, 625.f));
+				Avion.setPosition(Vector2f(Avion.getPosition().x, 1079.f));
 			}
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			Avion.move(Vector2f(0.f, -200.f));
-			if (Avion.getPosition().y < 350)
+			Avion.move(Vector2f(0.f, vitesse));
+			if (Avion.getPosition().y < 0)
 			{
-				Avion.setPosition(Vector2f(Avion.getPosition().x, 350.f));
+				Avion.setPosition(Vector2f(Avion.getPosition().x, 0.f));
 			}
 		}
 	}

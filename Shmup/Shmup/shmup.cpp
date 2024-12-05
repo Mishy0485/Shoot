@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
+#include "Avion.cpp"
 using namespace sf;
-class Plane;
+
 
 int main() 
 {
-    Plane plane = new ;
+    Plane plane(500, 540, 100, 0.2f); // a voir
 
     // Création de la fenêtre
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
