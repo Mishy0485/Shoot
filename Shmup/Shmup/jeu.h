@@ -4,17 +4,23 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <random>
+
+#include "projectile.h"
+#include "ennemi.h"
 
 using namespace std;
 using namespace sf;
 
-#include "projectile.h"
-class Ennemi;
 
 class Jeu {
-private:
+	
+
+public:
 	vector<Projectile*> projectiles;
 	vector<Ennemi*> ennemis;
+	void spawnEnnemi(int n);
+
 };
 
 #endif

@@ -1,19 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
-#include "Avion.cpp"
+#include <ctime>
 using namespace sf;
+using namespace std;
+
 
 
 int main() 
 {
-    Plane plane(500, 540, 100, 0.2f); // a voir
-
+    Jeu jeu;
+    srand(time(0));
     // Création de la fenêtre
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
 
     // Création d'un cercle
     CircleShape shape(50); // Rayon de 50 pixels
     shape.setFillColor(Color::Green);
+
+    jeu.spawnEnnemi(3);
 
     // Boucle principale
     while (window.isOpen()) {
@@ -28,7 +32,10 @@ int main()
         // Effacer la fenêtre
         window.clear();
         // Dessiner la forme
-        window.draw(shape);
+        for (int i = 0; i < 3; i++) {
+            window.draw(jeu.ennemis[i]->getsprite());
+        }
+        
         // Afficher le contenu
         window.display();
     }

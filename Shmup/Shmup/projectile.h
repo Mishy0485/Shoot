@@ -18,8 +18,8 @@ public:
 
 	Projectile(int x, int y, int v, int t);
 
-	bool isInCollision(Sprite& sprite1);
-	bool isInCollision();
+	//bool isInCollision(Sprite& sprite1);
+	//bool isInCollision();
 
 };
 
