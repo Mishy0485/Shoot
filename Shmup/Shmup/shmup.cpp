@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
+#include "Avion.cpp"
 using namespace sf;
-class Plane;
+
 
 int main() 
 {
