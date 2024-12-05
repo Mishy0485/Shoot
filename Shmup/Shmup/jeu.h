@@ -8,7 +8,6 @@
 using namespace std;
 using namespace sf;
 
-#include "projectile.h"
 class Ennemi;
 
 class Jeu 
