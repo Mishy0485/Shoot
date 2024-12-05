@@ -32,7 +32,7 @@ void Jeu::collision(Plane joueur, Projectile* currentBulleta)
 	if (isInCollision( joueur, currentBulleta))
 	{
 		// perde de la vie 
-
+		
 
 			// ou meurt
 		if (joueur.getVie() < 1)
