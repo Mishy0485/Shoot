@@ -6,13 +6,20 @@
 using namespace sf;
 
 class Projectile {
-private:
+protected:
 	int x, y;
 	int vitesse;
 	int type;
+	Sprite Bullety;
+
 public:
 
+	Texture bullet;
+
 	Projectile(int x, int y, int v, int t);
+
+	bool isInCollision(Sprite& sprite1);
+	bool isInCollision();
 
 };
 

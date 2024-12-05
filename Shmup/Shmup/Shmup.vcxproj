@@ -139,7 +139,6 @@
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="projectile.cpp" />
     <ClCompile Include="shmup.cpp" />
-    <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ennemi.h" />

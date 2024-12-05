@@ -18,7 +18,7 @@ public:
 	Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
 	{ 
 		piupiu.loadFromFile("plane.png");
-		Avion.setTexture(piupiu); 
+		Avion.setTexture(piupiu);
 	}
 
 	Sprite getTex() const { return Avion; }
