@@ -38,9 +38,9 @@
 		if (Keyboard::isKeyPressed(Keyboard::Down))
 		{
 			Avion.move(Vector2f(0.f, vitesse));
-			if (Avion.getPosition().y > 1079)
+			if (Avion.getPosition().y > 1000)
 			{
-				Avion.setPosition(Vector2f(Avion.getPosition().x, 1079.f));
+				Avion.setPosition(Vector2f(Avion.getPosition().x, 1000.f));
 			}
 		}
 
