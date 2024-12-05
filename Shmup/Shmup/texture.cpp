@@ -4,8 +4,6 @@ using namespace sf;
 
 // texture back
 
-// texture avion principal
-
 	// texture ennemis1
 	// texture ennemis2
 	// texture ennemis3
