@@ -7,8 +7,12 @@
 		Avion.setPosition(x, y);
 	}
 
-	Sprite Plane::getSprite(){
+	Sprite Plane::getSprite() const {
 		return Avion; 
+	}
+
+	int Plane::getVie() const {
+		return vie;
 	}
 
 	void Plane::deplacement()

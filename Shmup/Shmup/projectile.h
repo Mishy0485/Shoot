@@ -23,10 +23,9 @@ public:
 
 	Projectile(int x, int y, int v, int t);
 
-	bool isInCollision(Sprite& sprite1, Projectile* currentBulleta);
-	bool isInCollision1(Projectile* currentBulleta);
 	void tir(Sprite& sprite2, Projectile* currentBulleta);
 
+	Sprite getSprite();
 };
 
 #endif
