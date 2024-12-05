@@ -17,7 +17,7 @@ int main()
     CircleShape shape(50); // Rayon de 50 pixels
     shape.setFillColor(Color::Green);
 
-    jeu.spawnEnnemi(3);
+    jeu.spawnEnnemi(6);
 
     window.setFramerateLimit(60);
     // Boucle principale
@@ -33,7 +33,7 @@ int main()
         // Effacer la fenêtre
         window.clear();
         // Dessiner la forme
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < jeu.ennemis.size(); i++) {
             jeu.ennemis[i]->mouvement();
             window.draw(jeu.ennemis[i]->getsprite());
         }

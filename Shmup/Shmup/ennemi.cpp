@@ -24,16 +24,16 @@
 	{}
 
 	void Ennemi::mouvement() {
-		cout << droite << x << endl;
+		x = ennemiSprite.getPosition().x;
 		if (droite) {
-			if (x >= 1850) {
+			if (x >= 1700) {
 				droite = false;
 			}
 			else {
 				ennemiSprite.move(Vector2f(5, 0));
 			}
 		}
-		else {
+		else if (droite == false){
 			if (x <= 50) {
 				droite = true;
 			}

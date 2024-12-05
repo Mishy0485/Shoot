@@ -1,12 +1,2 @@
-﻿  ennemi.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.cpp(10,31): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.cpp(10,28): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  jeu.cpp
-  shmup.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\shmup.cpp(12,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Génération de code en cours
-  3 of 130 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Fin de la génération du code
-  Shmup.vcxproj -> C:\Users\sbrossard\Source\Repos\Mishy0485\Shoot\Shmup\x64\Release\Shmup.exe
+﻿  jeu.cpp
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\jeu.cpp(8,23): error C2297: « % » : non valide, car l’opérande droit a le type « void »
