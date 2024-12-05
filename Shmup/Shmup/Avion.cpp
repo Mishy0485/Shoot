@@ -54,6 +54,10 @@
 		}
 	}
 
+	void Plane::setVie(int n) {
+		vie += n;
+	}
+
 	void Plane::degat(int degats)
 	{
 		vie -= degats;
