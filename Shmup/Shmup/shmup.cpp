@@ -19,6 +19,7 @@ int main()
 
     jeu.spawnEnnemi(3);
 
+    window.setFramerateLimit(60);
     // Boucle principale
     while (window.isOpen()) {
 
@@ -33,6 +34,7 @@ int main()
         window.clear();
         // Dessiner la forme
         for (int i = 0; i < 3; i++) {
+            jeu.ennemis[i]->mouvement();
             window.draw(jeu.ennemis[i]->getsprite());
         }
         
