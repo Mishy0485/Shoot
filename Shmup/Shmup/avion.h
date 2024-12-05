@@ -19,6 +19,8 @@ public:
 
 	Plane(int posX, int posY, int v, float vit);
 	
+	void setVie(int n);
+
 	int getVie() const;
 	Sprite getSprite() const;
 
