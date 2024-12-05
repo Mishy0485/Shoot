@@ -15,7 +15,7 @@ bool Projectile::isInCollision(Sprite& sprite1)
 	return false;
 }
 
-bool Projectile::isInCollision()
+bool Projectile::isInCollision1()
 {
 	if ( Bullety.getPosition().y > 1079)
 	{

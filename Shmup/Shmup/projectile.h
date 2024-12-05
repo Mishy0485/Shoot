@@ -13,7 +13,7 @@ protected:
 	int type;
 	Sprite Bullety;
 
-	vector<Projectile*> bulleta;
+	//vector<Projectile*> bulleta;
 
 public:
 

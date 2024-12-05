@@ -8,14 +8,15 @@
 using namespace std;
 using namespace sf;
 
-#include "projectile.h"
-class Ennemi;
+#include "ennemi.h"
 
 class Jeu 
 {
-private:
+public:
 
 	vector<Ennemi*> ennemis;
+
+	void spawnEnnemi(int n);
 };
 
 #endif

@@ -1,32 +1,21 @@
-#include <SFML/Graphics.hpp>
-using namespace sf;
-#include"projectile.cpp"
+#include "avion.h"
 
-class Plane
-{
-private:
-	int x, y;
-	int vie;
-	float vitesse;
-	Sprite Avion;
-	
-public:
-
-	Texture piupiu;
-
-	Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
+	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
 	{ 
-		piupiu.loadFromFile("plane.png");
+		piupiu.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\plane.PNG");
 		Avion.setTexture(piupiu);
+		Avion.setPosition(x, y);
 	}
 
-	Sprite getTex() const { return Avion; }
+	Sprite Plane::getSprite(){
+		return Avion; 
+	}
 
-	void deplacement()
+	void Plane::deplacement()
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
-			Avion.move(Vector2f(vitesse, 0.f));
+			Avion.move(Vector2f(-vitesse, 0.f));
 			if (Avion.getPosition().x < 0)
 			{
 				Avion.setPosition(Vector2f(0.f, Avion.getPosition().y));
@@ -53,7 +42,7 @@ public:
 
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			Avion.move(Vector2f(0.f, vitesse));
+			Avion.move(Vector2f(0.f, -vitesse));
 			if (Avion.getPosition().y < 0)
 			{
 				Avion.setPosition(Vector2f(Avion.getPosition().x, 0.f));
@@ -61,9 +50,7 @@ public:
 		}
 	}
 
-	void degat(int degats)
+	void Plane::degat(int degats)
 	{
 		vie -= degats;
 	}
-	
-};

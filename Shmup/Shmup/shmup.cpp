@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
+#include "avion.h"
 #include <ctime>
 using namespace sf;
 using namespace std;
@@ -9,6 +10,7 @@ using namespace std;
 int main() 
 {
     Jeu jeu;
+    Plane joueur(500, 500, 20, 10);
     srand(time(0));
     // Création de la fenêtre
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
@@ -38,6 +40,8 @@ int main()
             jeu.ennemis[i]->mouvement();
             window.draw(jeu.ennemis[i]->getsprite());
         }
+        joueur.deplacement();
+        window.draw(joueur.getSprite());
         
         // Afficher le contenu
         window.display();
