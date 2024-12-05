@@ -9,10 +9,18 @@ using namespace std;
 
 int main() 
 {
+    Texture backTexture;
+    if (!backTexture.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Back.png"))
+        return -1;
+
+    RectangleShape background;
+    background.setTexture(&backTexture);
+    background.setPosition(0, 0);
+    background.setSize(Vector2f(1920, 1080));
+
     Jeu jeu;
     Plane joueur(500, 500, 20, 10);
     srand(time(0));
-    // Création de la fenêtre
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
 
     // Création d'un cercle
@@ -22,7 +30,6 @@ int main()
     jeu.spawnEnnemi(6);
 
     window.setFramerateLimit(60);
-    // Boucle principale
     while (window.isOpen()) {
 
 
@@ -30,20 +37,17 @@ int main()
         while (window.pollEvent(event)) 
         {
             if (event.type == Event::Closed)
-                window.close(); // Fermer la fenêtre
+                window.close();
         }
 
-        // Effacer la fenêtre
         window.clear();
-        // Dessiner la forme
+        window.draw(background);
         for (int i = 0; i < jeu.ennemis.size(); i++) {
             jeu.ennemis[i]->mouvement();
             window.draw(jeu.ennemis[i]->getsprite());
         }
         joueur.deplacement();
         window.draw(joueur.getSprite());
-        
-        // Afficher le contenu
         window.display();
     }
 

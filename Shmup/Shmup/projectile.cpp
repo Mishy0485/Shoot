@@ -24,29 +24,29 @@ bool Projectile::isInCollision1(Projectile* currentBulleta)
 	return false;
 }
 
-void Projectile::tir(Sprite& sprite2, Projectile* currentBulleta)
-{
-	bulleta.push_back(new Projectile (x, y, 200, 0)); // type a changer
-	Bullety.move(Vector2f(0.1f, 0.f));
-
-	if (currentBulleta->isInCollision(sprite2, currentBulleta))
-	{
-		// perde de la vie 
-		
-
-			// ou meurt
-		if ()
-		{
-
-		}
-
-		// bullet meurt
-		delete(currentBulleta);
-	}
-
-	else if (currentBulleta->isInCollision1(currentBulleta))
-	{
-		// bullet meurt 
-		delete(currentBulleta);
-	}
-}
+//void Projectile::tir(Sprite& sprite2, Projectile* currentBulleta)
+//{
+//	bulleta.push_back(new Projectile (x, y, 200, 0)); // type a changer
+//	Bullety.move(Vector2f(0.1f, 0.f));
+//
+//	if (currentBulleta->isInCollision(sprite2, currentBulleta))
+//	{
+//		// perde de la vie 
+//		
+//
+//			// ou meurt
+//		if ()
+//		{
+//
+//		}
+//
+//		// bullet meurt
+//		delete(currentBulleta);
+//	}
+//
+//	else if (currentBulleta->isInCollision1(currentBulleta))
+//	{
+//		// bullet meurt 
+//		delete(currentBulleta);
+//	}
+//}
