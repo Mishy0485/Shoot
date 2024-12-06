@@ -54,37 +54,58 @@ int main()
 
         window.clear();
         window.draw(background);
-        for (int i = 0; i < jeu.ennemis.size(); i++) {
-            jeu.ennemis[i]->mouvement();
-            if (shootdelayint2 >= 2) {
-                jeu.ennemis[i]->tir(jeu.bulleta);
-                shootdelayEnnemi.restart();
+        if (!jeu.getBool()){
+            for (int i = 0; i < jeu.ennemis.size(); i++) {
+                jeu.ennemis[i]->mouvement();
+                if (shootdelayint2 >= 2) {
+                    jeu.ennemis[i]->tir(jeu.bulleta);
+                    shootdelayEnnemi.restart();
+                }
+                if (jeu.ennemis[i]->EstMort()) {
+                    delete jeu.ennemis[i];
+                    jeu.ennemis.erase(jeu.ennemis.begin() + i);
+                }
+                window.draw(jeu.ennemis[i]->getsprite());
             }
-            if (jeu.ennemis[i]->EstMort()) {
-                delete jeu.ennemis[i];
-                jeu.ennemis.erase(jeu.ennemis.begin() + i);
-            }
-            window.draw(jeu.ennemis[i]->getsprite());
-        }
-        for (int i = 0; i < jeu.bulleta.size(); i++) {
-            if (jeu.bulleta[i]->getSide()) {
-                jeu.bulleta[i]->fuse(true);
-            }
-            else if (!jeu.bulleta[i]->getSide()) {
-                jeu.bulleta[i]->fuse(false);
-            }
+            for (int i = 0; i < jeu.bulleta.size(); i++) {
+                jeu.collisionPlane(joueur, jeu.bulleta[i]);
+                if (jeu.bulleta[i]->getSide()) {
+                    jeu.bulleta[i]->fuse(true);
+                }
+                else if (!jeu.bulleta[i]->getSide()) {
+                    jeu.bulleta[i]->fuse(false);
+                }
             
-            if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {
-                delete jeu.bulleta[i];
-                jeu.bulleta.erase(jeu.bulleta.begin() + i);
+                if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {
+                    delete jeu.bulleta[i];
+                    jeu.bulleta.erase(jeu.bulleta.begin() + i);
+                }
+                for (int j = 0; j < jeu.ennemis.size(); j++) {
+                    jeu.collisionEnnemi(jeu.ennemis[j], jeu.bulleta[i]);
+                }
+                window.draw(jeu.bulleta[i]->getSprite());
             }
-            for (int j = 0; j < jeu.ennemis.size(); j++) {
-                jeu.collisionEnnemi(jeu.ennemis[j], jeu.bulleta[i]);
-            }
-            window.draw(jeu.bulleta[i]->getSprite());
+
+            joueur.deplacement();
+
+            window.draw(joueur.getSprite());
         }
-        joueur.deplacement();
-        window.draw(joueur.getSprite());
+        
+        if (jeu.getBool()) {
+
+            Texture fin;
+            if (!fin.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\game_over_final.png"))
+                return -1;
+
+
+            jeu.end.setSize(Vector2f(442.f, 55.f));
+            jeu.end.setTexture(&fin);
+
+
+            jeu.end.setPosition(Vector2f(739.f, 512.5f));
+
+            window.draw(jeu.end);
+        }
         window.display();
     }
 

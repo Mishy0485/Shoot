@@ -3,7 +3,13 @@
 using namespace sf;
 using namespace std;
 
-bool Jeu::setBool() const { return true; }
+void Jeu::setBool(bool b){
+	game_over = b; 
+}
+
+bool Jeu::getBool() {
+	return game_over;
+}
 
 void Jeu::spawnEnnemi(int n) {
 	for (int i = 0; i < n; i++) {
@@ -15,7 +21,7 @@ void Jeu::spawnEnnemi(int n) {
 
 bool Jeu::isInCollisionPlane(Plane joueur, Projectile* currentBulleta)
 {
-	if (currentBulleta->getSprite().getGlobalBounds().intersects(joueur.getSprite().getGlobalBounds()))
+	if (currentBulleta->getSprite().getGlobalBounds().intersects(joueur.getSprite().getGlobalBounds()) && !currentBulleta->getSide())
 	{
 		return true;
 	}
@@ -42,23 +48,13 @@ void Jeu::collisionPlane(Plane joueur, Projectile* currentBulleta)
 	{
 		// perde de la vie 
 		joueur.setVie(-34);
-
+		currentBulleta->setHitValue(true);
 			// ou meurt
 		if (joueur.getVie() < 1)
 		{
-			Jeu::setBool();
+			Jeu::setBool(true);
 
-			Texture fin;
-			fin.loadFromFile("game_over_final.png");
-			RectangleShape end(Vector2f(442.f, 55.f));
-			end.setTexture(&fin);
-
-			
-			end.setPosition(Vector2f(739.f, 512.5f));
 		}
-
-		// bullet meurt
-		delete(currentBulleta);
 	}
 }
 
