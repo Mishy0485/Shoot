@@ -2,16 +2,25 @@
 
 Projectile::Projectile(int x, int y, int v, int t) : x(x), y(y), vitesse(v), type(t) 
 {
-	bullet.loadFromFile("");
+	bullet.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\bulleta.png");
 	Bullety.setTexture(bullet);
+	Bullety.setPosition(x, y);
+	Bullety.setScale(0.02, 0.02);
+	Bullety.rotate(180);
 }
 
-void Projectile::tir(Sprite& sprite2, Projectile* currentBulleta)
-{
-	bulleta.push_back(new Projectile (x, y, 200, 0)); // type a changer
-	Bullety.move(Vector2f(0.1f, 0.f));
+
+bool Projectile::isOutOfScreen() {
+	return Bullety.getPosition().y < 0;
 }
 
 Sprite Projectile::getSprite() {
 	return Bullety;
+}
+
+void Projectile::fuse(bool up) {
+	if (up)
+		Bullety.move(0, -vitesse);
+	else
+		Bullety.move(0, vitesse);
 }

@@ -1,13 +1,13 @@
-﻿  avion.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\avion.cpp(7,24): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\avion.cpp(7,21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  jeu.cpp
-  projectile.cpp
-  shmup.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\shmup.cpp(23,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+﻿  projectile.cpp
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp(7,25): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp(7,22): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp(8,25): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp(8,19): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp(21,19): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp(23,19): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Génération de code en cours
-  3 of 124 functions ( 2.4%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    15 functions had inline decision re-evaluated but remain unchanged
+  3 of 171 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   Shmup.vcxproj -> C:\Users\sbrossard\Source\Repos\Mishy0485\Shoot\Shmup\x64\Release\Shmup.exe

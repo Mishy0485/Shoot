@@ -15,7 +15,6 @@ protected:
 	int type;
 	Sprite Bullety;
 	
-	vector<Projectile*> bulleta;
 
 public:
 
@@ -23,9 +22,11 @@ public:
 
 	Projectile(int x, int y, int v, int t);
 
-	void tir(Sprite& sprite2, Projectile* currentBulleta);
+	bool isOutOfScreen();
 
 	Sprite getSprite();
+
+	void fuse(bool up);
 };
 
 #endif

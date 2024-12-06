@@ -1,5 +1,6 @@
 #include "avion.h"
 
+
 	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
 	{ 
 		piupiu.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\plane.PNG");
@@ -61,4 +62,9 @@
 	void Plane::degat(int degats)
 	{
 		vie -= degats;
+	}
+
+	void Plane::tir(vector<Projectile*>& bulleta)
+	{
+		bulleta.push_back(new Projectile(Avion.getPosition().x, Avion.getPosition().y, 5, 0));
 	}
