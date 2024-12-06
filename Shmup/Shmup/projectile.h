@@ -14,8 +14,7 @@ protected:
 	int vitesse;
 	int type;
 	Sprite Bullety;
-	
-
+	bool hit = false;
 public:
 
 	Texture bullet;
@@ -23,6 +22,11 @@ public:
 	Projectile(int x, int y, int v, int t);
 
 	bool isOutOfScreen();
+
+
+	bool getHitValue();
+
+	void setHitValue(bool b);
 
 	Sprite getSprite();
 

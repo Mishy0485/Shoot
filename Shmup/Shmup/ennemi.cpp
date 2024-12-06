@@ -43,14 +43,14 @@
 		}
 	}
 
-	void Ennemi::degats()
+	void Ennemi::degats(int degats)
 	{
-		int degats;
 		vie -= degats;
 	}
 
-	bool Ennemi::EstVivant()
+	bool Ennemi::EstMort()
 	{
 		return vie<=0;
 	}
+
 

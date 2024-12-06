@@ -23,15 +23,16 @@ public:
 
 	void attaque(int degats);
 
+
 	Sprite getsprite();
 	// avoir s'ils se deplacent
 
 	void mouvement();
 
 	void tir();
-
-	void degats();
-	bool EstVivant();
+	
+	void degats(int degats);
+	bool EstMort();
 };
 
 #endif

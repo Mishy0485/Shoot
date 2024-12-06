@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <iostream>
 #include "projectile.h"
 #include "ennemi.h"
 #include "avion.h"
@@ -26,9 +27,11 @@ public:
 	vector<Projectile*> bulleta;
 	void spawnEnnemi(int n);
 
-	bool isInCollision(Plane joueur, Projectile* currentBulleta);
+	bool isInCollisionPlane(Plane joueur, Projectile* currentBulleta);
+	bool isInCollisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
+	void collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	bool bottom(Projectile* currentBulleta);
-	void collision(Plane joueur, Projectile* currentBulleta);
+	void collisionPlane(Plane joueur, Projectile* currentBulleta);
 };
 
 #endif

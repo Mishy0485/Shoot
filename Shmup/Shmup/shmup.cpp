@@ -11,6 +11,7 @@ using namespace std;
 
 int main() 
 {
+    Clock shootdelay;
     Texture backTexture;
     if (!backTexture.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Back.png"))
         return -1;
@@ -33,7 +34,7 @@ int main()
 
     window.setFramerateLimit(60);
     while (window.isOpen()) {
-
+        int shootdelayint = shootdelay.getElapsedTime().asMilliseconds();
 
         Event event;
         while (window.pollEvent(event)) 
@@ -42,23 +43,32 @@ int main()
                 window.close();
             
         }
-        if (Keyboard::isKeyPressed(Keyboard::Space)) {
+        if (Keyboard::isKeyPressed(Keyboard::Space) && shootdelayint >= 200) {
                     joueur.tir(jeu.bulleta);
                     cout << jeu.bulleta.size() << endl;
+                    shootdelay.restart();
         }
 
         window.clear();
         window.draw(background);
         for (int i = 0; i < jeu.ennemis.size(); i++) {
             jeu.ennemis[i]->mouvement();
+            if (jeu.ennemis[i]->EstMort()) {
+                delete jeu.ennemis[i];
+                jeu.ennemis.erase(jeu.ennemis.begin() + i);
+            }
             window.draw(jeu.ennemis[i]->getsprite());
         }
         for (int i = 0; i < jeu.bulleta.size(); i++) {
             jeu.bulleta[i]->fuse(true);
-            if (jeu.bulleta[i]->isOutOfScreen()) {
+            
+            if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {
                 delete jeu.bulleta[i];
                 jeu.bulleta.erase(jeu.bulleta.begin() + i);
-                i--;
+            }
+            for (int j = 0; j < jeu.ennemis.size(); j++) {
+                jeu.collisionEnnemi(jeu.ennemis[j], jeu.bulleta[i]);
+            }
             window.draw(jeu.bulleta[i]->getSprite());
         }
         joueur.deplacement();
