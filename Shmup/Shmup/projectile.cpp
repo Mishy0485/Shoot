@@ -1,6 +1,6 @@
 #include "projectile.h"
 
-Projectile::Projectile(int x, int y, int v, int t) : x(x), y(y), vitesse(v), type(t) 
+Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse(v), type(t), playerSide(s)
 {
 	bullet.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\bulleta.png");
 	Bullety.setTexture(bullet);
@@ -17,9 +17,19 @@ void Projectile::setHitValue(bool b) {
 	hit = b;
 }
 
+bool Projectile::getSide() {
+	return playerSide;
+}
+
+void Projectile::setSide(bool b) {
+	playerSide = b;
+}
 
 bool Projectile::isOutOfScreen() {
-	return Bullety.getPosition().y < 0;
+	if (playerSide)
+		return Bullety.getPosition().y < 0;
+	else
+		return Bullety.getPosition().y > 1079;
 }
 
 Sprite Projectile::getSprite() {

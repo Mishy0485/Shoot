@@ -63,7 +63,7 @@ void Jeu::collisionPlane(Plane joueur, Projectile* currentBulleta)
 }
 
 void Jeu::collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
-	if (isInCollisionEnnemi(ennemi, currentBulleta) && currentBulleta->getHitValue() == false) {
+	if (isInCollisionEnnemi(ennemi, currentBulleta) && currentBulleta->getHitValue() == false && currentBulleta->getSide()) {
 		ennemi->degats(50);
 		currentBulleta->setHitValue(true);
 	}

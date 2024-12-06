@@ -20,8 +20,12 @@
 	}
 	// avoir s'ils se deplacent
 
-	void Ennemi::tir()
-	{}
+	void Ennemi::tir(vector<Projectile*>&bulleta) {
+		{
+			bulleta.push_back(new Projectile(ennemiSprite.getPosition().x, ennemiSprite.getPosition().y, 20, 0, false));
+		}
+	}
+	
 
 	void Ennemi::mouvement() {
 		x = ennemiSprite.getPosition().x;

@@ -15,14 +15,18 @@ protected:
 	int type;
 	Sprite Bullety;
 	bool hit = false;
+	bool playerSide;
 public:
 
 	Texture bullet;
 
-	Projectile(int x, int y, int v, int t);
+	Projectile(int x, int y, int v, int t, bool s);
 
 	bool isOutOfScreen();
 
+	bool getSide();
+
+	void setSide(bool b);
 
 	bool getHitValue();
 

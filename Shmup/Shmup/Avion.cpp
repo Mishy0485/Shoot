@@ -66,5 +66,5 @@
 
 	void Plane::tir(vector<Projectile*>& bulleta)
 	{
-		bulleta.push_back(new Projectile(Avion.getPosition().x, Avion.getPosition().y, 20, 0));
+		bulleta.push_back(new Projectile(Avion.getPosition().x, Avion.getPosition().y, 20, 0, true));
 	}

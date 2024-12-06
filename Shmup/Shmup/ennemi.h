@@ -3,6 +3,7 @@
 #define ENNEMI_H
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "projectile.h"
 using namespace sf;
 using namespace std;
 
@@ -29,7 +30,7 @@ public:
 
 	void mouvement();
 
-	void tir();
+	void tir(vector<Projectile*>& bulleta);
 	
 	void degats(int degats);
 	bool EstMort();
