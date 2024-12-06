@@ -1,13 +1,11 @@
-﻿  avion.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\avion.cpp(7,24): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\avion.cpp(7,21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  jeu.cpp
-  projectile.cpp
+﻿  jeu.cpp
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.h(19,7): error C2059: erreur de syntaxe : ')'
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.h(19,18): error C2760: erreur de syntaxe : ';' était inattendu ici; 'expression' attendu
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.h(19,18): error C2059: erreur de syntaxe : ';'
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.cpp(45,19): error C2371: 'end' : redéfinition ; types de base différents
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.cpp(42,11): message : voir la déclaration de 'end'
   shmup.cpp
-C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\shmup.cpp(23,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Génération de code en cours
-  3 of 124 functions ( 2.4%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    15 functions had inline decision re-evaluated but remain unchanged
-  Fin de la génération du code
-  Shmup.vcxproj -> C:\Users\sbrossard\Source\Repos\Mishy0485\Shoot\Shmup\x64\Release\Shmup.exe
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.h(19,7): error C2059: erreur de syntaxe : ')'
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.h(19,18): error C2760: erreur de syntaxe : ';' était inattendu ici; 'expression' attendu
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.h(19,18): error C2059: erreur de syntaxe : ';'
+C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\shmup.cpp(23,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données

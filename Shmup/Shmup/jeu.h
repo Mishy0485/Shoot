@@ -15,8 +15,13 @@ using namespace sf;
 
 class Jeu 
 {
+private:
+	bool game_over = false;
+
 public:
 
+	bool setBool() const;
+		
 	vector<Ennemi*> ennemis;
 
 	void spawnEnnemi(int n);
