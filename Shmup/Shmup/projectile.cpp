@@ -9,6 +9,14 @@ Projectile::Projectile(int x, int y, int v, int t) : x(x), y(y), vitesse(v), typ
 	Bullety.rotate(180);
 }
 
+bool Projectile::getHitValue() {
+	return hit;
+}
+
+void Projectile::setHitValue(bool b) {
+	hit = b;
+}
+
 
 bool Projectile::isOutOfScreen() {
 	return Bullety.getPosition().y < 0;

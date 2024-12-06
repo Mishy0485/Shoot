@@ -1,4 +1,5 @@
 #include "jeu.h"
+
 using namespace sf;
 using namespace std;
 
@@ -10,13 +11,19 @@ void Jeu::spawnEnnemi(int n) {
 	}
 }
 
-bool Jeu::isInCollision(Plane joueur, Projectile* currentBulleta)
+bool Jeu::isInCollisionPlane(Plane joueur, Projectile* currentBulleta)
 {
 	if (currentBulleta->getSprite().getGlobalBounds().intersects(joueur.getSprite().getGlobalBounds()))
 	{
 		return true;
 	}
 	return false;
+}
+
+bool Jeu::isInCollisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
+
+	return currentBulleta->getSprite().getGlobalBounds().intersects(ennemi->getsprite().getGlobalBounds());
+
 }
 
 bool Jeu::bottom(Projectile* currentBulleta)
@@ -27,9 +34,9 @@ bool Jeu::bottom(Projectile* currentBulleta)
 	}
 	return false;
 }
-void Jeu::collision(Plane joueur, Projectile* currentBulleta)
+void Jeu::collisionPlane(Plane joueur, Projectile* currentBulleta)
 {
-	if (isInCollision( joueur, currentBulleta))
+	if (isInCollisionPlane( joueur, currentBulleta))
 	{
 		// perde de la vie 
 		joueur.setVie(-34);
@@ -43,10 +50,11 @@ void Jeu::collision(Plane joueur, Projectile* currentBulleta)
 		// bullet meurt
 		delete(currentBulleta);
 	}
+}
 
-	else if (bottom(currentBulleta))
-	{
-		// bullet meurt 
-		delete(currentBulleta);
+void Jeu::collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
+	if (isInCollisionEnnemi(ennemi, currentBulleta) && currentBulleta->getHitValue() == false) {
+		ennemi->degats(50);
+		currentBulleta->setHitValue(true);
 	}
 }
