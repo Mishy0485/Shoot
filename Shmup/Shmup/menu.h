@@ -7,12 +7,19 @@ using namespace sf;
 
 class Menu
 {
-private:
-
-	Sprite menuu;
-
 public:
 	Texture fond_menu;
+	Texture ecrito;
+
+	Texture button1;
+	Texture button2;
+	Texture button3;
+	Texture button4;
+
+	Event event;
+
+	void setMenu();
+	bool isClick();
 };
 
 #endif
