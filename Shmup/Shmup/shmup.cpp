@@ -9,7 +9,7 @@ using namespace std;
 
 
 
-int main() 
+int main()
 {
     Clock shootdelay;
     Texture backTexture;
