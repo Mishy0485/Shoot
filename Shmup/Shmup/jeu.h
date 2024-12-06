@@ -20,9 +20,10 @@ private:
 	bool game_over = false;
 
 public:
-
-	bool setBool() const;
-		
+	RectangleShape end;
+	
+	void setBool(bool b);
+	bool getBool();
 	vector<Ennemi*> ennemis;
 	vector<Projectile*> bulleta;
 	void spawnEnnemi(int n);
