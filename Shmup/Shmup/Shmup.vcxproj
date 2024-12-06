@@ -144,6 +144,7 @@
     <ClInclude Include="avion.h" />
     <ClInclude Include="ennemi.h" />
     <ClInclude Include="jeu.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="projectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

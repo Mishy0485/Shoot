@@ -1,5 +1,5 @@
-#include <SFML/Graphics.hpp>
-using namespace sf;
+#include "menu.h"
 
+RectangleShape menuu(Vector2f(1920.f, 1080.f));
+menu.
 
-// A FAIRE A LA FIN
