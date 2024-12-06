@@ -3,6 +3,8 @@
 using namespace sf;
 using namespace std;
 
+bool Jeu::setBool() const { return true; }
+
 void Jeu::spawnEnnemi(int n) {
 	for (int i = 0; i < n; i++) {
 		int coordx = rand() % 1900;
@@ -44,7 +46,15 @@ void Jeu::collisionPlane(Plane joueur, Projectile* currentBulleta)
 			// ou meurt
 		if (joueur.getVie() < 1)
 		{
-			// game over 
+			Jeu::setBool();
+
+			Texture fin;
+			fin.loadFromFile("game_over_final.png");
+			Sprite end;
+			end.setTexture(fin);
+
+			RectangleShape end(Vector2f(442.f, 55.f));
+			end.setPosition(Vector2f(739.f, 512.5f));
 		}
 
 		// bullet meurt
