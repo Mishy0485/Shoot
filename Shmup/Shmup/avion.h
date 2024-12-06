@@ -1,7 +1,7 @@
 #pragma once
 #ifndef avion_H
 #define avion_H
-
+#include "projectile.h"
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
@@ -25,7 +25,7 @@ public:
 	Sprite getSprite() const;
 
 	void deplacement();
-	
+	void tir(vector<Projectile*>& bulleta);
 
 	void degat(int degats);
 

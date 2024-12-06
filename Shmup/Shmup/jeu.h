@@ -23,7 +23,7 @@ public:
 	bool setBool() const;
 		
 	vector<Ennemi*> ennemis;
-
+	vector<Projectile*> bulleta;
 	void spawnEnnemi(int n);
 
 	bool isInCollision(Plane joueur, Projectile* currentBulleta);

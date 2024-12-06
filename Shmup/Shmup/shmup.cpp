@@ -1,7 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
 #include "avion.h"
+#include "projectile.h"
 #include <ctime>
+#include <iostream>
 using namespace sf;
 using namespace std;
 
@@ -38,6 +40,11 @@ int main()
         {
             if (event.type == Event::Closed)
                 window.close();
+            
+        }
+        if (Keyboard::isKeyPressed(Keyboard::Space)) {
+                    joueur.tir(jeu.bulleta);
+                    cout << jeu.bulleta.size() << endl;
         }
 
         window.clear();
@@ -45,6 +52,14 @@ int main()
         for (int i = 0; i < jeu.ennemis.size(); i++) {
             jeu.ennemis[i]->mouvement();
             window.draw(jeu.ennemis[i]->getsprite());
+        }
+        for (int i = 0; i < jeu.bulleta.size(); i++) {
+            jeu.bulleta[i]->fuse(true);
+            if (jeu.bulleta[i]->isOutOfScreen()) {
+                delete jeu.bulleta[i];
+                jeu.bulleta.erase(jeu.bulleta.begin() + i);
+                i--;
+            window.draw(jeu.bulleta[i]->getSprite());
         }
         joueur.deplacement();
         window.draw(joueur.getSprite());
