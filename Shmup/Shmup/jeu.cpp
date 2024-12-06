@@ -50,10 +50,10 @@ void Jeu::collisionPlane(Plane joueur, Projectile* currentBulleta)
 
 			Texture fin;
 			fin.loadFromFile("game_over_final.png");
-			Sprite end;
-			end.setTexture(fin);
-
 			RectangleShape end(Vector2f(442.f, 55.f));
+			end.setTexture(&fin);
+
+			
 			end.setPosition(Vector2f(739.f, 512.5f));
 		}
 
