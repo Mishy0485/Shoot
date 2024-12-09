@@ -106,11 +106,11 @@ int main()
                 return -1;
 
 
-            jeu.end.setSize(Vector2f(442.f, 55.f));
+            jeu.end.setSize(Vector2f(600.f, 200.f));
             jeu.end.setTexture(&fin);
 
 
-            jeu.end.setPosition(Vector2f(739.f, 512.5f));
+            jeu.end.setPosition(Vector2f(660.f, 440.f));
 
             window.draw(jeu.end);
         }
