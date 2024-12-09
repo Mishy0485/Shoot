@@ -8,7 +8,6 @@ using namespace sf;
 using namespace std;
 bool alldead = false;
 
-
 int main()
 {
     Clock shootdelayPlayer;
@@ -27,11 +26,6 @@ int main()
     Plane joueur(500, 500, 20, 10);
     srand(time(0));
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
-
-    // Création d'un cercle
-    CircleShape shape(50); // Rayon de 50 pixels
-    shape.setFillColor(Color::Green);
-
 
     window.setFramerateLimit(60);
     while (window.isOpen()) {
@@ -58,6 +52,8 @@ int main()
             rounddelay.restart();
         }
         else if (alldead && rounddelayint >= 1000) {
+            jeu.enTeteVague();
+            jeu.incrVague();
             jeu.spawnEnnemi(6);
             alldead = false;
         }
