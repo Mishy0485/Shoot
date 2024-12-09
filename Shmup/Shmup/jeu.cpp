@@ -3,6 +3,62 @@
 using namespace sf;
 using namespace std;
 
+// Vagues
+
+void Jeu::incrVague()
+{
+	Jeu::nb_vagues++;
+}
+void Jeu::bossT()
+{
+	Jeu::bossTime++;
+}
+
+void Jeu::enTeteVague()
+{
+	vague.setString(" Vague " + (nb_vagues));
+	vague.setFont(police);
+	vague.setCharacterSize(50);
+	vague.setFillColor(Color(211, 211, 211));
+}
+
+void Jeu::enTeteBoss()
+{
+	switch (bossTime)
+	{
+		case 0:
+		{
+			boss.setString(" Colonel Zgorblux ");
+			boss.setFont(police);
+			boss.setCharacterSize(50);
+			boss.setFillColor(Color(211, 211, 211));
+			bossTime++;
+				break;
+		}
+		case 1:
+		{
+			boss.setString(" Général Butor ");
+			boss.setFont(police);
+			boss.setCharacterSize(50);
+			boss.setFillColor(Color(211, 211, 211));
+			bossTime++;
+				break;
+		}
+		case2:
+		{
+			boss.setString(" Roi Novax ");
+			boss.setFont(police);
+			boss.setCharacterSize(50);
+			boss.setFillColor(Color(211, 211, 211));
+				break;
+		}
+		default:
+			break;
+	}
+}
+
+
+
 void Jeu::setBool(bool b){
 	game_over = b; 
 }

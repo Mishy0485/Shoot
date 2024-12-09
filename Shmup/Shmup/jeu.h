@@ -21,7 +21,20 @@ private:
 
 public:
 	RectangleShape end;
+
+	Font police;
+	Text vague;
+	Text boss;
 	
+	int nb_vagues;
+	int bossTime;
+
+	void incrVague();
+	void bossT();
+
+	void enTeteVague();
+	void enTeteBoss();
+
 	void setBool(bool b);
 	bool getBool();
 	vector<Ennemi*> ennemis;

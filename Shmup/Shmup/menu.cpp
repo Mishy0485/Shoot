@@ -5,13 +5,12 @@ void Menu::setMenu()
 	RectangleShape menu(Vector2f(1920.f, 1080.f));
 	menu.setTexture(&fond_menu);
 
-	Menu::titre.setString(" Space Auction ");
-
 	font.loadFromFile("Daydream.ttf");
 
-	Menu::titre.setFont(font);
-	Menu::titre.setCharacterSize(100);
-	Menu::titre.setFillColor(Color(211,211,211));
+	titre.setString(" Space Auction ");
+	titre.setFont(font);
+	titre.setCharacterSize(100);
+	titre.setFillColor(Color(211,211,211));
 
 	RectangleShape play(Vector2f(200.f, 80.f));
 
