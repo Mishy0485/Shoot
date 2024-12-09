@@ -25,7 +25,7 @@ int main()
     Jeu jeu;
     Plane joueur(500, 500, 20, 10);
     srand(time(0));
-    RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML");
+    RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
     window.setFramerateLimit(60);
     while (window.isOpen()) {
