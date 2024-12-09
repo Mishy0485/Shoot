@@ -6,13 +6,14 @@
 #include <iostream>
 using namespace sf;
 using namespace std;
-
+bool alldead = false;
 
 
 int main()
 {
     Clock shootdelayPlayer;
     Clock shootdelayEnnemi;
+    Clock rounddelay;
     Texture backTexture;
     if (!backTexture.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Back.png"))
         return -1;
@@ -31,12 +32,13 @@ int main()
     CircleShape shape(50); // Rayon de 50 pixels
     shape.setFillColor(Color::Green);
 
-    jeu.spawnEnnemi(6);
 
     window.setFramerateLimit(60);
     while (window.isOpen()) {
         int shootdelayint = shootdelayPlayer.getElapsedTime().asMilliseconds();
         int shootdelayint2 = shootdelayEnnemi.getElapsedTime().asSeconds();
+        int rounddelayint = rounddelay.getElapsedTime().asMilliseconds();
+
         Event event;
         while (window.pollEvent(event)) 
         {
@@ -44,13 +46,23 @@ int main()
                 window.close();
             
         }
+        
         if (Keyboard::isKeyPressed(Keyboard::Space) && shootdelayint >= 200) {
                     joueur.tir(jeu.bulleta);
                     cout << jeu.bulleta.size() << endl;
                     shootdelayPlayer.restart();
         }
 
+        if (jeu.ennemis.size() == 0 && alldead == false) {
+            alldead = true;
+            rounddelay.restart();
+        }
+        else if (alldead && rounddelayint >= 1000) {
+            jeu.spawnEnnemi(6);
+            alldead = false;
+        }
 
+ 
 
         window.clear();
         window.draw(background);

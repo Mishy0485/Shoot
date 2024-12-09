@@ -22,7 +22,7 @@
 
 	void Ennemi::tir(vector<Projectile*>&bulleta) {
 		{
-			bulleta.push_back(new Projectile(ennemiSprite.getPosition().x, ennemiSprite.getPosition().y, 20, 0, false));
+			bulleta.push_back(new Projectile(ennemiSprite.getPosition().x, ennemiSprite.getPosition().y, 10, 0, false));
 		}
 	}
 	
