@@ -10,15 +10,19 @@ class Boss1 : public Ennemi
 {
 protected:
 	Sprite colonel;
+	Sprite laser;
 
 public:
 	Texture boss1;
+	Texture capsmpl;
+	Texture capspe;
 
 	Boss1(int x, int y, int v);
 
 	void tir(vector<Projectile*>& bulleta) override;
 
-	void capacitesimple();
+	void capaciteSimple();
+	void capaciteSpe();
 };
 
 #endif

@@ -12,7 +12,11 @@ void Boss1::tir(vector<Projectile*>& bulleta) {
 	bulleta.push_back(new Projectile(colonel.getPosition().x, colonel.getPosition().y, 20, 0, true));
 }
 
-void Boss1::capacitesimple()
+void Boss1::capaciteSimple()
 {
-	
+}
+
+void Boss1::capaciteSpe()
+{
+	capspe.loadFromFile("laser.png");
 }
