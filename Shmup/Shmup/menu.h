@@ -9,12 +9,14 @@ class Menu
 {
 public:
 	Texture fond_menu;
-	Texture ecrito;
 
 	Texture button1;
 	Texture button2;
 	Texture button3;
 	Texture button4;
+
+	Text titre;
+	Font font;
 
 	Event event;
 
