@@ -6,3 +6,10 @@
 /Shmup/.vs/Shmup/v17/Browse.VC.db-shm
 /.vs/Shoot/v17/Browse.VC.db
 /Shmup/.vs/Shmup/v17/Browse.VC.db-wal
+.cache/
+.idea/
+.vs/
+.vscode/
+build/
+cmake-build-*/
+CMakeUserPresets.json
