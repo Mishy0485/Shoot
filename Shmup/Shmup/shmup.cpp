@@ -77,7 +77,7 @@ int main()
                     delete jeu.ennemis[i];
                     jeu.ennemis.erase(jeu.ennemis.begin() + i);
                 }
-                window.draw(jeu.ennemis[i]->getsprite());
+                window.draw(jeu.ennemis[i]->getSprite());
             }
             for (int i = 0; i < jeu.bulleta.size(); i++) {
                 jeu.collisionPlane(joueur, jeu.bulleta[i]);

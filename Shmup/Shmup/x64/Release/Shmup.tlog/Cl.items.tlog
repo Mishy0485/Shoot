@@ -1,6 +1,8 @@
-C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\avion.cpp;C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\x64\Release\avion.obj
-C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\ennemi.cpp;C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\x64\Release\ennemi.obj
-C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\jeu.cpp;C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\x64\Release\jeu.obj
-C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\menu.cpp;C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\x64\Release\menu.obj
-C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\projectile.cpp;C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\x64\Release\projectile.obj
-C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\shmup.cpp;C:\Users\jayite\Documents\GitHub\Shoot\Shmup\Shmup\x64\Release\shmup.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\avion.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\avion.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\baseEnnemi.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\baseEnnemi.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\boss1.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\boss1.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\ennemi.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\ennemi.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\jeu.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\jeu.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\menu.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\menu.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\projectile.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\projectile.obj
+C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\shmup.cpp;C:\Users\sbrossard\source\repos\Mishy0485\Shoot\Shmup\Shmup\x64\Release\shmup.obj

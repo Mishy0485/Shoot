@@ -134,6 +134,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="avion.cpp" />
+    <ClCompile Include="baseEnnemi.cpp" />
+    <ClCompile Include="boss1.cpp" />
     <ClCompile Include="ennemi.cpp" />
     <ClCompile Include="jeu.cpp" />
     <ClCompile Include="menu.cpp" />
@@ -142,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="avion.h" />
+    <ClInclude Include="baseEnnemi.h" />
+    <ClInclude Include="boss1.h" />
     <ClInclude Include="ennemi.h" />
     <ClInclude Include="jeu.h" />
     <ClInclude Include="menu.h" />

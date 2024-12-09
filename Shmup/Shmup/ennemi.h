@@ -10,27 +10,23 @@ using namespace std;
 
 class Ennemi
 {
-private:
+protected:
 	int x, y;
-	int type; // 1, 2 ou 3 : quel ennemi
-	Sprite ennemiSprite;
+	Sprite sprite;
 	bool droite = true;
 	int vie;
-
+	Texture texture;
 
 public:
-	Texture textureEnnemi;
-	Ennemi(int x, int y, int t, int v); // avoir pour position
 
-	void attaque(int degats);
+	Ennemi(int x, int y, int v); // à voir pour position
 
+	 virtual Sprite getSprite() = 0;
+	// à voir s'ils se deplacent
 
-	Sprite getsprite();
-	// avoir s'ils se deplacent
+	 virtual void mouvement() = 0;
 
-	void mouvement();
-
-	void tir(vector<Projectile*>& bulleta);
+	virtual void tir(vector<Projectile*>& bulleta) = 0;
 	
 	void degats(int degats);
 	bool EstMort();
