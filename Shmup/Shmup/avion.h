@@ -29,10 +29,5 @@ public:
 
 	void degat(int degats);
 
-
 };
-
-
-
-
 #endif

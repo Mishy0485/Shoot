@@ -19,7 +19,7 @@ protected:
 
 public:
 
-	Ennemi(int x, int y, int v); // à voir pour position
+	Ennemi(int x, int y, int v);
 
 	 virtual Sprite getSprite() = 0;
 	// à voir s'ils se deplacent
