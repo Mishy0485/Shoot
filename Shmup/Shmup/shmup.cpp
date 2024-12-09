@@ -14,7 +14,7 @@ int main()
     Clock shootdelayEnnemi;
     Clock rounddelay;
     Texture backTexture;
-    if (!backTexture.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Back.png"))
+    if (!backTexture.loadFromFile("Back.png"))
         return -1;
 
     RectangleShape background;
@@ -102,7 +102,7 @@ int main()
         if (jeu.getBool()) {
 
             Texture fin;
-            if (!fin.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\game_over_final.png"))
+            if (!fin.loadFromFile("game_over_final.png"))
                 return -1;
 
 

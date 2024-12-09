@@ -2,7 +2,7 @@
 
 Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse(v), type(t), playerSide(s)
 {
-	bullet.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\bulleta.png");
+	bullet.loadFromFile("bulleta.png");
 	Bullety.setTexture(bullet);
 	Bullety.setPosition(x, y);
 	Bullety.setScale(0.02, 0.02);

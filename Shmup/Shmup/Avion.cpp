@@ -3,7 +3,7 @@
 
 	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
 	{ 
-		piupiu.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\plane.PNG");
+		piupiu.loadFromFile("plane.PNG");
 		Avion.setTexture(piupiu);
 		Avion.setPosition(x, y);
 	}

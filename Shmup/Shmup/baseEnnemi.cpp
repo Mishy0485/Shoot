@@ -1,7 +1,7 @@
 #include "baseEnnemi.h"
 
 BaseEnnemi::BaseEnnemi(int x, int y, int v) : Ennemi(x, y , v) {
-	bEnnemitexture.loadFromFile("C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\ennemi1.PNG");
+	bEnnemitexture.loadFromFile("ennemi1.PNG");
 	bEnnemisprite.setTexture(bEnnemitexture);
 	bEnnemisprite.setScale(5, 5);
 	bEnnemisprite.setPosition(x, y);
