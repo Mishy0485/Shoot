@@ -71,7 +71,7 @@ bool Jeu::getBool() {
 void Jeu::spawnEnnemi(int n) {
 	for (int i = 0; i < n; i++) {
 		int coordx = rand() % 1900;
-		int coordy = rand() % (100, 300);
+		int coordy = rand() % (300 - 100 + 1) + 100;
 		ennemis.push_back(new BaseEnnemi(coordx, coordy, 100));
 	}
 }

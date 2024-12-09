@@ -63,7 +63,7 @@ int main()
         window.clear();
         window.draw(background);
         if (!jeu.getBool()){
-            for (int i = 0; i < jeu.ennemis.size(); i++) {
+            for (int i = jeu.ennemis.size() - 1; i >= 0; i--) {
                 jeu.ennemis[i]->mouvement();
                 if (shootdelayint2 >= 2) {
                     jeu.ennemis[i]->tir(jeu.bulleta);
@@ -82,7 +82,7 @@ int main()
                 }
                 else if (!jeu.bulleta[i]->getSide()) {
                     jeu.bulleta[i]->fuse(false);
-                }
+                } 
             
                 if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {
                     delete jeu.bulleta[i];

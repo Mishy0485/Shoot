@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\baseEnnemi.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\shmup.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\shmup.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\jeu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\jeu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\baseEnnemi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\jeu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\baseEnnemi.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\ennemi.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -27,16 +35,8 @@
       "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\ennemi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\shmup.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\shmup.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|solutionrelative:Shmup\\jeu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D9E6F3D-2E45-4038-9566-F9F6CD257D15}|Shmup\\Shmup.vcxproj|C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -70,17 +70,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "shmup.cpp",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\shmup.cpp",
               "RelativeDocumentMoniker": "Shmup\\shmup.cpp",
               "ToolTip": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\shmup.cpp",
               "RelativeToolTip": "Shmup\\shmup.cpp",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAnwE8AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwEwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-03T14:32:52.126Z",
               "IsPinned": true,
@@ -88,13 +88,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "jeu.h",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.h",
               "RelativeDocumentMoniker": "Shmup\\jeu.h",
               "ToolTip": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.h",
               "RelativeToolTip": "Shmup\\jeu.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwB8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-03T15:34:59.941Z",
               "IsPinned": true,
@@ -102,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "menu.h",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\menu.h",
               "RelativeDocumentMoniker": "Shmup\\menu.h",
@@ -120,26 +120,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "baseEnnemi.h",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.h",
               "RelativeDocumentMoniker": "Shmup\\baseEnnemi.h",
               "ToolTip": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.h",
               "RelativeToolTip": "Shmup\\baseEnnemi.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-09T09:49:42.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "baseEnnemi.cpp",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.cpp",
               "RelativeDocumentMoniker": "Shmup\\baseEnnemi.cpp",
               "ToolTip": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\baseEnnemi.cpp",
               "RelativeToolTip": "Shmup\\baseEnnemi.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAYwAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-09T09:49:18.798Z",
               "EditorCaption": ""
@@ -172,33 +172,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "menu.cpp",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\menu.cpp",
               "RelativeDocumentMoniker": "Shmup\\menu.cpp",
               "ToolTip": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\menu.cpp",
               "RelativeToolTip": "Shmup\\menu.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-06T10:45:45.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "jeu.cpp",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.cpp",
               "RelativeDocumentMoniker": "Shmup\\jeu.cpp",
               "ToolTip": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\jeu.cpp",
               "RelativeToolTip": "Shmup\\jeu.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAnwBIAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAYwEkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-03T15:25:14.665Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ennemi.h",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\ennemi.h",
               "RelativeDocumentMoniker": "Shmup\\ennemi.h",
@@ -211,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ennemi.cpp",
               "DocumentMoniker": "C:\\Users\\sbrossard\\source\\repos\\Mishy0485\\Shoot\\Shmup\\Shmup\\ennemi.cpp",
               "RelativeDocumentMoniker": "Shmup\\ennemi.cpp",
