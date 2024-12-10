@@ -1,5 +1,6 @@
 #include "jeu.h"
 #include "baseEnnemi.h"
+#include "boss1.h"
 
 using namespace sf;
 using namespace std;
@@ -70,7 +71,7 @@ bool Jeu::getBool() {
 	return game_over;
 }
 
-void Jeu::spawnEnnemi(int n) {
+void Jeu::spawnEnnemi(int n, int type) {
 	for (int i = 0; i < n; i++) {
 		int coordx, coordy;
 		bool spawnPossible = false;
@@ -95,8 +96,14 @@ void Jeu::spawnEnnemi(int n) {
 				spawnPossible = true;
 			}
 		}
-
-		ennemis.push_back(new BaseEnnemi(coordx, coordy, 100));
+		switch (type)
+		{
+			case 0:ennemis.push_back(new BaseEnnemi(coordx, coordy, 100)); break;
+			case 1: cout << "A FAIRE"; break;
+			case 2: cout << "A FAIRE"; break;
+			case 3:ennemis.push_back(new Boss1(coordx, coordy, 100)); break;
+		}
+		
 	}
 }
 

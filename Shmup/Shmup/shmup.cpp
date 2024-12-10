@@ -69,9 +69,13 @@ int main()
             jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
             rounddelay.restart();
         }
-        else if (alldead && rounddelayint >= 1000) {
-
-            jeu.spawnEnnemi(6);
+        else if (alldead && rounddelayint >= 2000) {
+            if (jeu.nb_vagues == 3) {
+                jeu.spawnEnnemi(1, 3);
+            }
+            else {
+                jeu.spawnEnnemi(6, 0);
+            }
             jeu.vague.setPosition(200, 50);
             alldead = false;
         }
@@ -117,7 +121,6 @@ int main()
                 }
                 window.draw(jeu.bulleta[i]->getSprite());
             }
-            cout << joueur.getVie() << endl;
             joueur.deplacement();
 
             window.draw(joueur.getSprite());

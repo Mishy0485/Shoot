@@ -10,7 +10,7 @@
 
 	bool Ennemi::EstMort()
 	{
-		return vie<=0;
+		return vie <= 0;
 	}
 
 	int Ennemi::getX() {

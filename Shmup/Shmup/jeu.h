@@ -41,7 +41,7 @@ public:
 	bool getBool();
 	vector<Ennemi*> ennemis;
 	vector<Projectile*> bulleta;
-	void spawnEnnemi(int n);
+	void spawnEnnemi(int n, int type);
 
 	bool isInCollisionPlane(Plane joueur, Projectile* currentBulleta);
 	bool isInCollisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);

@@ -3,6 +3,7 @@
 #define BOSS1_H
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "ennemi.h"
 using namespace sf;
 
@@ -18,6 +19,12 @@ public:
 	Texture capspe;
 
 	Boss1(int x, int y, int v);
+
+	Sprite getSprite();
+
+	void mouvement();
+
+	void textureChange();
 
 	void tir(vector<Projectile*>& bulleta) override;
 
