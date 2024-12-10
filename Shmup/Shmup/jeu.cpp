@@ -17,10 +17,12 @@ void Jeu::bossT()
 
 void Jeu::enTeteVague()
 {
-	vague.setString(" Vague " + (nb_vagues));
+	vague.setString(" Vague " + to_string((nb_vagues)));
 	vague.setFont(police);
 	vague.setCharacterSize(50);
-	vague.setFillColor(Color(211, 211, 211));
+	vague.setFillColor(Color(150, 150, 150));
+	vague.setOutlineColor(Color(0, 0, 0));
+	vague.setOutlineThickness(10);
 }
 
 void Jeu::enTeteBoss()
@@ -70,11 +72,34 @@ bool Jeu::getBool() {
 
 void Jeu::spawnEnnemi(int n) {
 	for (int i = 0; i < n; i++) {
-		int coordx = rand() % 1900;
-		int coordy = rand() % (300 - 100 + 1) + 100;
+		int coordx, coordy;
+		bool spawnPossible = false;
+
+		while (!spawnPossible) {
+			coordx = rand() % 1900;
+			coordy = rand() % (400 - 100 + 1);
+
+			bool tooClose = false;
+			for (int i = 0; i < ennemis.size(); i++) {
+				float dx = coordx - ennemis[i]->getX();
+				float dy = coordy - ennemis[i]->getY();
+				float distance = sqrt(dx * dx + dy * dy);
+
+				if (distance < 300) {
+					tooClose = true;
+					break;
+				}
+			}
+
+			if (!tooClose) {
+				spawnPossible = true;
+			}
+		}
+
 		ennemis.push_back(new BaseEnnemi(coordx, coordy, 100));
 	}
 }
+
 
 bool Jeu::isInCollisionPlane(Plane joueur, Projectile* currentBulleta)
 {
@@ -99,14 +124,12 @@ bool Jeu::bottom(Projectile* currentBulleta)
 	}
 	return false;
 }
-void Jeu::collisionPlane(Plane joueur, Projectile* currentBulleta)
+void Jeu::collisionPlane(Plane& joueur, Projectile* currentBulleta)
 {
-	if (isInCollisionPlane( joueur, currentBulleta))
+	if (isInCollisionPlane(joueur, currentBulleta))
 	{
-		// perde de la vie 
-		joueur.setVie(-34);
+		joueur.degat(34);
 		currentBulleta->setHitValue(true);
-			// ou meurt
 		if (joueur.getVie() < 1)
 		{
 			Jeu::setBool(true);
@@ -119,5 +142,6 @@ void Jeu::collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
 	if (isInCollisionEnnemi(ennemi, currentBulleta) && currentBulleta->getHitValue() == false && currentBulleta->getSide()) {
 		ennemi->degats(50);
 		currentBulleta->setHitValue(true);
+		ennemi->textureChange();
 	}
 }

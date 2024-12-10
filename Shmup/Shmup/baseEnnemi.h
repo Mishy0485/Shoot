@@ -8,11 +8,14 @@ using namespace sf;
 
 class BaseEnnemi : public Ennemi {
 private:
-	Texture bEnnemitexture;
+	Texture bEnnemiTexture;
+	Texture bEnnemiTextureHit;
 	Sprite bEnnemisprite;
 public:
 
 	Sprite getSprite() override;
+
+	void textureChange() override;
 
 	void mouvement() override;
 

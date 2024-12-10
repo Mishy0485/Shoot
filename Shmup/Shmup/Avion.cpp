@@ -12,7 +12,7 @@
 		return Avion; 
 	}
 
-	int Plane::getVie() const {
+	int Plane::getVie(){
 		return vie;
 	}
 
@@ -66,5 +66,5 @@
 
 	void Plane::tir(vector<Projectile*>& bulleta)
 	{
-		bulleta.push_back(new Projectile(Avion.getPosition().x, Avion.getPosition().y, 20, 0, true));
+		bulleta.push_back(new Projectile(Avion.getPosition().x + 54, Avion.getPosition().y, 20, 0, true));
 	}

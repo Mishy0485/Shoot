@@ -16,14 +16,28 @@ int main()
     Texture backTexture;
     if (!backTexture.loadFromFile("Back.png"))
         return -1;
-
     RectangleShape background;
     background.setTexture(&backTexture);
     background.setPosition(0, 0);
     background.setSize(Vector2f(1920, 1080));
 
+    RectangleShape barreDeVieOutline;
+    barreDeVieOutline.setFillColor(Color::Transparent);
+    barreDeVieOutline.setOutlineColor(Color::Black);
+    barreDeVieOutline.setOutlineThickness(10);
+    barreDeVieOutline.setPosition(100, 900);
+    
+
+    RectangleShape barreDeVie;
+    barreDeVie.setFillColor(Color::Red);
+    barreDeVie.setPosition(100, 900);
+    
+
+
     Jeu jeu;
-    Plane joueur(500, 500, 20, 10);
+    jeu.police.loadFromFile("Daydream.ttf");
+    Plane joueur(500, 500, 100, 10);
+    barreDeVieOutline.setSize(Vector2f(joueur.getVie() * 4, 50));
     srand(time(0));
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
@@ -43,18 +57,22 @@ int main()
         
         if (Keyboard::isKeyPressed(Keyboard::Space) && shootdelayint >= 200) {
                     joueur.tir(jeu.bulleta);
-                    cout << jeu.bulleta.size() << endl;
                     shootdelayPlayer.restart();
         }
 
         if (jeu.ennemis.size() == 0 && alldead == false) {
             alldead = true;
+            jeu.enTeteVague();
+            jeu.incrVague();
+            FloatRect textRect = jeu.vague.getLocalBounds();
+            jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
+            jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
             rounddelay.restart();
         }
         else if (alldead && rounddelayint >= 1000) {
-            jeu.enTeteVague();
-            jeu.incrVague();
+
             jeu.spawnEnnemi(6);
+            jeu.vague.setPosition(200, 50);
             alldead = false;
         }
 
@@ -99,10 +117,14 @@ int main()
                 }
                 window.draw(jeu.bulleta[i]->getSprite());
             }
-
+            cout << joueur.getVie() << endl;
             joueur.deplacement();
 
             window.draw(joueur.getSprite());
+            window.draw(jeu.vague);
+            barreDeVie.setSize(Vector2f(joueur.getVie() * 4, 50));
+            window.draw(barreDeVie);
+            window.draw(barreDeVieOutline);
         }
         
         if (jeu.getBool()) {
@@ -120,6 +142,7 @@ int main()
 
             window.draw(jeu.end);
         }
+
         window.display();
     }
 

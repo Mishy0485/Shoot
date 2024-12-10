@@ -1,8 +1,9 @@
 #include "baseEnnemi.h"
 
 BaseEnnemi::BaseEnnemi(int x, int y, int v) : Ennemi(x, y , v) {
-	bEnnemitexture.loadFromFile("ennemi1.PNG");
-	bEnnemisprite.setTexture(bEnnemitexture);
+	bEnnemiTexture.loadFromFile("ennemi1.PNG");
+	bEnnemiTextureHit.loadFromFile("ennemi1_hit.png");
+	bEnnemisprite.setTexture(bEnnemiTexture);
 	bEnnemisprite.setScale(5, 5);
 	bEnnemisprite.setPosition(x, y);
 }
@@ -33,6 +34,10 @@ void BaseEnnemi::mouvement() {
 
 void BaseEnnemi::tir(vector<Projectile*>& bulleta) {
 	{
-		bulleta.push_back(new Projectile(bEnnemisprite.getPosition().x, bEnnemisprite.getPosition().y, 10, 0, false));
+		bulleta.push_back(new Projectile(bEnnemisprite.getPosition().x + 100, bEnnemisprite.getPosition().y + 100, 10, 0, false));
 	}
+}
+
+void BaseEnnemi::textureChange() {
+	bEnnemisprite.setTexture(bEnnemiTextureHit);
 }

@@ -21,7 +21,7 @@ public:
 	
 	void setVie(int n);
 
-	int getVie() const;
+	int getVie();
 	Sprite getSprite() const;
 
 	void deplacement();

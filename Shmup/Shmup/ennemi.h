@@ -19,6 +19,10 @@ protected:
 
 public:
 
+	int getX();
+
+	int getY();
+
 	Ennemi(int x, int y, int v);
 
 	 virtual Sprite getSprite() = 0;
@@ -28,6 +32,8 @@ public:
 
 	virtual void tir(vector<Projectile*>& bulleta) = 0;
 	
+	virtual void textureChange() = 0;
+
 	void degats(int degats);
 	bool EstMort();
 };

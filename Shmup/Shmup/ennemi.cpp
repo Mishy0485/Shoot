@@ -13,4 +13,10 @@
 		return vie<=0;
 	}
 
+	int Ennemi::getX() {
+		return x;
+	}
 
+	int Ennemi::getY() {
+		return y;
+	}

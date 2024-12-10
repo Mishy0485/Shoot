@@ -23,10 +23,12 @@ public:
 	RectangleShape end;
 
 	Font police;
+
 	Text vague;
+
 	Text boss;
 	
-	int nb_vagues;
+	int nb_vagues = 1;
 	int bossTime;
 
 	void incrVague();
@@ -45,7 +47,7 @@ public:
 	bool isInCollisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	void collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	bool bottom(Projectile* currentBulleta);
-	void collisionPlane(Plane joueur, Projectile* currentBulleta);
+	void collisionPlane(Plane& joueur, Projectile* currentBulleta);
 };
 
 #endif
