@@ -26,7 +26,6 @@ public:
 	Ennemi(int x, int y, int v);
 
 	 virtual Sprite getSprite() = 0;
-	// à voir s'ils se deplacent
 
 	 virtual void mouvement() = 0;
 
