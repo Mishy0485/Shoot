@@ -1,6 +1,7 @@
 #include "jeu.h"
 #include "baseEnnemi.h"
 #include "boss1.h"
+#include "boss2.h"
 
 using namespace sf;
 using namespace std;
@@ -61,8 +62,6 @@ void Jeu::enTeteBoss()
 	}
 }
 
-
-
 void Jeu::setBool(bool b){
 	game_over = b; 
 }
@@ -102,6 +101,7 @@ void Jeu::spawnEnnemi(int n, int type) {
 			case 1: cout << "A FAIRE"; break;
 			case 2: cout << "A FAIRE"; break;
 			case 3:ennemis.push_back(new Boss1(coordx, coordy, 100)); break;
+			case 3:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
 		
 	}

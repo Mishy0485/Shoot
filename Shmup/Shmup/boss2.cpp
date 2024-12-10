@@ -19,7 +19,7 @@ void Boss2::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 	laser_gen.setTexture(capsmpl1);
 }
 
-void Boss2::capaciteSpe()
+void Boss2::capaciteSpe(Jeu jeu)
 {
-	Jeu::spawnEnnemi(2,1);
+	jeu.spawnEnnemi(2,1);
 }

@@ -23,6 +23,6 @@ public:
 
 	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) override;
 
-	void capaciteSpe() override;
+	void capaciteSpe(Jeu jeu) override;
 };
 #endif

@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "projectile.h"
+#include "Jeu.h"
 using namespace sf;
 using namespace std;
 
@@ -33,7 +34,7 @@ public:
 
 	virtual void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) = 0;
 	
-	virtual void capaciteSpe() = 0;
+	virtual void capaciteSpe(Jeu jeu) = 0;
 	
 	virtual void textureChange() = 0;
 
