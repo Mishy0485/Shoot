@@ -63,19 +63,24 @@ int main()
         window.clear();
         window.draw(background);
         if (!jeu.getBool()){
-            for (int i = jeu.ennemis.size() - 1; i >= 0; i--) {
+            for (int i = 0; i < jeu.ennemis.size(); ) {
                 jeu.ennemis[i]->mouvement();
+
                 if (shootdelayint2 >= 2) {
                     jeu.ennemis[i]->tir(jeu.bulleta);
                     shootdelayEnnemi.restart();
                 }
+
                 if (jeu.ennemis[i]->EstMort()) {
                     delete jeu.ennemis[i];
                     jeu.ennemis.erase(jeu.ennemis.begin() + i);
                 }
-     
-     window.draw(jeu.ennemis[i]->getSprite());
+                else {
+                    window.draw(jeu.ennemis[i]->getSprite());
+                    i++;
+                }
             }
+
             for (int i = 0; i < jeu.bulleta.size(); i++) {
                 jeu.collisionPlane(joueur, jeu.bulleta[i]);
                 if (jeu.bulleta[i]->getSide()) {
