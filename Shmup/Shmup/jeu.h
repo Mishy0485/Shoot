@@ -28,7 +28,7 @@ public:
 
 	Text boss;
 	
-	int nb_vagues = 1;
+	int nb_vagues = 0;
 	int bossTime;
 
 	void incrVague();

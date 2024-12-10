@@ -61,9 +61,9 @@ int main()
         }
 
         if (jeu.ennemis.size() == 0 && alldead == false) {
-            alldead = true;
-            jeu.enTeteVague();
+            alldead = true;            
             jeu.incrVague();
+            jeu.enTeteVague();
             FloatRect textRect = jeu.vague.getLocalBounds();
             jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
             jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
