@@ -18,7 +18,6 @@ void Boss1::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 	{
 		Bullet.separation(bulleta, Bullet);
 	}
-
 }
 
 void Boss1::capaciteSpe()
