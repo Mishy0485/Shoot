@@ -1,10 +1,11 @@
 #include "boss1.h"
 
-Boss1::Boss1(int x, int y, int v) : Ennemi(x, y, vie)
+Boss1::Boss1(int x, int y, int v) : Ennemi(x, y, v)
 {
+	
 	boss1.loadFromFile("boss1.png");
 	colonel.setTexture(boss1);
-	colonel.setPosition(x, y);
+	colonel.setPosition(x, y); 
 	cout << "Création du boss avec vie: " << vie << endl;
 	}
 
