@@ -20,7 +20,6 @@ void Boss1::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 	{
 		Bullet.separation(bulleta, Bullet);
 	}
-
 }
 
 Sprite Boss1::getSprite() {
