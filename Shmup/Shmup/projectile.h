@@ -19,6 +19,10 @@ protected:
 public:
 
 	Texture bullet;
+	Sprite getSprite();
+
+	int getPositionX();
+	int getPositionY();
 
 	Projectile(int x, int y, int v, int t, bool s);
 
@@ -32,9 +36,9 @@ public:
 
 	void setHitValue(bool b);
 
-	Sprite getSprite();
-
 	void fuse(bool up);
+
+	void separation(vector<Projectile*>& bulleta, Projectile bullet);
 };
 
 #endif

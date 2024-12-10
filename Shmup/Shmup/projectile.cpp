@@ -9,6 +9,9 @@ Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse
 	Bullety.rotate(180);
 }
 
+int Projectile::getPositionX() { return x; }
+int Projectile::getPositionY() { return y; }
+
 bool Projectile::getHitValue() {
 	return hit;
 }
@@ -41,4 +44,13 @@ void Projectile::fuse(bool up) {
 		Bullety.move(0, -vitesse);
 	else
 		Bullety.move(0, vitesse);
+}
+
+void Projectile::separation(vector<Projectile*>& bulleta, Projectile bullet)
+{
+	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 0, false));
+	Bullety.move(vitesse, -vitesse);
+
+	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 0, false));
+	Bullety.move(-vitesse, vitesse);
 }
