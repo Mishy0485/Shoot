@@ -24,5 +24,7 @@ public:
 	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) override;
 
 	void capaciteSpe(Jeu jeu) override;
+
+	void deplacementLaser(Projectile Bullet);
 };
 #endif

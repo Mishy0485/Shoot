@@ -12,6 +12,16 @@ Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse
 int Projectile::getPositionX() { return x; }
 int Projectile::getPositionY() { return y; }
 
+int Projectile::setPositionX(int n)
+{
+	x = n;
+}
+
+/*int Projectile::setPositionY(int n)
+{
+	y = n;
+}*/
+
 bool Projectile::getHitValue() {
 	return hit;
 }
@@ -44,6 +54,13 @@ void Projectile::fuse(bool up) {
 		Bullety.move(0, -vitesse);
 	else
 		Bullety.move(0, vitesse);
+}
+
+void Projectile::fuse1(bool up) {
+	if (up)
+		Bullety.move(vitesse, -vitesse);
+	else
+		Bullety.move(-vitesse, vitesse);
 }
 
 void Projectile::separation(vector<Projectile*>& bulleta, Projectile bullet)
