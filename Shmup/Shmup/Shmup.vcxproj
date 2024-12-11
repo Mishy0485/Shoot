@@ -138,6 +138,7 @@
     <ClCompile Include="baseEnnemi.cpp" />
     <ClCompile Include="boss1.cpp" />
     <ClCompile Include="boss2.cpp" />
+    <ClCompile Include="boss3.cpp" />
     <ClCompile Include="ennemi.cpp" />
     <ClCompile Include="jeu.cpp" />
     <ClCompile Include="menu.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="baseEnnemi.h" />
     <ClInclude Include="boss1.h" />
     <ClInclude Include="boss2.h" />
+    <ClInclude Include="boss3.h" />
     <ClInclude Include="ennemi.h" />
     <ClInclude Include="jeu.h" />
     <ClInclude Include="menu.h" />
