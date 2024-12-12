@@ -18,7 +18,7 @@ public:
 	Texture capsmpl2;
 	Texture capspe2;
 
-	Boss3(int x, int y, int v);
+	Boss3(int x, int y, int v, int t, int s);
 
 	void tir(vector<Projectile*>& bulleta) override;
 

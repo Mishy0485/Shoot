@@ -12,6 +12,8 @@ class Ennemi
 {
 protected:
 	int x, y;
+	int type;
+	int attackspeed;
 	Sprite sprite;
 	bool droite = true;
 	int vie;
@@ -19,11 +21,19 @@ protected:
 
 public:
 
+	bool spe = false;
+
 	int getX();
 
 	int getY();
 
-	Ennemi(int x, int y, int v);
+	int getASpeed();
+
+	int getType();
+
+	Ennemi(int x, int y, int v, int t, int s);
+
+	virtual Sprite getSpeSprite() = 0;
 
 	virtual Sprite getSprite() = 0;
 

@@ -12,6 +12,7 @@ int main()
 {
     Clock shootdelayPlayer;
     Clock shootdelayEnnemi;
+    Clock spedelay;
     Clock rounddelay;
     Texture backTexture;
     if (!backTexture.loadFromFile("Back.png"))
@@ -36,9 +37,9 @@ int main()
 
     Jeu jeu;
     jeu.police.loadFromFile("Daydream.ttf");
-    Plane joueur(500, 500, 100, 10);
+    Plane joueur(500, 500, 10000, 10);
     barreDeVieOutline.setSize(Vector2f(joueur.getVie() * 4, 50));
-    srand(time(0));
+    srand(time(NULL));
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
     window.setFramerateLimit(60);
@@ -46,6 +47,8 @@ int main()
         int shootdelayint = shootdelayPlayer.getElapsedTime().asMilliseconds();
         int shootdelayint2 = shootdelayEnnemi.getElapsedTime().asSeconds();
         int rounddelayint = rounddelay.getElapsedTime().asMilliseconds();
+        int spedelayint = spedelay.getElapsedTime().asMilliseconds();
+       
 
         Event event;
         while (window.pollEvent(event)) 
@@ -80,7 +83,6 @@ int main()
             alldead = false;
         }
 
- 
 
         window.clear();
         window.draw(background);
@@ -88,16 +90,32 @@ int main()
             for (int i = 0; i < jeu.ennemis.size(); ) {
                 jeu.ennemis[i]->mouvement();
 
-                if (shootdelayint2 >= 2) {
+                if (shootdelayint2 >= jeu.ennemis[i]->getASpeed()) {
                     jeu.ennemis[i]->tir(jeu.bulleta);
                     shootdelayEnnemi.restart();
                 }
+
+                if (jeu.ennemis[i]->getType() == 3 && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
+                    spedelay.restart();
+                    jeu.ennemis[i]->capaciteSpe();
+                    jeu.ennemis[i]->spe = true;
+                }
+
 
                 if (jeu.ennemis[i]->EstMort()) {
                     delete jeu.ennemis[i];
                     jeu.ennemis.erase(jeu.ennemis.begin() + i);
                 }
                 else {
+                    if (jeu.ennemis[i]->spe && jeu.ennemis[i]->getType() == 3){
+                        if (spedelayint >= 5000 && jeu.ennemis[i]->spe) {
+                            jeu.ennemis[i]->spe = false;
+                            cout << "done" << endl;
+                        }
+                    if (joueur.getSprite().getGlobalBounds().intersects(jeu.ennemis[i]->getSpeSprite().getGlobalBounds()))
+                        joueur.degat(1);
+                    window.draw(jeu.ennemis[i]->getSpeSprite());
+                    }
                     window.draw(jeu.ennemis[i]->getSprite());
                     i++;
                 }
@@ -113,10 +131,9 @@ int main()
                 }
 
                 else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 1) {
-                    if (jeu.bulleta[i]->getPositionY() > 575 && !jeu.bulleta[i]->getSepState()) {
+                    if (jeu.bulleta[i]->getPositionY() > 475 && !jeu.bulleta[i]->getSepState()) {
                         jeu.bulleta[i]->separation(jeu.bulleta, *jeu.bulleta[i]);
                         jeu.bulleta[i]->setSepState();
-                        cout << "split" << endl;
                     }
                     jeu.bulleta[i]->fuse(false);
                 }
@@ -162,6 +179,7 @@ int main()
         }
 
         window.display();
+        cout << spedelayint << endl;
     }
 
     return 0;

@@ -1,6 +1,6 @@
 #include "boss1.h"
 
-Boss1::Boss1(int x, int y, int v) : Ennemi(x, y, v)
+Boss1::Boss1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 3, s)
 {
 	
 	boss1.loadFromFile("boss1.png");
@@ -20,10 +20,13 @@ Sprite Boss1::getSprite() {
 	return colonel;
 }
 
+
 void Boss1::capaciteSpe()
 {
 	capspe.loadFromFile("laser.png");
 	laser.setTexture(capspe);
+	laser.setScale(3, 3);
+	laser.setPosition(0, 0);
 }
 
 void Boss1::mouvement() {
@@ -48,4 +51,8 @@ void Boss1::mouvement() {
 
 void Boss1::textureChange() {
 	cout << "A FAIRE";
+}
+
+Sprite Boss1::getSpeSprite() {
+	return laser;
 }
