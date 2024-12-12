@@ -16,25 +16,42 @@ void Boss3::tir(vector<Projectile*>& bulleta) {
 	int coordx = rand() % 1900;
 	int coordy = rand() % (1010 - 600 + 1);
 
-	CircleShape bomb(40);
-	bomb.setOrigin(Vector2f(20.f, 20.f));
-	bomb.setPosition(Vector2f(coordx, coordy));
+	timeBomb = clockinette.getElapsedTime().asSeconds();
+	
+	while (nbBomb <= 5)
+	{
+		// appeler le constructeur
+		nbBomb++;
 
+		if (timeBomb >= 2)
+		{
+			boom.loadFromFile("tryExposion.png");
+			explosion.setTexture(boom);
+			explosion.setOrigin(Vector2f(bomb.getOrigin().x, bomb.getOrigin().y));
+			explosion.setPosition(Vector2f(bomb.getPosition().x, bomb.getPosition().y));
+			
+			if ( explosion.getGlobalBounds().intersects(bomb.getGlobalBounds()) )
+			{
+				
+			}
 
+			// bomb.delete();
+			// explosion.delete()
 
-	// sprite/texture pour explosion : A VOIR
-	// explose plus que la bombe : sprite de l'explosion ? good
+			clockinette.restart();
+		}
+	}
+
 	// nb de bombes ?  5 ? good
 	// spawn new des qu'une a explosée ? good
-	// temps avant explosion ? 2sec ? good
 	// spawn une par une ou plusieurs en meme temps ? good
-	// spawn partout aleatoirement sur la map? good
 }
 
 void Boss3::capaciteSpe()
 {
 	capspe2.loadFromFile(".png");
 	bigBombe.setTexture(capspe2);
+	Jeu::setBool(true);
 	// spawn aleatoirement sur la map good
 	// taille de la bombe? 300x300 ? good
 }
