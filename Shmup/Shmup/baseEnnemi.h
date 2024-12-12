@@ -19,10 +19,11 @@ public:
 
 	void mouvement() override;
 
-	BaseEnnemi(int x, int y, int v);
+	BaseEnnemi(int x, int y, int v, int t, int s);
 
 	void tir(vector<Projectile*>& bulleta) override;
 
+	Sprite getSpeSprite();
 
 	void capaciteSpe();
 };

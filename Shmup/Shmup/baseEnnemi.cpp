@@ -1,6 +1,6 @@
 #include "baseEnnemi.h"
 
-BaseEnnemi::BaseEnnemi(int x, int y, int v) : Ennemi(x, y , v) {
+BaseEnnemi::BaseEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y , v, 0, s) {
 	bEnnemiTexture.loadFromFile("ennemi1.PNG");
 	bEnnemiTextureHit.loadFromFile("ennemi1_hit.png");
 	bEnnemisprite.setTexture(bEnnemiTexture);
@@ -44,4 +44,8 @@ void BaseEnnemi::textureChange() {
 
 void BaseEnnemi::capaciteSpe() {
 	return;
+}
+
+Sprite BaseEnnemi::getSpeSprite() {
+	return bEnnemisprite;
 }

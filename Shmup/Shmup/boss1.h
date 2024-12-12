@@ -18,9 +18,12 @@ public:
 	Texture capsmpl;
 	Texture capspe;
 
-	Boss1(int x, int y, int v);
+
+	Boss1(int x, int y, int v, int t, int s);
 
 	Sprite getSprite();
+
+	Sprite getSpeSprite();
 
 	void mouvement();
 

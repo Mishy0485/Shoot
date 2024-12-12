@@ -1,7 +1,7 @@
 #include"boss3.h"
 #include"jeu.h"
 
-Boss3::Boss3(int x, int y, int v) : Ennemi(x, y, vie)
+Boss3::Boss3(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 5, s)
 {
 	boss3.loadFromFile("princeAlienTropMimi.png");
 	prince.setTexture(boss3);

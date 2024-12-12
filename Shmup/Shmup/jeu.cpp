@@ -72,13 +72,12 @@ bool Jeu::getBool() {
 
 void Jeu::spawnEnnemi(int n, int type) {
 	for (int i = 0; i < n; i++) {
-		int coordx, coordy;
+		int coordx, coordy, speed;
 		bool spawnPossible = false;
 
 		while (!spawnPossible) {
 			coordx = rand() % 1900;
 			coordy = rand() % (400 - 100 + 1);
-
 			bool tooClose = false;
 			for (int i = 0; i < ennemis.size(); i++) {
 				float dx = coordx - ennemis[i]->getX();
@@ -97,10 +96,10 @@ void Jeu::spawnEnnemi(int n, int type) {
 		}
 		switch (type)
 		{
-			case 0:ennemis.push_back(new BaseEnnemi(coordx, coordy, 100)); break;
+			case 0:ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
 			case 1: cout << "A FAIRE"; break;
 			case 2: cout << "A FAIRE"; break;
-			case 3:ennemis.push_back(new Boss1(coordx, coordy, 5000)); break;
+			case 3:ennemis.push_back(new Boss1(coordx, 100, 5000, type, 1)); break;
 			//case 4:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
 		
