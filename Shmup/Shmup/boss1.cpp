@@ -27,7 +27,7 @@ Sprite Boss1::getSprite() {
 	return colonel;
 }
 
-void Boss1::capaciteSpe()
+void Boss1::capaciteSpe(Jeu jeu)
 {
 	capspe.loadFromFile("laser.png");
 	laser.setTexture(capspe);

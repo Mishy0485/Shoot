@@ -21,5 +21,5 @@ void Boss2::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 
 void Boss2::capaciteSpe(Jeu jeu)
 {
-	jeu.spawnEnnemi(2,1);
+	//JespawnEnnemi(2,1);
 }

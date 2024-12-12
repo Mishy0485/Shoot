@@ -101,7 +101,7 @@ void Jeu::spawnEnnemi(int n, int type) {
 			case 1: cout << "A FAIRE"; break;
 			case 2: cout << "A FAIRE"; break;
 			case 3:ennemis.push_back(new Boss1(coordx, coordy, 100)); break;
-			case 3:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
+			//case 4:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
 		
 	}

@@ -30,7 +30,7 @@ public:
 
 	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet);
 
-	void capaciteSpe();
+	void capaciteSpe(Jeu jeu);
 };
 
 #endif

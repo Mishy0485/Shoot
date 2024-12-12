@@ -1,6 +1,6 @@
 #pragma once
-#ifndef BOSS1_H
-#define BOSS1_H
+#ifndef BOSS2_H
+#define BOSS2_H
 
 #include <SFML/Graphics.hpp>
 #include "ennemi.h"

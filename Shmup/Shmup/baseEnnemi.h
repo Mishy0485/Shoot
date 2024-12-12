@@ -22,6 +22,10 @@ public:
 	BaseEnnemi(int x, int y, int v);
 
 	void tir(vector<Projectile*>& bulleta) override;
+
+	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet);
+
+	void capaciteSpe(Jeu jeu);
 };
 
 #endif
