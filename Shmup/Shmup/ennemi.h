@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "projectile.h"
-#include "Jeu.h"
 using namespace sf;
 using namespace std;
 
@@ -26,15 +25,15 @@ public:
 
 	Ennemi(int x, int y, int v);
 
-	 virtual Sprite getSprite() = 0;
+	virtual Sprite getSprite() = 0;
 
-	 virtual void mouvement() = 0;
+	virtual void mouvement() = 0;
 
 	virtual void tir(vector<Projectile*>& bulleta) = 0;
 
 	virtual void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) = 0;
 	
-	virtual void capaciteSpe(Jeu jeu) = 0;
+	virtual void capaciteSpe() = 0;
 	
 	virtual void textureChange() = 0;
 

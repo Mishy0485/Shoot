@@ -46,6 +46,6 @@ void BaseEnnemi::capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet)
 	return;
 }
 
-void BaseEnnemi::capaciteSpe(Jeu jeu) {
+void BaseEnnemi::capaciteSpe() {
 	return;
 }

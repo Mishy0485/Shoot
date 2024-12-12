@@ -42,7 +42,19 @@ void Boss2::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 
 }
 
-void Boss2::capaciteSpe(Jeu jeu)
+void Boss2::capaciteSpe()
 {
 	//JespawnEnnemi(2,1);
+}
+
+Sprite Boss2::getSprite() {
+	return general;
+}
+
+void Boss2::textureChange() {
+
+}
+
+void Boss2::mouvement() {
+
 }

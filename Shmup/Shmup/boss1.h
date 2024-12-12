@@ -26,11 +26,11 @@ public:
 
 	void textureChange();
 
-	void tir(vector<Projectile*>& bulleta) override;
+	void tir(vector<Projectile*>& bulleta);
 
 	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet);
 
-	void capaciteSpe(Jeu jeu);
+	void capaciteSpe();
 };
 
 #endif

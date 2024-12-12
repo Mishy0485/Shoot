@@ -26,7 +26,7 @@ void Boss3::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 	// spawn partout aleatoirement sur la map? good?
 }
 
-void Boss3::capaciteSpe(Jeu jeu)
+void Boss3::capaciteSpe()
 {
 	capspe2.loadFromFile(".png");
 	bigBombe.setTexture(capspe2);

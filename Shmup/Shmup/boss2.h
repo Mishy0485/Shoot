@@ -18,13 +18,19 @@ public:
 	Texture capspe1;
 
 	Boss2(int x, int y, int v);
+	 
+	void tir(vector<Projectile*>& bulleta);
 
-	void tir(vector<Projectile*>& bulleta) override;
+	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet);
 
-	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) override;
-
-	void capaciteSpe(Jeu jeu) override;
+	void capaciteSpe();
 
 	void deplacementLaser(Projectile Bullet);
+
+	Sprite getSprite();
+
+	void textureChange();
+
+	void mouvement();
 };
 #endif
