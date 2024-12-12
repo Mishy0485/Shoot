@@ -28,7 +28,6 @@ public:
 
 	void tir(vector<Projectile*>& bulleta);
 
-	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet);
 
 	void capaciteSpe();
 };

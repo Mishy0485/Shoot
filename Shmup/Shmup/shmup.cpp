@@ -108,9 +108,24 @@ int main()
                 if (jeu.bulleta[i]->getSide()) {
                     jeu.bulleta[i]->fuse(true);
                 }
-                else if (!jeu.bulleta[i]->getSide()) {
+                else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType()==0) {
                     jeu.bulleta[i]->fuse(false);
-                } 
+                }
+
+                else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 1) {
+                    if (jeu.bulleta[i]->getPositionY() > 575 && !jeu.bulleta[i]->getSepState()) {
+                        jeu.bulleta[i]->separation(jeu.bulleta, *jeu.bulleta[i]);
+                        jeu.bulleta[i]->setSepState();
+                        cout << "split" << endl;
+                    }
+                    jeu.bulleta[i]->fuse(false);
+                }
+                else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 2) {
+                    jeu.bulleta[i]->fuse1(true);
+                }
+                else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 3) {
+                    jeu.bulleta[i]->fuse1(false);
+                }
             
                 if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {
                     delete jeu.bulleta[i];

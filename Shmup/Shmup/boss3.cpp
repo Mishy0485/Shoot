@@ -10,11 +10,6 @@ Boss3::Boss3(int x, int y, int v) : Ennemi(x, y, vie)
 
 void Boss3::tir(vector<Projectile*>& bulleta) {
 
-	bulleta.push_back(new Projectile(prince.getPosition().x, prince.getPosition().y, 20, 0, false));
-}
-
-void Boss3::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
-{
 	capsmpl2.loadFromFile(".png");
 	bombeRetard.setTexture(capsmpl2);
 	// sprite/texture pour explosion

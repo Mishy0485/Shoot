@@ -22,7 +22,6 @@ public:
 
 	void tir(vector<Projectile*>& bulleta) override;
 
-	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) override;
 
 	void capaciteSpe() override;
 

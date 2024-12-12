@@ -9,8 +9,16 @@ Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse
 	Bullety.rotate(180);
 }
 
-int Projectile::getPositionX() { return x; }
-int Projectile::getPositionY() { return y; }
+int Projectile::getPositionX() { return Bullety.getPosition().x; }
+int Projectile::getPositionY() { return Bullety.getPosition().y; }
+
+bool Projectile::getSepState() {
+	return separated;
+}
+
+void Projectile::setSepState() {
+	separated = true;
+}
 
 int Projectile::setPositionX(int n)
 {
@@ -21,6 +29,10 @@ int Projectile::setPositionX(int n)
 {
 	y = n;
 }*/
+
+int Projectile::getType() {
+	return type;
+}
 
 bool Projectile::getHitValue() {
 	return hit;
@@ -58,16 +70,14 @@ void Projectile::fuse(bool up) {
 
 void Projectile::fuse1(bool up) {
 	if (up)
-		Bullety.move(vitesse, -vitesse);
+		Bullety.move(vitesse, vitesse);
 	else
 		Bullety.move(-vitesse, vitesse);
 }
 
 void Projectile::separation(vector<Projectile*>& bulleta, Projectile bullet)
 {
-	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 0, false));
-	Bullety.move(vitesse, -vitesse);
+	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 2, false));
 
-	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 0, false));
-	Bullety.move(-vitesse, vitesse);
+	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 3, false));
 }

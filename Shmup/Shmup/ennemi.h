@@ -30,8 +30,6 @@ public:
 	virtual void mouvement() = 0;
 
 	virtual void tir(vector<Projectile*>& bulleta) = 0;
-
-	virtual void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) = 0;
 	
 	virtual void capaciteSpe() = 0;
 	

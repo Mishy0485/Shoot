@@ -42,10 +42,6 @@ void BaseEnnemi::textureChange() {
 	bEnnemisprite.setTexture(bEnnemiTextureHit);
 }
 
-void BaseEnnemi::capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) {
-	return;
-}
-
 void BaseEnnemi::capaciteSpe() {
 	return;
 }
