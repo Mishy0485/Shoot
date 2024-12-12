@@ -24,6 +24,9 @@ public:
 	int getPositionX();
 	int getPositionY();
 
+	int setPositionX(int n);
+	//int setPositionY(int n);
+
 	Projectile(int x, int y, int v, int t, bool s);
 
 	bool isOutOfScreen();
@@ -37,6 +40,8 @@ public:
 	void setHitValue(bool b);
 
 	void fuse(bool up);
+
+	void fuse1(bool up);
 
 	void separation(vector<Projectile*>& bulleta, Projectile bullet);
 };

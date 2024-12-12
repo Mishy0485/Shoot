@@ -6,18 +6,19 @@
 #include "ennemi.h"
 using namespace sf;
 
-class Boss2 : public Ennemi
+class Boss3 : public Ennemi
 {
 protected:
-	Sprite general;
-	Sprite laser_gen;
+	Sprite prince;
+	Sprite bombeRetard;
+	Sprite bigBombe;
 
 public:
-	Texture boss2;
-	Texture capsmpl1;
-	Texture capspe1;
+	Texture boss3;
+	Texture capsmpl2;
+	Texture capspe2;
 
-	Boss2(int x, int y, int v);
+	Boss3(int x, int y, int v);
 
 	void tir(vector<Projectile*>& bulleta) override;
 
@@ -25,6 +26,6 @@ public:
 
 	void capaciteSpe(Jeu jeu) override;
 
-	void deplacementLaser(Projectile Bullet);
 };
+
 #endif
