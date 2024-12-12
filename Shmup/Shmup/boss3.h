@@ -14,9 +14,6 @@ protected:
 public:
 	Texture boss3;
 
-	Clock clockinette;
-
-	int timeBomb;
 	int nbBomb;
 
 	Boss3(int x, int y, int v, int t, int s);
