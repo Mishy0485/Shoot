@@ -1,6 +1,6 @@
 #pragma once
-#ifndef BOSS2_H
-#define BOSS2_H
+#ifndef BOSS3_H
+#define BOSS3_H
 
 #include <SFML/Graphics.hpp>
 #include "ennemi.h"
@@ -22,9 +22,8 @@ public:
 
 	void tir(vector<Projectile*>& bulleta) override;
 
-	void capaciteSimple(vector<Projectile*>& bulleta, Projectile bullet) override;
 
-	void capaciteSpe(Jeu jeu) override;
+	void capaciteSpe() override;
 
 };
 

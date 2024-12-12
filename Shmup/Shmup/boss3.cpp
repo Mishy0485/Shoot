@@ -10,11 +10,6 @@ Boss3::Boss3(int x, int y, int v) : Ennemi(x, y, vie)
 
 void Boss3::tir(vector<Projectile*>& bulleta) {
 
-	bulleta.push_back(new Projectile(prince.getPosition().x, prince.getPosition().y, 20, 0, false));
-}
-
-void Boss3::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
-{
 	capsmpl2.loadFromFile(".png");
 	bombeRetard.setTexture(capsmpl2);
 
@@ -36,7 +31,7 @@ void Boss3::capaciteSimple(vector<Projectile*>& bulleta, Projectile Bullet)
 	// spawn partout aleatoirement sur la map? good
 }
 
-void Boss3::capaciteSpe(Jeu jeu)
+void Boss3::capaciteSpe()
 {
 	capspe2.loadFromFile(".png");
 	bigBombe.setTexture(capspe2);

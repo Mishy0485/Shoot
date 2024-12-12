@@ -16,6 +16,7 @@ protected:
 	Sprite Bullety;
 	bool hit = false;
 	bool playerSide;
+	bool separated = false;
 public:
 
 	Texture bullet;
@@ -27,11 +28,16 @@ public:
 	int setPositionX(int n);
 	//int setPositionY(int n);
 
+	bool getSepState();
+	void setSepState();
+
 	Projectile(int x, int y, int v, int t, bool s);
 
 	bool isOutOfScreen();
 
 	bool getSide();
+
+	int getType();
 
 	void setSide(bool b);
 
