@@ -36,10 +36,9 @@ void Boss2::deplacementLaser(Projectile Bullet)
 	}
 }
 
-
 void Boss2::capaciteSpe()
 {
-	//JespawnEnnemi(2,1);
+	//Jeu::spawnEnnemi(2,1);
 }
 
 Sprite Boss2::getSprite() {
