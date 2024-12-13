@@ -8,11 +8,10 @@
 #include "projectile.h"
 #include "ennemi.h"
 #include "avion.h"
+#include "vecteurEnnemi.h"
 
 using namespace std;
 using namespace sf;
-
-
 
 class Jeu 
 {
@@ -50,7 +49,6 @@ public:
 	void setBonusScreen(bool b);
 	bool getBonusScreen();
 
-	vector<Ennemi*> ennemis;
 	vector<Projectile*> bulleta;
 	void spawnEnnemi(int n, int type);
 

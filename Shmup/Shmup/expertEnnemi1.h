@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "ennemi.h"
+#include "vecteurEnnemi.h"
 using namespace sf;
 
 class ExpertEnnemi1 : public Ennemi {

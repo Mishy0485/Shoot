@@ -104,10 +104,10 @@ void Jeu::spawnEnnemi(int n, int type) {
 		}
 		switch (type)
 		{
-			case 0:ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
+			case 0: ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
 			case 1: cout << "A FAIRE"; break;
 			case 2: cout << "A FAIRE"; break;
-			case 3:ennemis.push_back(new Boss1(coordx, 100, 50, type, 1)); break;
+			case 3: ennemis.push_back(new Boss1(coordx, 100, 50, type, 1)); break;
 			//case 4:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
 		

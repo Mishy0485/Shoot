@@ -32,20 +32,22 @@ void BaseEnnemi::mouvement() {
 	}
 }
 
-void BaseEnnemi::tir(vector<Projectile*>& bulleta) {
-	{
-		bulleta.push_back(new Projectile(bEnnemisprite.getPosition().x + 100, bEnnemisprite.getPosition().y + 100, 10, 0, false));
-	}
+void BaseEnnemi::tir(vector<Projectile*>& bulleta) 
+{
+	bulleta.push_back(new Projectile(bEnnemisprite.getPosition().x + 100, bEnnemisprite.getPosition().y + 100, 10, 0, false));
 }
 
-void BaseEnnemi::textureChange() {
+void BaseEnnemi::textureChange() 
+{
 	bEnnemisprite.setTexture(bEnnemiTextureHit);
 }
 
-void BaseEnnemi::capaciteSpe() {
+void BaseEnnemi::capaciteSpe() 
+{
 	return;
 }
 
-Sprite& BaseEnnemi::getSpeSprite() {
+Sprite& BaseEnnemi::getSpeSprite() 
+{
 	return bEnnemisprite;
 }

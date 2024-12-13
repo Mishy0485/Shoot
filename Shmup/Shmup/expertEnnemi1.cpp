@@ -1,5 +1,7 @@
 #include"expertEnnemi1.h"
 
+
+
 ExpertEnnemi1::ExpertEnnemi1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 0, s)
 {
 	eEnnemi1Texture.loadFromFile("ennemi2.PNG");
@@ -15,9 +17,21 @@ Sprite ExpertEnnemi1::getSprite() {
 
 void ExpertEnnemi1::tir(vector<Projectile*>& bulleta)
 {
+	bulleta.push_back(new Projectile(eEnnemi1sprite.getPosition().x + 150, eEnnemi1sprite.getPosition().y + 100, 10, 0, false));
+
+	for (int i = 0; i < ennemis.size(); i++)
 	{
-		bulleta.push_back(new Projectile(eEnnemi1sprite.getPosition().x + 150, eEnnemi1sprite.getPosition().y + 100, 10, 0, false));
+		int x = ennemis[0]->getX();
+		int y = ennemis[0]->getY();
+
+		if (ennemis[i]->getX() < x && ennemis[i]->getY() < y)
+		{
+			x = ennemis[0]->getX();
+			y = ennemis[0]->getY();
+		}
 	}
+	// si le x < a ennemi : + au x et - si inverse
+	// pareil pour le y 
 }
 
 void ExpertEnnemi1::textureChange()
