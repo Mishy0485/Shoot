@@ -9,12 +9,17 @@ class Plane
 {
 private:
 	int x, y;
+	int tir_n = 1;
 	int vie;
-	int maxvie;
+	int maxvie = 100;
 	float vitesse;
 	Sprite Avion;
 
 public:
+
+	void setVitesse(float n);
+
+	void setTir(int n);
 
 	Texture piupiu;
 

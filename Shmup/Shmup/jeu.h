@@ -18,8 +18,14 @@ class Jeu
 {
 private:
 	bool game_over = false;
+	bool bonus_screen_bool = false;
 
 public:
+	RectangleShape powerup1;
+	RectangleShape powerup2;
+	
+	RectangleShape powerup3;
+
 	RectangleShape end;
 
 	Font police;
@@ -37,19 +43,24 @@ public:
 	void enTeteVague();
 	void enTeteBoss();
 
-	void setBool(bool b);
-	bool getBool();
+
+	void setGameOver(bool b);
+	bool getGameOver();
+
+	void setBonusScreen(bool b);
+	bool getBonusScreen();
+
 	vector<Ennemi*> ennemis;
 	vector<Projectile*> bulleta;
 	void spawnEnnemi(int n, int type);
 
-	void bonus_screen(int i);
-
+	void bonus_screen(int i, RenderWindow& window, Plane joueur);
 	bool isInCollisionPlane(Plane joueur, Projectile* currentBulleta);
 	bool isInCollisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	void collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	bool bottom(Projectile* currentBulleta);
 	void collisionPlane(Plane& joueur, Projectile* currentBulleta);
+
 };
 
 #endif
