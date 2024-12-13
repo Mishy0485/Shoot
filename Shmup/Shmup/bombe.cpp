@@ -1,4 +1,5 @@
 #include"bombe.h"
+#include"jeu.h"
 
 int coordx = rand() % 1900;
 int coordy = rand() % (1010 - 600 + 1);
@@ -10,32 +11,61 @@ Bombe::Bombe(int x, int y, int t, int v) : x(x), y(y), taille(t), vie(v) // tail
 	bombeRetard.setPosition(Vector2f(coordx, coordy));
 }
 
-void Bombe::setBombe(vector<Bombe*>& bombeRetard)
+void Bombe::setBombe(vector<Bombe*>& bombeRetard, bool small)
 {
-	bombeRetard.push_back(new Bombe(x, y, 40, 0));
+	if (small)
+	{
+		bombeRetard.push_back(new Bombe(x, y, 40, 0));
+	}
+	else
+	{
+		bombeRetard.push_back(new Bombe(x, y, 300, 0));
+	}
 }
 
 void Bombe::setExplosion(CircleShape bombeRetard)
 {
+	boom.loadFromFile("princeAlienTropMimi.png");
+	explosion.setTexture(boom);
+	explosion.setOrigin(Vector2f(bombeRetard.getOrigin().x, bombeRetard.getOrigin().y));
+	explosion.setPosition(Vector2f(bombeRetard.getPosition().x, bombeRetard.getPosition().y));
+}
+
+void Bombe::spawnBombeRetard()
+{
 	timeBomb = clockinette.getElapsedTime().asSeconds();
 
-	if (timeBomb >= 2)
+	while (nbBomb < 5)
 	{
-		boom.loadFromFile("princeAlienTropMimi.png");
-		explosion.setTexture(boom);
-		explosion.setOrigin(Vector2f(bombeRetard.getOrigin().x, bombeRetard.getOrigin().y));
-		explosion.setPosition(Vector2f(bombeRetard.getPosition().x, bombeRetard.getPosition().y));
+		if (timeBomb >= 2)
+		{ 
+			setBombe(bombeRetard, true); 
+		}
+		nbBomb++;
+		clockinette.restart();
+	}
+}
+
+void Bombe::sapwnBigBombe()
+{
+	timeBomb = clockinette.getElapsedTime().asSeconds();
+
+	if (timeBomb >= 15) 
+	{
+		setBombe(bombeRetard, false);
 	}
 	clockinette.restart();
 }
 
-void Bombe::collisionRetard(Plane joueur)
+bool Bombe::collisionRetard(Plane joueur)
 {
 	if (explosion.getGlobalBounds().intersects(joueur.getSprite().getGlobalBounds()))
 	{
-		joueur.degat(50);
-		delete(); // l'esplosion
-		delete(); // la bombe
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -43,6 +73,10 @@ bool Bombe::collisionOver(Plane joueur)
 {
 	if (explosion.getGlobalBounds().intersects(joueur.getSprite().getGlobalBounds()))
 	{
-		// arreter de draw + game over
+		return true;
+	}
+	else
+	{
+		return false; 
 	}
 }

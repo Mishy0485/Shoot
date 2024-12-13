@@ -138,7 +138,7 @@ void Jeu::collisionPlane(Plane& joueur, Projectile* currentBulleta)
 		currentBulleta->setHitValue(true);
 		if (joueur.getVie() < 1)
 		{
-			Jeu::setBool(true);
+			setBool(true);
 		}
 	}
 }

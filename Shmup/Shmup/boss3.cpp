@@ -1,4 +1,5 @@
 #include"boss3.h"
+#include"bombe.h"
 #include"jeu.h"
 
 Boss3::Boss3(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 5, s)
@@ -8,17 +9,15 @@ Boss3::Boss3(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 5, s)
 	prince.setPosition(x, y);
 }
 
-void Boss3::tir(vector<Projectile*>& bulleta)
+void Boss3::tir(vector<Projectile*> &buletta)
 {
-
 	while (nbBomb < 5)
 	{
-		// appeler le constructeur
+		Bombe::setBombe(vector<Bombe*>&bombeRetard, true);
 
 		nbBomb++;
 
 	}
-	// spawn new des qu'une a explosée ? good
 }
 
 void Boss3::capaciteSpe()
