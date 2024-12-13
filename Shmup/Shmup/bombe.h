@@ -15,7 +15,7 @@ protected:
 	int taille;
 	int vie;
 	Sprite explosion;
-	vector<Bombe*> &bombe;
+	vector<Bombe*>& bombeRetard;
 
 public:
 	Texture boom;
@@ -23,13 +23,17 @@ public:
 	Clock clockinette;
 
 	int timeBomb;
+	int nbBomb;
 
 	Bombe(int x, int y, int t, int v);
 
-	void setBombe(vector<Bombe*>& bombeRetard);
+	void setBombe(vector<Bombe*>& bombeRetard, bool small);
 	void setExplosion(CircleShape bombeRetard);
 
-	void collisionRetard(Plane joueur);
+	void spawnBombeRetard();
+	void sapwnBigBombe();
+
+	bool collisionRetard(Plane joueur);
 	bool collisionOver(Plane joueur);
 
 };
