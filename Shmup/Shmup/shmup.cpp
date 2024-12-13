@@ -37,7 +37,7 @@ int main()
 
     Jeu jeu;
     jeu.police.loadFromFile("Daydream.ttf");
-    Plane joueur(500, 500, 100, 10);
+    Plane joueur(500, 500, 10000, 10);
     barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
@@ -63,16 +63,22 @@ int main()
         }
 
         if (jeu.ennemis.size() == 0 && alldead == false) {
-            alldead = true;            
-            jeu.incrVague();
-            jeu.enTeteVague();
-            FloatRect textRect = jeu.vague.getLocalBounds();
-            jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
-            jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
-            rounddelay.restart();
+            if (jeu.nb_vagues == 3) {
+                jeu.setBonusScreen(true);
+                jeu.bonus_screen(0, window, joueur);
+            }
+            if (!jeu.getBonusScreen()) {
+                alldead = true;
+                jeu.incrVague();
+                jeu.enTeteVague();
+                FloatRect textRect = jeu.vague.getLocalBounds();
+                jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
+                jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
+                rounddelay.restart();
+            }
         }
         else if (alldead && rounddelayint >= 2000) {
-            if (jeu.nb_vagues == 1) {
+            if (jeu.nb_vagues == 3) {
                 jeu.spawnEnnemi(1, 3);
             }
             else {
@@ -85,7 +91,13 @@ int main()
 
         window.clear();
         window.draw(background);
-        if (!jeu.getBool()){
+
+        if (jeu.getBonusScreen()) {
+            window.draw(jeu.powerup1);
+            window.draw(jeu.powerup2);
+            window.draw(jeu.powerup3);
+        }
+        if (!jeu.getGameOver() && !jeu.getBonusScreen()){
             for (int i = 0; i < jeu.ennemis.size(); ) {
                 jeu.ennemis[i]->mouvement();
 
@@ -160,8 +172,8 @@ int main()
 
             if (joueur.getVie() < 1)
             {
-                jeu.setBool(true);
-
+                jeu.setGameOver(true);
+                cout << "mort" << endl;
             }
             joueur.deplacement();
 
@@ -172,7 +184,7 @@ int main()
             window.draw(barreDeVieOutline);
         }
         
-        if (jeu.getBool()) {
+        if (jeu.getGameOver()) {
 
             Texture fin;
             if (!fin.loadFromFile("game_over_final.png"))
@@ -189,6 +201,7 @@ int main()
         }
 
         window.display();
+        cout << jeu.nb_vagues << endl;
     }
 
     return 0;

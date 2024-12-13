@@ -62,12 +62,20 @@ void Jeu::enTeteBoss()
 	}
 }
 
-void Jeu::setBool(bool b){
+void Jeu::setGameOver(bool b){
 	game_over = b; 
 }
 
-bool Jeu::getBool() {
+bool Jeu::getGameOver() {
 	return game_over;
+}
+
+void Jeu::setBonusScreen(bool b) {
+	bonus_screen_bool = b;
+}
+
+bool Jeu::getBonusScreen() {
+	return bonus_screen_bool;
 }
 
 void Jeu::spawnEnnemi(int n, int type) {
@@ -99,13 +107,12 @@ void Jeu::spawnEnnemi(int n, int type) {
 			case 0:ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
 			case 1: cout << "A FAIRE"; break;
 			case 2: cout << "A FAIRE"; break;
-			case 3:ennemis.push_back(new Boss1(coordx, 100, 5000, type, 1)); break;
+			case 3:ennemis.push_back(new Boss1(coordx, 100, 50, type, 1)); break;
 			//case 4:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
 		
 	}
 }
-
 
 bool Jeu::isInCollisionPlane(Plane joueur, Projectile* currentBulleta)
 {
@@ -147,9 +154,35 @@ void Jeu::collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
 	}
 }
 
-//void Jeu::bonus_screen(int i) {
-//	RectangleShape powerup1;
-//	RectangleShape powerup2;
-//	RectangleShape powerup3;
-//	powerup1
-//}
+void Jeu::bonus_screen(int i, RenderWindow& window, Plane joueur) {
+	
+	powerup1.setFillColor(Color::White);
+	powerup1.setSize(Vector2f(150, 150));
+	powerup1.setPosition(100, 400);
+	
+	powerup2.setFillColor(Color::White);
+	powerup2.setSize(Vector2f(150, 150));
+	powerup2.setPosition(500, 400);
+	
+	powerup3.setFillColor(Color::White);
+	powerup3.setSize(Vector2f(150, 150));
+	powerup3.setPosition(900, 400);
+
+	if (Mouse::isButtonPressed(Mouse::Left)) {
+		if (powerup1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y)) {
+			joueur.setTir(1);
+
+			bonus_screen_bool = false;
+		}
+		if (powerup2.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y)) {
+			joueur.setMaxVie(50);
+
+			bonus_screen_bool = false;
+		}
+		if (powerup3.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y)) {
+			joueur.setVitesse(3);
+
+			bonus_screen_bool = false;
+		}
+	}
+}
