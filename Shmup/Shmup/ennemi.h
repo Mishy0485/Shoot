@@ -33,7 +33,7 @@ public:
 
 	Ennemi(int x, int y, int v, int t, int s);
 
-	virtual Sprite getSpeSprite() = 0;
+	virtual Sprite& getSpeSprite() = 0;
 
 	virtual Sprite getSprite() = 0;
 

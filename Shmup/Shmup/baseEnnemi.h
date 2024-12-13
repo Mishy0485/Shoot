@@ -23,7 +23,7 @@ public:
 
 	void tir(vector<Projectile*>& bulleta) override;
 
-	Sprite getSpeSprite();
+	Sprite& getSpeSprite();
 
 	void capaciteSpe();
 };

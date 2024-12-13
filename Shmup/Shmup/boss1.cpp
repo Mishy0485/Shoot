@@ -23,10 +23,15 @@ Sprite Boss1::getSprite() {
 
 void Boss1::capaciteSpe()
 {
-	capspe.loadFromFile("laser.png");
-	laser.setTexture(capspe);
+	srand(time(NULL));
+	if (!capspe1.loadFromFile("laser_transparent.png"))
+		cout << "erreur" << endl;
+	capspe2.loadFromFile("laser.png");
+	laser.setTexture(capspe1);
 	laser.setScale(3, 3);
-	laser.setPosition(0, 0);
+	spe = true;
+	int coordlaser = rand() % (1700 - 100 + 1);
+	laser.setPosition(coordlaser, 0);
 }
 
 void Boss1::mouvement() {
@@ -50,9 +55,9 @@ void Boss1::mouvement() {
 }
 
 void Boss1::textureChange() {
-	cout << "A FAIRE";
+		laser.setTexture(capspe2);
 }
 
-Sprite Boss1::getSpeSprite() {
+Sprite& Boss1::getSpeSprite() {
 	return laser;
 }

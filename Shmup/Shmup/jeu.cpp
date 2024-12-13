@@ -134,12 +134,8 @@ void Jeu::collisionPlane(Plane& joueur, Projectile* currentBulleta)
 {
 	if (isInCollisionPlane(joueur, currentBulleta))
 	{
-		joueur.degat(34);
+		joueur.setVie(-34);
 		currentBulleta->setHitValue(true);
-		if (joueur.getVie() < 1)
-		{
-			setBool(true);
-		}
 	}
 }
 
@@ -150,3 +146,10 @@ void Jeu::collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
 		ennemi->textureChange();
 	}
 }
+
+//void Jeu::bonus_screen(int i) {
+//	RectangleShape powerup1;
+//	RectangleShape powerup2;
+//	RectangleShape powerup3;
+//	powerup1
+//}

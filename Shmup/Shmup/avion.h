@@ -10,6 +10,7 @@ class Plane
 private:
 	int x, y;
 	int vie;
+	int maxvie;
 	float vitesse;
 	Sprite Avion;
 
@@ -19,7 +20,9 @@ public:
 
 	Plane(int posX, int posY, int v, float vit);
 	
-	void setVie(int n);
+	void setMaxVie(int n);
+
+	int getMaxVie();
 
 	int getVie();
 	Sprite getSprite() const;
@@ -27,7 +30,7 @@ public:
 	void deplacement();
 	void tir(vector<Projectile*>& bulleta);
 
-	void degat(int degats);
+	void setVie(int degats);
 
 };
 #endif

@@ -15,15 +15,15 @@ protected:
 
 public:
 	Texture boss1;
-	Texture capsmpl;
-	Texture capspe;
+	Texture capspe2;
+	Texture capspe1;
 
 
 	Boss1(int x, int y, int v, int t, int s);
 
 	Sprite getSprite();
 
-	Sprite getSpeSprite();
+	Sprite& getSpeSprite();
 
 	void mouvement();
 

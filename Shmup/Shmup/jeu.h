@@ -43,6 +43,8 @@ public:
 	vector<Projectile*> bulleta;
 	void spawnEnnemi(int n, int type);
 
+	void bonus_screen(int i);
+
 	bool isInCollisionPlane(Plane joueur, Projectile* currentBulleta);
 	bool isInCollisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	void collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
