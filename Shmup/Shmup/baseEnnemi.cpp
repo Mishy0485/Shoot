@@ -46,6 +46,6 @@ void BaseEnnemi::capaciteSpe() {
 	return;
 }
 
-Sprite BaseEnnemi::getSpeSprite() {
+Sprite& BaseEnnemi::getSpeSprite() {
 	return bEnnemisprite;
 }

@@ -37,9 +37,8 @@ int main()
 
     Jeu jeu;
     jeu.police.loadFromFile("Daydream.ttf");
-    Plane joueur(500, 500, 10000, 10);
-    barreDeVieOutline.setSize(Vector2f(joueur.getVie() * 4, 50));
-    srand(time(NULL));
+    Plane joueur(500, 500, 100, 10);
+    barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
     window.setFramerateLimit(60);
@@ -73,7 +72,7 @@ int main()
             rounddelay.restart();
         }
         else if (alldead && rounddelayint >= 2000) {
-            if (jeu.nb_vagues == 3) {
+            if (jeu.nb_vagues == 1) {
                 jeu.spawnEnnemi(1, 3);
             }
             else {
@@ -98,7 +97,7 @@ int main()
                 if (jeu.ennemis[i]->getType() == 3 && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
                     spedelay.restart();
                     jeu.ennemis[i]->capaciteSpe();
-                    jeu.ennemis[i]->spe = true;
+                    spedelayint = spedelay.getElapsedTime().asMilliseconds();
                 }
 
 
@@ -110,11 +109,16 @@ int main()
                     if (jeu.ennemis[i]->spe && jeu.ennemis[i]->getType() == 3){
                         if (spedelayint >= 5000 && jeu.ennemis[i]->spe) {
                             jeu.ennemis[i]->spe = false;
-                            cout << "done" << endl;
                         }
-                    if (joueur.getSprite().getGlobalBounds().intersects(jeu.ennemis[i]->getSpeSprite().getGlobalBounds()))
-                        joueur.degat(1);
-                    window.draw(jeu.ennemis[i]->getSpeSprite());
+                        window.draw(jeu.ennemis[i]->getSpeSprite());
+                        cout << jeu.ennemis[i]->getSpeSprite().getPosition().x << endl;
+                        if (spedelayint>=1500){
+                            jeu.ennemis[i]->textureChange();
+                            if (joueur.getSprite().getGlobalBounds().intersects(jeu.ennemis[i]->getSpeSprite().getGlobalBounds())){
+                        
+                                joueur.setVie(-1);
+                            }
+                        }
                     }
                     window.draw(jeu.ennemis[i]->getSprite());
                     i++;
@@ -153,6 +157,12 @@ int main()
                 }
                 window.draw(jeu.bulleta[i]->getSprite());
             }
+
+            if (joueur.getVie() < 1)
+            {
+                jeu.setBool(true);
+
+            }
             joueur.deplacement();
 
             window.draw(joueur.getSprite());
@@ -179,7 +189,6 @@ int main()
         }
 
         window.display();
-        cout << spedelayint << endl;
     }
 
     return 0;

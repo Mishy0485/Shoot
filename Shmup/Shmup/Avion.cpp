@@ -1,7 +1,7 @@
 #include "avion.h"
 
 
-	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
+	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), maxvie(v), vitesse(vit) 
 	{ 
 		piupiu.loadFromFile("plane.PNG");
 		Avion.setTexture(piupiu);
@@ -14,6 +14,10 @@
 
 	int Plane::getVie(){
 		return vie;
+	}
+
+	int Plane::getMaxVie() {
+		return maxvie;
 	}
 
 	void Plane::deplacement()
@@ -55,13 +59,13 @@
 		}
 	}
 
-	void Plane::setVie(int n) {
-		vie += n;
+	void Plane::setMaxVie(int n) {
+		maxvie += n;
 	}
 
-	void Plane::degat(int degats)
+	void Plane::setVie(int valeur)
 	{
-		vie -= degats;
+		vie += valeur;
 	}
 
 	void Plane::tir(vector<Projectile*>& bulleta)
