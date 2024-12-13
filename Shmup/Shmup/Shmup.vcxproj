@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="avancedEnnemi.cpp" />
     <ClCompile Include="avion.cpp" />
     <ClCompile Include="baseEnnemi.cpp" />
     <ClCompile Include="bombe.cpp" />
@@ -141,12 +142,15 @@
     <ClCompile Include="boss2.cpp" />
     <ClCompile Include="boss3.cpp" />
     <ClCompile Include="ennemi.cpp" />
+    <ClCompile Include="expertEnnemi1.cpp" />
+    <ClCompile Include="expertEnnemi2.cpp" />
     <ClCompile Include="jeu.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="projectile.cpp" />
     <ClCompile Include="shmup.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="avancedEnnemi.h" />
     <ClInclude Include="avion.h" />
     <ClInclude Include="baseEnnemi.h" />
     <ClInclude Include="bombe.h" />
@@ -154,6 +158,8 @@
     <ClInclude Include="boss2.h" />
     <ClInclude Include="boss3.h" />
     <ClInclude Include="ennemi.h" />
+    <ClInclude Include="expertEnnemi1.h" />
+    <ClInclude Include="expertEnnemi2.h" />
     <ClInclude Include="jeu.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="projectile.h" />

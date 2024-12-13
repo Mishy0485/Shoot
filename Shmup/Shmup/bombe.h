@@ -31,7 +31,7 @@ public:
 	void setExplosion(CircleShape bombeRetard);
 
 	void spawnBombeRetard();
-	void sapwnBigBombe();
+	void spawnBigBombe();
 
 	bool collisionRetard(Plane joueur);
 	bool collisionOver(Plane joueur);

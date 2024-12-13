@@ -46,7 +46,7 @@ void Bombe::spawnBombeRetard()
 	}
 }
 
-void Bombe::sapwnBigBombe()
+void Bombe::spawnBigBombe()
 {
 	timeBomb = clockinette.getElapsedTime().asSeconds();
 

@@ -11,13 +11,7 @@ Boss3::Boss3(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 5, s)
 
 void Boss3::tir(vector<Projectile*> &buletta)
 {
-	while (nbBomb < 5)
-	{
-		Bombe::setBombe(vector<Bombe*>&bombeRetard, true);
-
-		nbBomb++;
-
-	}
+	// Bombe::spawnBombeRetard()
 }
 
 void Boss3::capaciteSpe()
