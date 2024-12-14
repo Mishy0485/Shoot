@@ -18,4 +18,4 @@ void Boss3::capaciteSpe()
 {
 	// spawn aleatoirement sur la map good
 	// taille de la bombe? 300x300 ? good
-}
+} 

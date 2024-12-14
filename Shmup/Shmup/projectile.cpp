@@ -22,13 +22,13 @@ void Projectile::setSepState() {
 
 int Projectile::setPositionX(int n)
 {
-	x = n;
+	x += n;
 }
 
-/*int Projectile::setPositionY(int n)
+int Projectile::setPositionY(int n)
 {
-	y = n;
-}*/
+	y += n;
+}
 
 int Projectile::getType() {
 	return type;

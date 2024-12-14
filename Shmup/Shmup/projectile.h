@@ -26,7 +26,7 @@ public:
 	int getPositionY();
 
 	int setPositionX(int n);
-	//int setPositionY(int n);
+	int setPositionY(int n);
 
 	bool getSepState();
 	void setSepState();

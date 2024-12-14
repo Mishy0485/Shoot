@@ -2,6 +2,7 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include"regles.h"
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
@@ -20,8 +21,20 @@ public:
 
 	Event event;
 
+	RectangleShape play;
+	RectangleShape regle;
+	RectangleShape parametre;
+	RectangleShape quitter;
+
+	Mouse mouse;
+
 	void setMenu();
 	bool isClick();
+
+	void pressButtonPlay();
+	void pressButtonRegle();
+	void pressButtonParametre();
+	void pressButtonQuitter();
 };
 
 #endif
