@@ -2,7 +2,7 @@
 
 void Menu::setMenu()
 {
-	RectangleShape menu(Vector2f(1920.f, 1080.f));
+	menu.setSize(Vector2f(1920.f, 1080.f));
 	menu.setTexture(&fond_menu);
 
 	font.loadFromFile("Daydream.ttf");
@@ -44,6 +44,7 @@ void Menu::pressButtonPlay()
 	if (isClick && 860 < mouse.getPosition().x < 1060 && 540 < mouse.getPosition().y < 620 )
 	{
 		// debut du jeu
+		// bool jouer ou draw ?
 	}
 }
 
@@ -61,12 +62,58 @@ void Menu::pressButtonParametre()
 	if (isClick && 860 < mouse.getPosition().x < 1060 && 766 < mouse.getPosition().y < 846)
 	{
 		// afficher les parametres 
-		// RectangleShape para(Vector2f(500,800))
-		// para.setFillColor(Color::Black))
-		// RectangleShape button(Vector2f(40,20)) // load la texture
+		
+		// RectangleShape para(Vector2f(500,800));
+		// para.setFillColor(Color::Black));
+		
+		// createButton(x, y);
+		// createButton(x, y);
+		
+		// music de fond on/off (booleen)                                    ?? BAISSER LE SON GENERAL ( curseur ) ??
+		
+		// if ( isClick && < mouse.getPosition().x < && < mouse.getPosition().x < )
+		// {
+		//		onoff(onOffM, false);
+		// }
 		// 
-		// music de fond on/off (booleen)                                      BAISSER LE SON GENERAL ( curseur )
 		// son des explosions? on/off (booleen) 
+		// 
+		// if (isClick && < mouse.getPosition().x < && < mouse.getPosition().x < )
+		// {
+		//		onoff(onOffS, false);
+		// }
+	}
+}
+
+void createbutton(int x, int y)
+{
+	// buttonPara.loadfromFill("button-on-off");
+	// buttonPara.setSize(Vector2f(50,20)); 
+	// Para.settexture(&buttonPara);
+	// button.setPosition(Vector2f(x, y));
+	
+	// CircleShape curseur(12);
+	// curseur.setFillColor(Color::White)
+	// curseur.setPosition(Vector2f(x + 26 , y + 26))
+}
+
+void Menu::onOff(Text text, bool on)
+{
+	if (on)
+	{
+		// musique ou son
+		
+		// text = on
+		// text.setString("ON")
+		// curseur.setPosition(Vector2f(?,?)
+	}
+	else
+	{
+		// pas musique ou son
+		
+		// text = off 
+		// text.setString("OFF")
+		// curseur.setPosition(Vector2f(?,?)
 	}
 }
 
@@ -74,6 +121,7 @@ void Menu::pressButtonQuitter()
 {
 	if (isClick && 860 < mouse.getPosition().x < 1060 && 875 < mouse.getPosition().y < 955)
 	{
-		// fermer la fenetre (window.close())
+		// fermer la fenetre 
+		// window.close()
 	}
 }

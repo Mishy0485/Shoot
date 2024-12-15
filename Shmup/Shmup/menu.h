@@ -16,17 +16,25 @@ public:
 	Texture button3;
 	Texture button4;
 
+	// Texture buttonPara;
+
 	Text titre;
 	Font font;
 
+	// Text onOffM;
+	// Text onOffS;
+
 	Event event;
 
+	RectangleShape menu;
 	RectangleShape play;
 	RectangleShape regle;
 	RectangleShape parametre;
 	RectangleShape quitter;
 
 	Mouse mouse;
+
+	void onOff(Text text, bool on);
 
 	void setMenu();
 	bool isClick();
