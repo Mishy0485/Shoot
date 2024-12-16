@@ -16,22 +16,29 @@ public:
 	Texture button3;
 	Texture button4;
 
-	// Texture buttonPara;
-
 	Text titre;
 	Font font;
 
-	// Text onOffM;
-	// Text onOffS;
+	Text parametreAffichage;
+
+	Text son;
+	Text FX;
+
+	Text onOffM;
+	Text onOffS;
 
 	Event event;
 
+	RectangleShape Para;
 	RectangleShape menu;
 	RectangleShape play;
 	RectangleShape regle;
 	RectangleShape parametre;
+	RectangleShape fenetrePara;
+	RectangleShape Para;
 	RectangleShape quitter;
-
+	CircleShape control;
+	
 	Mouse mouse;
 
 	void onOff(Text text, bool on);
@@ -39,10 +46,12 @@ public:
 	void setMenu();
 	bool isClick();
 
+	void createButton(int x, int y);
+
 	void pressButtonPlay();
 	void pressButtonRegle();
 	void pressButtonParametre();
-	void pressButtonQuitter();
+	void pressButtonQuitter(RenderWindow window);
 };
 
 #endif

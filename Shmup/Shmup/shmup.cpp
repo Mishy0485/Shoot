@@ -56,7 +56,6 @@ int main()
         {
             if (event.type == Event::Closed)
                 window.close();
-            
         }
         
         if (Keyboard::isKeyPressed(Keyboard::Space) && shootdelayint >= 200) {
