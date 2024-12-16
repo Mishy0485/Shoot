@@ -2,7 +2,7 @@
 
 void reglesDejeu()
 {
-	/*	COMMENT JOUER :
+		/*COMMENT JOUER :
 
 		Contrôle du vaisseau :
 			
@@ -44,7 +44,5 @@ void reglesDejeu()
 				
 				. Permet de creer son propre niveau en melangeant les ennemis et boss du jeu 
 
-	// voir pour scroller ou pas
+	// voir pour scroller ou pas*/
 }
-
-*/ 

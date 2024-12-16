@@ -81,7 +81,7 @@ void Menu::pressButtonParametre()
 		
 		// music de fond on/off (booleen)
 		
-		if ( isClick && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
+		if ( isClick() && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
 		{
 			onOff(onOffM, false);
 			// musique plus : ajout musique
@@ -89,7 +89,7 @@ void Menu::pressButtonParametre()
 		 
 		// son des explosions? on/off (booleen) 
 		
-		if (isClick && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
+		if (isClick() && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
 		{
 			onOff(onOffS, false);
 			// son plus : ajout effets
