@@ -2,7 +2,7 @@
 
 
 
-	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), vitesse(vit) 
+	Plane::Plane(int posX, int posY, int v, float vit) : x(posX), y(posY), vie(v), maxvie(v), vitesse(vit)
 	{ 
 		piupiu.loadFromFile("plane.PNG");
 		Avion.setTexture(piupiu);

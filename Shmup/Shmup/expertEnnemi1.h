@@ -4,7 +4,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "ennemi.h"
-#include "vecteurEnnemi.h"
 using namespace sf;
 
 class ExpertEnnemi1 : public Ennemi {
@@ -18,11 +17,11 @@ public:
 
 	void textureChange() override;
 
-	void mouvement() override;
+	//void mouvement() override;
 
 	ExpertEnnemi1(int x, int y, int v, int t, int s);
 
-	void tir(vector<Projectile*>& bulleta) override;
+	void tir(vector<Projectile*> bulleta, vector<Ennemi*> ennemis);
 
 	Sprite& getSpeSprite();
 

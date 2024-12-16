@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
-#include "avion.h"
-#include "projectile.h"
+//#include "avion.h"
+//#include "projectile.h"
 #include <ctime>
 #include <iostream>
 
@@ -38,12 +38,13 @@ int main()
 
     Jeu jeu;
     jeu.police.loadFromFile("Daydream.ttf");
-    Plane joueur(500, 500, 10000, 10);
-    barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
+    Plane joueur(500, 500, 100, 10);
+    
     RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
     window.setFramerateLimit(60);
     while (window.isOpen()) {
+        barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
         int shootdelayint = shootdelayPlayer.getElapsedTime().asMilliseconds();
         int shootdelayint2 = shootdelayEnnemi.getElapsedTime().asSeconds();
         int rounddelayint = rounddelay.getElapsedTime().asMilliseconds();
@@ -62,7 +63,8 @@ int main()
                     shootdelayPlayer.restart();
         }
 
-        if (ennemis.size() == 0 && alldead == false) {
+        if (jeu.ennemis.size() == 0 && alldead == false) {
+            jeu.bulleta.clear();
             if (jeu.nb_vagues == 3) {
                 jeu.setBonusScreen(true);
                 jeu.bonus_screen(0, window, joueur);
@@ -98,41 +100,40 @@ int main()
             window.draw(jeu.powerup3);
         }
         if (!jeu.getGameOver() && !jeu.getBonusScreen()){
-            for (int i = 0; i < ennemis.size(); ) {
-                ennemis[i]->mouvement();
+            for (int i = 0; i < jeu.ennemis.size(); ) {
+                jeu.ennemis[i]->mouvement();
 
-                if (shootdelayint2 >= ennemis[i]->getASpeed()) {
-                    ennemis[i]->tir(jeu.bulleta);
+                if (shootdelayint2 >= jeu.ennemis[i]->getASpeed()) {
+                    jeu.ennemis[i]->tir(jeu.bulleta);
                     shootdelayEnnemi.restart();
                 }
 
-                if (ennemis[i]->getType() == 3 && spedelayint >= 10000 && !ennemis[i]->spe) {
+                if (jeu.ennemis[i]->getType() == 3 && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
                     spedelay.restart();
-                    ennemis[i]->capaciteSpe();
+                    jeu.ennemis[i]->capaciteSpe();
                     spedelayint = spedelay.getElapsedTime().asMilliseconds();
                 }
 
 
-                if (ennemis[i]->EstMort()) {
-                    delete ennemis[i];
-                    ennemis.erase(ennemis.begin() + i);
+                if (jeu.ennemis[i]->EstMort()) {
+                    delete jeu.ennemis[i];
+                    jeu.ennemis.erase(jeu.ennemis.begin() + i);
                 }
                 else {
-                    if (ennemis[i]->spe && ennemis[i]->getType() == 3){
-                        if (spedelayint >= 5000 && ennemis[i]->spe) {
-                            ennemis[i]->spe = false;
+                    if (jeu.ennemis[i]->spe && jeu.ennemis[i]->getType() == 3){
+                        if (spedelayint >= 5000 && jeu.ennemis[i]->spe) {
+                            jeu.ennemis[i]->spe = false;
                         }
-                        window.draw(ennemis[i]->getSpeSprite());
-                        cout << ennemis[i]->getSpeSprite().getPosition().x << endl;
+                        window.draw(jeu.ennemis[i]->getSpeSprite());
                         if (spedelayint>=1500){
-                            ennemis[i]->textureChange();
-                            if (joueur.getSprite().getGlobalBounds().intersects(ennemis[i]->getSpeSprite().getGlobalBounds())){
+                            jeu.ennemis[i]->textureChange();
+                            if (joueur.getSprite().getGlobalBounds().intersects(jeu.ennemis[i]->getSpeSprite().getGlobalBounds())){
                         
                                 joueur.setVie(-1);
                             }
                         }
                     }
-                    window.draw(ennemis[i]->getSprite());
+                    window.draw(jeu.ennemis[i]->getSprite());
                     i++;
                 }
             }
@@ -164,8 +165,8 @@ int main()
                     delete jeu.bulleta[i];
                     jeu.bulleta.erase(jeu.bulleta.begin() + i);
                 }
-                for (int j = 0; j < ennemis.size(); j++) {
-                    jeu.collisionEnnemi(ennemis[j], jeu.bulleta[i]);
+                for (int j = 0; j < jeu.ennemis.size(); j++) {
+                    jeu.collisionEnnemi(jeu.ennemis[j], jeu.bulleta[i]);
                 }
                 window.draw(jeu.bulleta[i]->getSprite());
             }
@@ -201,7 +202,7 @@ int main()
         }
 
         window.display();
-        cout << jeu.nb_vagues << endl;
+        cout << joueur.getVie() << endl;
     }
 
     return 0;

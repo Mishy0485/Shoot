@@ -41,7 +41,7 @@ bool Menu::isClick()
 
 void Menu::pressButtonPlay()
 {
-	if (isClick && 860 < mouse.getPosition().x < 1060 && 540 < mouse.getPosition().y < 620 )
+	if (isClick() && 860 < mouse.getPosition().x < 1060 && 540 < mouse.getPosition().y < 620)
 	{
 		// debut du jeu
 		// bool jouer ou draw ?
@@ -50,7 +50,7 @@ void Menu::pressButtonPlay()
 
 void Menu::pressButtonRegle()
 {
-	if (isClick && 860 < mouse.getPosition().x < 1060 && 653 < mouse.getPosition().y < 733)
+	if (isClick() && 860 < mouse.getPosition().x < 1060 && 653 < mouse.getPosition().y < 733)
 	{
 		// apparition des regles ( ajout d'un fichier )
 		reglesDejeu();
@@ -59,7 +59,7 @@ void Menu::pressButtonRegle()
 
 void Menu::pressButtonParametre()
 {
-	if (isClick && 860 < mouse.getPosition().x < 1060 && 766 < mouse.getPosition().y < 846)
+	if (isClick() && 860 < mouse.getPosition().x < 1060 && 766 < mouse.getPosition().y < 846)
 	{
 		// afficher les parametres 
 		
@@ -81,7 +81,7 @@ void Menu::pressButtonParametre()
 		
 		// music de fond on/off (booleen)
 		
-		if ( isClick && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
+		if ( isClick() && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
 		{
 			onOff(onOffM, false);
 			// musique plus : ajout musique
@@ -89,7 +89,7 @@ void Menu::pressButtonParametre()
 		 
 		// son des explosions? on/off (booleen) 
 		
-		if (isClick && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
+		if (isClick() && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
 		{
 			onOff(onOffS, false);
 			// son plus : ajout effets
@@ -129,7 +129,7 @@ void Menu::onOff(Text text, bool on)
 
 void Menu::pressButtonQuitter(RenderWindow window)
 {
-	if (isClick && 860 < mouse.getPosition().x < 1060 && 875 < mouse.getPosition().y < 955)
+	if (isClick() && 860 < mouse.getPosition().x < 1060 && 875 < mouse.getPosition().y < 955)
 	{
 		// fermer la fenetre
 		

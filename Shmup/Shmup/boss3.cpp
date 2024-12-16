@@ -1,6 +1,6 @@
 #include"boss3.h"
 #include"bombe.h"
-#include"jeu.h"
+//#include"jeu.h"
 
 Boss3::Boss3(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 5, s)
 {

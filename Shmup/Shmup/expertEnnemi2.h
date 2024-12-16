@@ -17,7 +17,7 @@ public:
 
 	void textureChange() override;
 
-	void mouvement() override;
+	//void mouvement() override;
 
 	ExpertEnnemi2(int x, int y, int v, int t, int s);
 

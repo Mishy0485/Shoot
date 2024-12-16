@@ -2,6 +2,7 @@
 #ifndef avion_H
 #define avion_H
 #include "projectile.h"
+#include <iostream>s
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
@@ -9,7 +10,7 @@ class Plane
 {
 private:
 	int x, y;
-	int tir_n = 1;
+
 	int vie;
 	int maxvie = 100;
 	float vitesse;
@@ -17,6 +18,8 @@ private:
 
 public:
 
+	int tir_n = 1;
+	
 	void setVitesse(float n);
 
 	void setTir(int n);

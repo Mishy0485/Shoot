@@ -35,7 +35,7 @@ public:
 	RectangleShape regle;
 	RectangleShape parametre;
 	RectangleShape fenetrePara;
-	RectangleShape Para;
+	RectangleShape Param;
 	RectangleShape quitter;
 	CircleShape control;
 	
