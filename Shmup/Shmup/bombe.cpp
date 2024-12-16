@@ -1,5 +1,5 @@
 #include"bombe.h"
-#include"jeu.h"
+//#include"jeu.h"
 
 int coordx = rand() % 1900;
 int coordy = rand() % (1010 - 600 + 1);
@@ -11,7 +11,7 @@ Bombe::Bombe(int x, int y, int t, int v) : x(x), y(y), taille(t), vie(v) // tail
 	bombeRetard.setPosition(Vector2f(coordx, coordy));
 }
 
-void Bombe::setBombe(vector<Bombe*>& bombeRetard, bool small)
+void Bombe::setBombe(vector<Bombe*> bombeRetard, bool small)
 {
 	if (small)
 	{

@@ -3,7 +3,6 @@
 #define BOMBE_H
 
 #include <SFML/Graphics.hpp>
-#include "ennemi.h"
 #include"avion.h"
 
 using namespace sf;
@@ -15,7 +14,7 @@ protected:
 	int taille;
 	int vie;
 	Sprite explosion;
-	vector<Bombe*>& bombeRetard;
+	vector<Bombe*> bombeRetard;
 
 public:
 	Texture boom;
@@ -27,7 +26,7 @@ public:
 
 	Bombe(int x, int y, int t, int v);
 
-	void setBombe(vector<Bombe*>& bombeRetard, bool small);
+	void setBombe(vector<Bombe*> bombeRetard, bool small);
 	void setExplosion(CircleShape bombeRetard);
 
 	void spawnBombeRetard();

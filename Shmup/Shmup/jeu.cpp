@@ -154,35 +154,42 @@ void Jeu::collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta) {
 	}
 }
 
-void Jeu::bonus_screen(int i, RenderWindow& window, Plane joueur) {
+void Jeu::bonus_screen(int i, RenderWindow& window, Plane& joueur) {
+
+	powerup1_t.loadFromFile("powerup1.png");
+	powerup2_t.loadFromFile("powerup2.png");
+	powerup3_t.loadFromFile("powerup3.png");
+	powerup1.setRadius(130);
+	powerup1.setOrigin(65, 65);
+	powerup1.setPosition(300, 500);
+	powerup1.setTexture(&powerup1_t);
 	
-	powerup1.setFillColor(Color::White);
-	powerup1.setSize(Vector2f(150, 150));
-	powerup1.setPosition(100, 400);
+	powerup2.setRadius(130);
+	powerup2.setOrigin(65, 65);
+	powerup2.setPosition(900, 500);
+	powerup2.setTexture(&powerup2_t);
 	
-	powerup2.setFillColor(Color::White);
-	powerup2.setSize(Vector2f(150, 150));
-	powerup2.setPosition(500, 400);
-	
-	powerup3.setFillColor(Color::White);
-	powerup3.setSize(Vector2f(150, 150));
-	powerup3.setPosition(900, 400);
+	powerup3.setOrigin(65, 65);
+	powerup3.setRadius(130);
+	powerup3.setPosition(1500, 500);
+	powerup3.setTexture(&powerup3_t);
 
 	if (Mouse::isButtonPressed(Mouse::Left)) {
 		if (powerup1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y)) {
 			joueur.setTir(1);
-
+			joueur.setVie(joueur.getMaxVie()-joueur.getVie());
 			bonus_screen_bool = false;
 		}
 		if (powerup2.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y)) {
 			joueur.setMaxVie(50);
-
+			joueur.setVie(joueur.getMaxVie() - joueur.getVie());
 			bonus_screen_bool = false;
 		}
 		if (powerup3.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y)) {
 			joueur.setVitesse(3);
-
+			joueur.setVie(joueur.getMaxVie() - joueur.getVie());
 			bonus_screen_bool = false;
 		}
+
 	}
 }
