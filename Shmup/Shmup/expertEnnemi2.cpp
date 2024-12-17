@@ -1,6 +1,6 @@
 #include"expertEnnemi2.h"
 
-ExpertEnnemi2::ExpertEnnemi2(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 0, s)
+ExpertEnnemi2::ExpertEnnemi2(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 0, s, 500)
 {
 	eEnnemi2Texture.loadFromFile("ennemi2.PNG");
 	eEnnemi2TextureHit.loadFromFile("ennemi2_hit.png");

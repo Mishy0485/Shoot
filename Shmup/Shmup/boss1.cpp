@@ -1,6 +1,6 @@
 #include "boss1.h"
 
-Boss1::Boss1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 3, s)
+Boss1::Boss1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 3, s, 2000)
 {
 	
 	boss1.loadFromFile("boss1.png");

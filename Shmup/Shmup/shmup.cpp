@@ -13,6 +13,7 @@ bool close = false;
 int main()
 {
         srand(time(NULL));
+        Clock scoring;
         Clock shootdelayPlayer;
         Clock shootdelayEnnemi;
         Clock spedelay;
@@ -53,6 +54,7 @@ int main()
         window.setFramerateLimit(60);
         while (window.isOpen()) {
             barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
+            int scoringint = scoring.getElapsedTime().asMilliseconds();
             int shootdelayint = shootdelayPlayer.getElapsedTime().asMilliseconds();
             int shootdelayint2 = shootdelayEnnemi.getElapsedTime().asSeconds();
             int rounddelayint = rounddelay.getElapsedTime().asMilliseconds();
@@ -92,10 +94,13 @@ int main()
                         FloatRect textRect = jeu.vague.getLocalBounds();
                         jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
                         jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
+                        if (jeu.nb_vagues != 1)
+                            jeu.score += 20000 - scoringint;
                         rounddelay.restart();
                     }
                 }
                 else if (alldead && rounddelayint >= 2000) {
+                    scoring.restart();
                     jeu.manage_vague();
                     jeu.vague.setPosition(200, 50);
                     alldead = false;
@@ -132,6 +137,7 @@ int main()
 
 
                         if (jeu.ennemis[i]->EstMort()) {
+                            jeu.score += jeu.ennemis[i]->getPoint();
                             delete jeu.ennemis[i];
                             jeu.ennemis.erase(jeu.ennemis.begin() + i);
                         }

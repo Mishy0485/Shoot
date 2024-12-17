@@ -1,6 +1,6 @@
 #include"boss2.h"
 
-Boss2::Boss2(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 4, s)
+Boss2::Boss2(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 4, s, 3000)
 {
 	boss2.loadFromFile("boss2.png");
 	general.setTexture(boss2);

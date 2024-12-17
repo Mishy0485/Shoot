@@ -19,6 +19,9 @@ private:
 	bool bonus_screen_bool = false;
 
 public:
+
+	int score = 0;
+
 	Texture powerup1_t;
 	Texture powerup2_t;
 	Texture powerup3_t;
@@ -30,6 +33,8 @@ public:
 	RectangleShape end;
 
 	Font police;
+
+	Text score_aff;
 
 	Text vague;
 

@@ -1,6 +1,6 @@
 #include "baseEnnemi.h"
 
-BaseEnnemi::BaseEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y , v, 0, s) {
+BaseEnnemi::BaseEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y , v, 0, s, 100) {
 	bEnnemiTexture.loadFromFile("ennemi1.PNG");
 	bEnnemiTextureHit.loadFromFile("ennemi1_hit.png");
 	bEnnemisprite.setTexture(bEnnemiTexture);

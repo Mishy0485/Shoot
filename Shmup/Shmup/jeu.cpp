@@ -83,7 +83,7 @@ void Jeu::spawnEnnemi(int n, int type) {
 	for (int i = 0; i < n; i++) {
 		int coordx, coordy, speed;
 		bool spawnPossible = false;
-
+		speed = 1;
 		while (!spawnPossible) {
 			coordx = rand() % 1900;
 			coordy = rand() % (400 - 100 + 1);
@@ -105,11 +105,11 @@ void Jeu::spawnEnnemi(int n, int type) {
 		}
 		switch (type)
 		{
-			case 0: ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
-			case 1: ennemis.push_back(new AdvancedEnnemi(coordx, coordy, 200, type, 1)); break;
-			//case 2: ennemis.push_back(new Boss2(coordx, coordy - 150, 1000, type, 1)); break;
-			case 3: ennemis.push_back(new Boss1(coordx, 100, 50, type, 1)); break;
-			case 4:ennemis.push_back(new Boss2(coordx, coordy -100, 1000, type, 1)); break;
+			case 0: ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, speed)); break;
+			case 1: ennemis.push_back(new AdvancedEnnemi(coordx, coordy, 200, type, speed)); break;
+			//case 2: ennemis.push_back(new Boss2(coordx, coordy - 150, 1000, type, speed)); break;
+			case 3: ennemis.push_back(new Boss1(coordx, 100, 2000, type, speed)); break;
+			case 4:ennemis.push_back(new Boss2(coordx, coordy -100, 3000, type, speed)); break;
 		}
 		
 	}
