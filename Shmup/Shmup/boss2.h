@@ -4,7 +4,9 @@
 
 #include <SFML/Graphics.hpp>
 #include "ennemi.h"
+#include"avancedEnnemi.h"
 using namespace sf;
+
 
 class Boss2 : public Ennemi
 {
@@ -19,7 +21,7 @@ public:
 
 	Boss2(int x, int y, int v, int t, int s);
 	 
-	void tir(vector<Projectile*>& bulleta);
+	void tir(vector<Projectile*> bulleta);
 
 	void capaciteSpe();
 

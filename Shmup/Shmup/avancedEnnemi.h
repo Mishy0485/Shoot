@@ -6,7 +6,7 @@
 #include "ennemi.h"
 using namespace sf;
 
-class AvancedEnnemi : public Ennemi {
+class AdvancedEnnemi : public Ennemi {
 private:
 	Texture aEnnemiTexture;
 	Texture aEnnemiTextureHit;
@@ -19,9 +19,9 @@ public:
 
 	void mouvement() override;
 
-	AvancedEnnemi(int x, int y, int v, int t, int s);
+	AdvancedEnnemi(int x, int y, int v, int t, int s);
 
-	void tir(vector<Projectile*>& bulleta) override;
+	void tir(vector<Projectile*> bulleta) override;
 
 	Sprite& getSpeSprite();
 

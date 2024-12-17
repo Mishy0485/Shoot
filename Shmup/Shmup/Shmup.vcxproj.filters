@@ -57,7 +57,7 @@
     <ClCompile Include="expertEnnemi2.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="vecteurEnnemi.cpp">
+    <ClCompile Include="regles.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +101,7 @@
     <ClInclude Include="expertEnnemi2.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="vecteurEnnemi.h">
+    <ClInclude Include="regles.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
