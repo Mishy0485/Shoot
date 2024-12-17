@@ -1,12 +1,13 @@
 #include "AvancedEnnemi.h"
 
-AvancedEnnemi::AvancedEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y , v, 0, s) 
+AvancedEnnemi::AvancedEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y , v, 1, s) 
 {
 	aEnnemiTexture.loadFromFile("ennemi2.PNG");
 	aEnnemiTextureHit.loadFromFile("ennemi2_hit.png");
 	aEnnemisprite.setTexture(aEnnemiTexture);
 	aEnnemisprite.setScale(5, 5);
 	aEnnemisprite.setPosition(x, y);
+	aEnnemisprite.rotate(90);
 }
 
 Sprite AvancedEnnemi::getSprite() {
@@ -15,8 +16,7 @@ Sprite AvancedEnnemi::getSprite() {
 
 void AvancedEnnemi::mouvement() 
 {
-	/*bool direction;
-	
+	/*
 	if (direction)
 	{
 		aEnnemisprite.move(Vector2f(5, 0));
@@ -24,9 +24,9 @@ void AvancedEnnemi::mouvement()
 	else
 	{
 		aEnnemisprite.move(Vector2f(-5, 0));
-	}*/
-
-	/*x = aEnnemisprite.getPosition().x;
+	}
+*/
+	x = aEnnemisprite.getPosition().x;
 	if (droite) {
 		if (x >= 1700) {
 			droite = false;
@@ -42,7 +42,7 @@ void AvancedEnnemi::mouvement()
 		else {
 			aEnnemisprite.move(Vector2f(-5, 0));
 		}
-	}*/
+	}
 }
 
 void AvancedEnnemi::tir(vector<Projectile*>& bulleta) 
