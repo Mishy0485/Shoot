@@ -29,6 +29,10 @@ void Menu::setMenu()
 	quitter.setPosition(Vector2f(860.f, 879.f));
 }
 
+
+
+
+
 bool Menu::isClick()
 {
 	if (Event::MouseButtonPressed)
@@ -39,63 +43,48 @@ bool Menu::isClick()
 		return false;
 }
 
-void Menu::pressButtonPlay()
+
+
+
+
+bool Menu::pressButtonPlay(bool play)
 {
 	if (isClick() && 860 < mouse.getPosition().x < 1060 && 540 < mouse.getPosition().y < 620)
 	{
-		// debut du jeu
-		// bool jouer ou draw ?
+		return true;
 	}
+	return false;
 }
 
-void Menu::pressButtonRegle()
+
+
+
+
+bool Menu::pressButtonRegle()
 {
 	if (isClick() && 860 < mouse.getPosition().x < 1060 && 653 < mouse.getPosition().y < 733)
 	{
-		// apparition des regles ( ajout d'un fichier )
-		reglesDejeu();
+		return true;
 	}
+	return false;
 }
 
-void Menu::pressButtonParametre()
+
+
+
+
+bool Menu::pressButtonParametre()
 {
 	if (isClick() && 860 < mouse.getPosition().x < 1060 && 766 < mouse.getPosition().y < 846)
 	{
-		// afficher les parametres 
-		
-		fenetrePara.setSize(Vector2f(500,800));
-		fenetrePara.setFillColor(Color::Black);
-		fenetrePara.setPosition(710, 140);
-
-		parametreAffichage.setString(" Parametre ");
-		parametreAffichage.setPosition(Vector2f(876, 190));
-
-		son.setString(" SON ");
-		son.setPosition(Vector2f(720, 435));
-
-		FX.setString(" FX ");
-		FX.setPosition(Vector2f(720, 535));
-
-		createButton(780, 440);
-		createButton(780, 540);
-		
-		// music de fond on/off (booleen)
-		
-		if ( isClick() && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
-		{
-			onOff(onOffM, false);
-			// musique plus : ajout musique
-		}
-		 
-		// son des explosions? on/off (booleen) 
-		
-		if (isClick() && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
-		{
-			onOff(onOffS, false);
-			// son plus : ajout effets
-		}
+			return true;
 	}
+	return false;
 }
+
+
+
+
 
 void Menu::createButton(int x, int y)
 {
@@ -106,6 +95,10 @@ void Menu::createButton(int x, int y)
 	control.setFillColor(Color::White);
 	control.setPosition(Vector2f(x + 26, y + 26));
 }
+
+
+
+
 
 void Menu::onOff(Text text, bool on)
 {
@@ -127,12 +120,80 @@ void Menu::onOff(Text text, bool on)
 	}
 }
 
-void Menu::pressButtonQuitter(RenderWindow window)
+
+
+
+
+bool Menu::pressButtonQuitter()
 {
 	if (isClick() && 860 < mouse.getPosition().x < 1060 && 875 < mouse.getPosition().y < 955)
 	{
+		return true;
+	}
+	return false;
+}
+
+
+
+
+
+
+
+
+void Menu::actionMenu(bool play, bool close)
+{
+	if (pressButtonPlay(play))
+	{
+		// debut du jeu
+		play = true;
+	}
+
+	if (pressButtonRegle())
+	{
+		// apparition des regles ( ajout d'un fichier )
+		reglesDejeu();
+	}
+
+	if (pressButtonParametre())
+	{
+		// afficher les parametres 
+
+		fenetrePara.setSize(Vector2f(500, 800));
+		fenetrePara.setFillColor(Color::Black);
+		fenetrePara.setPosition(710, 140);
+
+		parametreAffichage.setString(" Parametre ");
+		parametreAffichage.setPosition(Vector2f(876, 190));
+
+		son.setString(" SON ");
+		son.setPosition(Vector2f(720, 435));
+
+		FX.setString(" FX ");
+		FX.setPosition(Vector2f(720, 535));
+
+		createButton(780, 440);
+		createButton(780, 540);
+
+		// music de fond on/off (booleen)
+
+		if (isClick() && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
+		{
+			onOff(onOffM, false);
+			// musique plus : ajout musique
+		}
+
+		// son des explosions? on/off (booleen) 
+
+		if (isClick() && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
+		{
+			onOff(onOffS, false);
+			// son plus : ajout effets
+		}
+	}
+
+	if (pressButtonQuitter())
+	{
 		// fermer la fenetre
-		
-		window.close();
+		close = true;
 	}
 }

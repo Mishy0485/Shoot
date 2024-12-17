@@ -37,16 +37,7 @@ void Boss2::deplacementLaser(Projectile Bullet)
 
 void Boss2::capaciteSpe()
 {
-	AdvancedEnnemi( general.getPosition().x - 200, general.getPosition().y, 200, 1, 5);
-	if (x < 0)
-	{
-		x = 0;
-	}
-	AdvancedEnnemi( general.getPosition().x + 200, general.getPosition().y + 200, 200, 1, 5);
-	if (y < 0)
-	{
-		y = 0;
-	}
+
 }
 
 Sprite Boss2::getSprite() {

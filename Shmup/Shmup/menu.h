@@ -48,10 +48,12 @@ public:
 
 	void createButton(int x, int y);
 
-	void pressButtonPlay();
-	void pressButtonRegle();
-	void pressButtonParametre();
-	void pressButtonQuitter(RenderWindow window);
+	bool pressButtonPlay(bool play);
+	bool pressButtonRegle();
+	bool pressButtonParametre();
+	bool pressButtonQuitter();
+
+	void actionMenu(bool play, bool close);
 };
 
 #endif
