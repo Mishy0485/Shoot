@@ -7,7 +7,7 @@
 using namespace sf;
 using namespace std;
 bool alldead = false;
-bool play = false;
+bool play = true;
 bool close = false;
 
 int main()
@@ -81,7 +81,7 @@ int main()
 
                 if (jeu.ennemis.size() == 0 && alldead == false) {
                     jeu.bulleta.clear();
-                    if (jeu.nb_vagues == 3) {
+                    if (jeu.nb_vagues == 5) {
                         jeu.setBonusScreen(true);
                         jeu.bonus_screen(0, window, joueur);
                     }
@@ -96,15 +96,7 @@ int main()
                     }
                 }
                 else if (alldead && rounddelayint >= 2000) {
-                    if (jeu.nb_vagues == 3) {
-                        jeu.spawnEnnemi(1, 3);
-                    }
-                    else if (jeu.nb_vagues == 4) {
-                        jeu.spawnEnnemi(3, 1);
-                    }
-                    else {
-                        jeu.spawnEnnemi(6, 0);
-                    }
+                    jeu.manage_vague();
                     jeu.vague.setPosition(200, 50);
                     alldead = false;
                 }
@@ -128,10 +120,14 @@ int main()
                             shootdelayEnnemi.restart();
                         }
 
-                        if (jeu.ennemis[i]->getType() == 3 && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
+                        if (spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
                             spedelay.restart();
                             jeu.ennemis[i]->capaciteSpe();
                             spedelayint = spedelay.getElapsedTime().asMilliseconds();
+                            cout << jeu.ennemis[i]->getType() << endl;
+                            if (jeu.ennemis[i]->getType() == 4) {
+                                jeu.capaSpeBoss2(jeu.ennemis[i]->getSprite().getPosition().x, jeu.ennemis[i]->getSprite().getPosition().y, jeu.ennemis[i]);
+                            }
                         }
 
 
@@ -163,22 +159,28 @@ int main()
                         if (jeu.bulleta[i]->getSide()) {
                             jeu.bulleta[i]->fuse(true);
                         }
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 0) {
+                        else if (!jeu.bulleta[i]->getSide()){
+                            if (jeu.bulleta[i]->getType() == 0) {
                             jeu.bulleta[i]->fuse(false);
-                        }
-
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 1) {
-                            if (jeu.bulleta[i]->getPositionY() > 475 && !jeu.bulleta[i]->getSepState()) {
-                                jeu.bulleta[i]->separation(jeu.bulleta, *jeu.bulleta[i]);
-                                jeu.bulleta[i]->setSepState();
                             }
-                            jeu.bulleta[i]->fuse(false);
-                        }
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 2) {
-                            jeu.bulleta[i]->fuse1(true);
-                        }
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 3) {
-                            jeu.bulleta[i]->fuse1(false);
+
+                            else if (jeu.bulleta[i]->getType() == 1) {
+                                if (jeu.bulleta[i]->getPositionY() > 475 && !jeu.bulleta[i]->getSepState()) {
+                                    jeu.bulleta[i]->separation(jeu.bulleta, *jeu.bulleta[i]);
+                                    jeu.bulleta[i]->setSepState();
+                                }
+                                jeu.bulleta[i]->fuse(false);
+                            }
+                            else if (jeu.bulleta[i]->getType() == 2) {
+                                jeu.bulleta[i]->fuse1(true);
+                            }
+                            else if (jeu.bulleta[i]->getType() == 3) {
+                                jeu.bulleta[i]->fuse1(false);
+                            }
+
+                            else if (jeu.bulleta[i]->getType() == 4) {
+                                jeu.bulleta[i]->deplacementLaser();
+                            }
                         }
 
                         if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {

@@ -10,7 +10,7 @@ Boss2::Boss2(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 4, s)
 
 void Boss2::tir(vector<Projectile*>& bulleta) {
 	for (int i = 6; i > 0; i--) {
-		bulleta.push_back(new Projectile(general.getPosition().x, general.getPosition().y, 20, 4, false));
+		bulleta.push_back(new Projectile(general.getPosition().x + 50, general.getPosition().y + 150, 10, 4, false));
 	}
 }
 

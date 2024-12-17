@@ -65,7 +65,7 @@ public:
 	bool bottom(Projectile* currentBulleta);
 	void collisionPlane(Plane& joueur, Projectile* currentBulleta);
 
-	void capaSpeBoss2(int x, int y);
+	void capaSpeBoss2(int x, int y, Ennemi* ennemi);
 
 };
 
