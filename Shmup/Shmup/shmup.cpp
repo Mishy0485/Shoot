@@ -88,6 +88,9 @@ int main()
             if (jeu.nb_vagues == 3) {
                 jeu.spawnEnnemi(1, 3);
             }
+            else if(jeu.nb_vagues == 4){
+                jeu.spawnEnnemi(3, 1);
+            }
             else {
                 jeu.spawnEnnemi(6, 0);
             }
