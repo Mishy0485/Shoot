@@ -21,16 +21,22 @@ Sprite Boss1::getSprite() {
 }
 
 
-void Boss1::capaciteSpe()
-{
-	srand(time(NULL));
-	if (!capspe1.loadFromFile("laser_transparent.png"))
-		cout << "erreur" << endl;
-	capspe2.loadFromFile("laser.png");
-	laser.setTexture(capspe1);
-	laser.setScale(3, 3);
-	spe = true;
-	int coordlaser = rand() % (1700 - 100 + 1);
+void Boss1::capaciteSpe() {
+	
+
+
+	
+	if (capspe1.getSize() == sf::Vector2u(0, 0)) {
+		if (!capspe1.loadFromFile("laser_transparent.png"))
+			cout << "erreur" << endl;
+		capspe2.loadFromFile("laser.png");
+	}
+
+	laser.setTexture(capspe1);  
+	laser.setScale(3, 3);        
+	spe = true;                  
+
+	int coordlaser = rand() % (1700 - 100 + 1) + 100;
 	laser.setPosition(coordlaser, 0);
 }
 

@@ -1,7 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include "jeu.h"
-//#include "avion.h"
-//#include "projectile.h"
 #include <ctime>
 #include <iostream>
 
@@ -11,21 +9,28 @@ bool alldead = false;
 
 int main()
 {
+    srand(time(NULL));
     Clock shootdelayPlayer;
     Clock shootdelayEnnemi;
     Clock spedelay;
     Clock rounddelay;
     Texture backTexture;
-    if (!backTexture.loadFromFile("Back.png"))
+    if (!backTexture.loadFromFile("seamless_background.jpg"))
         return -1;
     RectangleShape background;
     background.setTexture(&backTexture);
     background.setPosition(0, 0);
-    background.setSize(Vector2f(1920, 1080));
+    background.setSize(Vector2f(1920, 4800));
+
+    RectangleShape background2;
+    background2.setTexture(&backTexture);
+    background2.setPosition(0, -4800);
+    background2.setSize(Vector2f(1920, 4800));
 
     RectangleShape barreDeVieOutline;
     barreDeVieOutline.setFillColor(Color::Transparent);
-    barreDeVieOutline.setOutlineColor(Color::Black);
+    Color color(107, 107, 107, 255);
+    barreDeVieOutline.setOutlineColor(color);
     barreDeVieOutline.setOutlineThickness(10);
     barreDeVieOutline.setPosition(100, 900);
     
@@ -93,6 +98,7 @@ int main()
 
         window.clear();
         window.draw(background);
+        window.draw(background2);
 
         if (jeu.getBonusScreen()) {
             window.draw(jeu.powerup1);
@@ -200,9 +206,17 @@ int main()
 
             window.draw(jeu.end);
         }
+        if (background.getPosition().y >= 1500) {
+            background.setPosition(0, background2.getPosition().y - 4800);
+        }
+        if (background2.getPosition().y >= 1500) {
+            background2.setPosition(0, background.getPosition().y - 4800);
+        }
 
+
+        background.move(0, 2);
+        background2.move(0, 2);
         window.display();
-        cout << joueur.getVie() << endl;
     }
 
     return 0;
