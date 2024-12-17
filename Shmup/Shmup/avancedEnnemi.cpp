@@ -7,6 +7,7 @@ AdvancedEnnemi::AdvancedEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y 
 	aEnnemisprite.setTexture(aEnnemiTexture);
 	aEnnemisprite.setScale(5, 5);
 	aEnnemisprite.setPosition(x, y);
+	aEnnemisprite.rotate(90);
 }
 
 Sprite AdvancedEnnemi::getSprite() {
@@ -26,7 +27,7 @@ void AdvancedEnnemi::mouvement()
 		aEnnemisprite.move(Vector2f(-5, 0));
 	}*/
 
-	/*x = aEnnemisprite.getPosition().x;
+	x = aEnnemisprite.getPosition().x;
 	if (droite) {
 		if (x >= 1700) {
 			droite = false;
@@ -42,15 +43,13 @@ void AdvancedEnnemi::mouvement()
 		else {
 			aEnnemisprite.move(Vector2f(-5, 0));
 		}
-	}*/
+	}
 }
 
-void AdvancedEnnemi::tir(vector<Projectile*> bulleta) 
+void AdvancedEnnemi::tir(vector<Projectile*>& bulleta) 
 {
-	{
 		bulleta.push_back(new Projectile(aEnnemisprite.getPosition().x + 150, aEnnemisprite.getPosition().y + 100, 10, 0, false));
 		bulleta.push_back(new Projectile(aEnnemisprite.getPosition().x + 50, aEnnemisprite.getPosition().y + 100, 10, 0, false));
-	}
 }
 
 void AdvancedEnnemi::textureChange() 

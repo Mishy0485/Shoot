@@ -5,10 +5,10 @@ Boss2::Boss2(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 4, s)
 	boss2.loadFromFile("boss2.png");
 	general.setTexture(boss2);
 	general.setPosition(x, y);
+	general.setScale(2, 2);
 }
 
-void Boss2::tir(vector<Projectile*> bulleta) {
-
+void Boss2::tir(vector<Projectile*>& bulleta) {
 	capsmpl1.loadFromFile("laser_gen_coupe.png");
 	laser_gen.setTexture(capsmpl1);
 	bulleta.push_back(new Projectile(general.getPosition().x, general.getPosition().y, 20, 0, false));
@@ -35,18 +35,8 @@ void Boss2::deplacementLaser(Projectile Bullet)
 	}
 }
 
-void Boss2::capaciteSpe()
-{
-	AdvancedEnnemi( general.getPosition().x - 200, general.getPosition().y, 200, 1, 5);
-	if (x < 0)
-	{
-		x = 0;
-	}
-	AdvancedEnnemi( general.getPosition().x + 200, general.getPosition().y + 200, 200, 1, 5);
-	if (y < 0)
-	{
-		y = 0;
-	}
+void Boss2::capaciteSpe() {
+	spe = true;
 }
 
 Sprite Boss2::getSprite() {
@@ -75,4 +65,8 @@ void Boss2::mouvement() {
 			general.move(Vector2f(-3, 0));
 		}
 	}
+}
+
+Sprite& Boss2::getSpeSprite() {
+	return general;
 }

@@ -7,6 +7,7 @@ Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse
 	Bullety.setPosition(x, y);
 	Bullety.setScale(0.02, 0.02);
 	Bullety.rotate(180);
+	
 }
 
 int Projectile::getPositionX() { return Bullety.getPosition().x; }

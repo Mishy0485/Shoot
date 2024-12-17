@@ -16,7 +16,7 @@ public:
 
 	Boss3(int x, int y, int v, int t, int s);
 
-	void tir(vector<Projectile*>& bulleta) override;
+	void tir(vector<Projectile*>& bulleta);
 
 	void capaciteSpe() override;
 

@@ -70,7 +70,7 @@ int main()
 
         if (jeu.ennemis.size() == 0 && alldead == false) {
             jeu.bulleta.clear();
-            if (jeu.nb_vagues == 3) {
+            if (jeu.nb_vagues == 5) {
                 jeu.setBonusScreen(true);
                 jeu.bonus_screen(0, window, joueur);
             }
@@ -80,20 +80,12 @@ int main()
                 jeu.enTeteVague();
                 FloatRect textRect = jeu.vague.getLocalBounds();
                 jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
-                jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
+                jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f,  1080 / 2.0f));
                 rounddelay.restart();
             }
         }
         else if (alldead && rounddelayint >= 2000) {
-            if (jeu.nb_vagues == 3) {
-                jeu.spawnEnnemi(1, 3);
-            }
-            else if(jeu.nb_vagues == 4){
-                jeu.spawnEnnemi(3, 1);
-            }
-            else {
-                jeu.spawnEnnemi(6, 0);
-            }
+            jeu.manage_vague();
             jeu.vague.setPosition(200, 50);
             alldead = false;
         }
