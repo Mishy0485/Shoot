@@ -107,7 +107,7 @@ void Jeu::spawnEnnemi(int n, int type) {
 		{
 			case 0: ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
 			case 1: ennemis.push_back(new AdvancedEnnemi(coordx, coordy, 200, type, 1)); break;
-			case 2: ennemis.push_back(new Boss2(coordx, coordy, 1000, type, 1)); break;
+			case 2: ennemis.push_back(new Boss2(coordx, coordy - 200, 1000, type, 1)); break;
 			case 3: ennemis.push_back(new Boss1(coordx, 100, 50, type, 1)); break;
 			//case 4:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
@@ -126,7 +126,7 @@ void Jeu::manage_vague() {
 		spawnEnnemi(1, 2);
 	}
 	else {
-		spawnEnnemi(6, 0);
+		spawnEnnemi(1, 2);
 	}
 }
 

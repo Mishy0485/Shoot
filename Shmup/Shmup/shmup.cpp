@@ -109,9 +109,12 @@ int main()
                     shootdelayEnnemi.restart();
                 }
 
-                if (jeu.ennemis[i]->getType() == 3 && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
+                if ((jeu.ennemis[i]->getType() == 3 || jeu.ennemis[i]->getType() == 2) && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
                     spedelay.restart();
                     jeu.ennemis[i]->capaciteSpe();
+                    if (jeu.ennemis[i]->getType() == 2)
+                        jeu.capaSpeBoss2(jeu.ennemis[i]->getSprite().getPosition().x, jeu.ennemis[i]->getSprite().getPosition().y);
+                    cout << "done" << endl;
                     spedelayint = spedelay.getElapsedTime().asMilliseconds();
                 }
 
@@ -146,6 +149,10 @@ int main()
                 }
                 else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType()==0) {
                     jeu.bulleta[i]->fuse(false);
+                }
+
+                else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 4) {
+                    jeu.bulleta[i]->deplacementLaser();
                 }
 
                 else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 1) {

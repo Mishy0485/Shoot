@@ -26,8 +26,6 @@ public:
 
 	void capaciteSpe();
 
-	void deplacementLaser(Projectile Bullet);
-
 	Sprite getSprite();
 
 	void textureChange();
