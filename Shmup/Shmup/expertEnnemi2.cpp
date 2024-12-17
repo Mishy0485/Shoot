@@ -13,7 +13,7 @@ Sprite ExpertEnnemi2::getSprite() {
 	return eEnnemi2sprite;
 }
 
-void ExpertEnnemi2::tir(vector<Projectile*>& bulleta)
+void ExpertEnnemi2::tir(vector<Projectile*> bulleta)
 {
 	{
 		bulleta.push_back(new Projectile(eEnnemi2sprite.getPosition().x + 150, eEnnemi2sprite.getPosition().y + 100, 10, 0, false));

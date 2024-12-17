@@ -107,11 +107,26 @@ void Jeu::spawnEnnemi(int n, int type) {
 		{
 			case 0: ennemis.push_back(new BaseEnnemi(coordx, coordy, 100, type, 1)); break;
 			case 1: ennemis.push_back(new AdvancedEnnemi(coordx, coordy, 200, type, 1)); break;
-			case 2: cout << "A FAIRE"; break;
+			case 2: ennemis.push_back(new Boss2(coordx, coordy - 200, 1000, type, 1)); break;
 			case 3: ennemis.push_back(new Boss1(coordx, 100, 50, type, 1)); break;
 			//case 4:ennemis.push_back(new Boss2(coordx, coordy, 100)); break;
 		}
 		
+	}
+}
+
+void Jeu::manage_vague() {
+	if (nb_vagues == 5) {
+		spawnEnnemi(1, 3);
+	}
+	else if (nb_vagues > 5 && nb_vagues <= 9) {
+		spawnEnnemi(4, 1);
+	}
+	else if (nb_vagues == 10) {
+		spawnEnnemi(1, 2);
+	}
+	else {
+		spawnEnnemi(1, 2);
 	}
 }
 
@@ -193,4 +208,16 @@ void Jeu::bonus_screen(int i, RenderWindow& window, Plane& joueur) {
 		}
 
 	}
+}
+
+vector<Ennemi*>& Jeu::getEnnemis() {
+	return ennemis;
+}
+
+void Jeu::capaSpeBoss2(int x, int y) {
+	int coordx = x - 200;
+	int coordy = y + 50;
+	ennemis.push_back(new AdvancedEnnemi(coordx, coordy, 200, 1, 1));
+	coordx = x + 200;
+	ennemis.push_back(new AdvancedEnnemi(coordx, coordy, 200, 1, 1));
 }

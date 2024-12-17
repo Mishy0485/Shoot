@@ -34,6 +34,8 @@ public:
 	Text vague;
 
 	Text boss;
+
+	vector<Ennemi*>& getEnnemis();
 	
 	int nb_vagues = 0;
 	int bossTime;
@@ -54,6 +56,7 @@ public:
 	vector<Projectile*> bulleta;
 	vector<Ennemi*> ennemis;
 	void spawnEnnemi(int n, int type);
+	void manage_vague();
 
 	void bonus_screen(int i, RenderWindow& window, Plane& joueur);
 	bool isInCollisionPlane(Plane joueur, Projectile* currentBulleta);
@@ -61,6 +64,8 @@ public:
 	void collisionEnnemi(Ennemi* ennemi, Projectile* currentBulleta);
 	bool bottom(Projectile* currentBulleta);
 	void collisionPlane(Plane& joueur, Projectile* currentBulleta);
+
+	void capaSpeBoss2(int x, int y);
 
 };
 

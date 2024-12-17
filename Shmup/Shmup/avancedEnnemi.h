@@ -1,10 +1,12 @@
 #pragma once
-#ifndef AVANCEDENNEMI_H
-#define AVANCEDENNEMI_H
+#ifndef ADVANCEDENNEMI_H
+#define ADVANCEDENNEMI_H
 
 #include <SFML/Graphics.hpp>
 #include "ennemi.h"
 using namespace sf;
+
+
 
 class AdvancedEnnemi : public Ennemi {
 private:
@@ -21,7 +23,7 @@ public:
 
 	AdvancedEnnemi(int x, int y, int v, int t, int s);
 
-	void tir(vector<Projectile*> bulleta) override;
+	void tir(vector<Projectile*>& bulleta);
 
 	Sprite& getSpeSprite();
 

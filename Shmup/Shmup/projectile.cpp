@@ -7,6 +7,10 @@ Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse
 	Bullety.setPosition(x, y);
 	Bullety.setScale(0.02, 0.02);
 	Bullety.rotate(180);
+	if (type == 4) {
+		bullet.loadFromFile("laser_gen_coupe.png");
+		Bullety.setTexture(bullet);
+	}
 }
 
 int Projectile::getPositionX() { return Bullety.getPosition().x; }
@@ -73,6 +77,27 @@ void Projectile::fuse1(bool up) {
 		Bullety.move(vitesse, vitesse);
 	else
 		Bullety.move(-vitesse, vitesse);
+}
+
+void Projectile::deplacementLaser() {
+	// bouge aleatoirement gauche/droite ?
+	int sens;
+	sens = rand() % 2;
+
+	if (sens == 0) fuse1(false); //  autre fuse pour les diags 
+	else fuse1(true);
+
+	// si touche cote gauche inverse
+	if (getPositionX() < 0)
+	{
+		fuse1(true);
+	}
+
+	// si touche cote droit devit vers gauche
+	if (getPositionX() > 1919)
+	{
+		fuse1(false);
+	}
 }
 
 void Projectile::separation(vector<Projectile*>& bulleta, Projectile bullet)

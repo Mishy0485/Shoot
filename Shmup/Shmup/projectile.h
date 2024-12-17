@@ -16,6 +16,7 @@ protected:
 	Sprite Bullety;
 	bool hit = false;
 	bool playerSide;
+	bool droite;
 	bool separated = false;
 public:
 
@@ -48,6 +49,8 @@ public:
 	void fuse(bool up);
 
 	void fuse1(bool up);
+
+	void deplacementLaser();
 
 	void separation(vector<Projectile*>& bulleta, Projectile bullet);
 };

@@ -7,7 +7,6 @@
 #include"avancedEnnemi.h"
 using namespace sf;
 
-
 class Boss2 : public Ennemi
 {
 protected:
@@ -15,22 +14,25 @@ protected:
 	Sprite laser_gen;
 
 public:
+
+	bool spe = false;
 	Texture boss2;
 	Texture capsmpl1;
 	Texture capspe1;
 
 	Boss2(int x, int y, int v, int t, int s);
 	 
-	void tir(vector<Projectile*> bulleta);
+	void tir(vector<Projectile*>& bulleta);
 
 	void capaciteSpe();
-
-	void deplacementLaser(Projectile Bullet);
 
 	Sprite getSprite();
 
 	void textureChange();
 
 	void mouvement();
+
+	Sprite& getSpeSprite();
 };
+
 #endif
