@@ -7,7 +7,7 @@
 using namespace sf;
 using namespace std;
 bool alldead = false;
-bool play = true;
+bool play = false;
 bool close = false;
 
 int main()
@@ -19,6 +19,7 @@ int main()
         Clock spedelay;
         Clock rounddelay;
         Texture backTexture;
+
         if (!backTexture.loadFromFile("seamless_background.jpg"))
             return -1;
         RectangleShape background;
@@ -44,7 +45,7 @@ int main()
         barreDeVie.setPosition(100, 900);
 
 
-        Menu menu;
+        Menu menuu;
         Jeu jeu;
         jeu.police.loadFromFile("Daydream.ttf");
         Plane joueur(500, 500, 100, 10);
@@ -69,8 +70,9 @@ int main()
                 else if (close) {}
             }
 
-            menu.setMenu();
-            menu.actionMenu(play, close);
+            menuu.setMenu();
+            window.draw(menuu.menu);
+            menuu.actionMenu(play, close);
 
 
             if (play)
@@ -171,8 +173,8 @@ int main()
                             }
 
                             else if (jeu.bulleta[i]->getType() == 1) {
-                                if (jeu.bulleta[i]->getPositionY() > 475 && !jeu.bulleta[i]->getSepState()) {
-                                    jeu.bulleta[i]->separation(jeu.bulleta, *jeu.bulleta[i]);
+                                if (jeu.bulleta[i]->getSprite().getPosition().y > 475 && !jeu.bulleta[i]->getSepState()) {
+                                    jeu.bulleta[i]->separation(jeu.bulleta);
                                     jeu.bulleta[i]->setSepState();
                                 }
                                 jeu.bulleta[i]->fuse(false);

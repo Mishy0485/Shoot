@@ -13,25 +13,12 @@ Projectile::Projectile(int x, int y, int v, int t, bool s) : x(x), y(y), vitesse
 	}
 }
 
-int Projectile::getPositionX() { return Bullety.getPosition().x; }
-int Projectile::getPositionY() { return Bullety.getPosition().y; }
-
 bool Projectile::getSepState() {
 	return separated;
 }
 
 void Projectile::setSepState() {
 	separated = true;
-}
-
-int Projectile::setPositionX(int n)
-{
-	x += n;
-}
-
-int Projectile::setPositionY(int n)
-{
-	y += n;
 }
 
 int Projectile::getType() {
@@ -88,21 +75,21 @@ void Projectile::deplacementLaser() {
 	else fuse1(true);
 
 	// si touche cote gauche inverse
-	if (getPositionX() < 0)
+	if (Bullety.getPosition().x < 0)
 	{
 		fuse1(true);
 	}
 
 	// si touche cote droit devit vers gauche
-	if (getPositionX() > 1919)
+	if (Bullety.getPosition().x > 1919)
 	{
 		fuse1(false);
 	}
 }
 
-void Projectile::separation(vector<Projectile*>& bulleta, Projectile bullet)
+void Projectile::separation(vector<Projectile*>& bulleta)
 {
-	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 2, false));
+	bulleta.push_back(new Projectile(Bullety.getPosition().x , Bullety.getPosition().y, 20, 2, false));
 
-	bulleta.push_back(new Projectile(bullet.getPositionX() , bullet.getPositionY(), 20, 3, false));
+	bulleta.push_back(new Projectile(Bullety.getPosition().x , Bullety.getPosition().y, 20, 3, false));
 }

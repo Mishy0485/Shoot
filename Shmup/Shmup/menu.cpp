@@ -1,8 +1,10 @@
 #include "menu.h"
 
 void Menu::setMenu()
-{
-	menu.setTexture(&fond_menu);
+{	
+	//fond_menu.loadFromFile("back.png");
+	//menu.setTexture(&fond_menu);
+	menu.setFillColor(Color::White);
 	menu.setSize(Vector2f(1920.f, 1080.f));
 
 	font.loadFromFile("Daydream.ttf");
@@ -11,6 +13,7 @@ void Menu::setMenu()
 	titre.setFont(font);
 	titre.setCharacterSize(100);
 	titre.setFillColor(Color(211,211,211));
+	titre.setPosition(Vector2f(200, 600));
 
 	play.setTexture(&button1);
 	play.setSize(Vector2f(200.f, 80.f));
@@ -88,8 +91,8 @@ bool Menu::pressButtonParametre()
 
 void Menu::createButton(int x, int y)
 {
-	Para.setSize(Vector2f(50,20));
-	Para.setPosition(Vector2f(x, y));
+	buttonPara.setSize(Vector2f(50,20));
+	buttonPara.setPosition(Vector2f(x, y));
 	
 	control.setRadius(12);
 	control.setFillColor(Color::White);
@@ -107,16 +110,16 @@ void Menu::onOff(Text text, bool on)
 		// musique ou son
 		
 		text.setString("ON");
-		text.setPosition(Vector2f(850, Para.getSize().y - 20));
-		control.setPosition(Vector2f(Para.getSize().x + 26, Para.getSize().y + 26));
+		text.setPosition(Vector2f(850, buttonPara.getSize().y - 20));
+		control.setPosition(Vector2f(buttonPara.getSize().x + 26, buttonPara.getSize().y + 26));
 	}
 	else
 	{
 		// pas musique ou son
 		
 		text.setString("OFF");
-		text.setPosition(Vector2f(850, Para.getSize().y - 20));
-		control.setPosition(Vector2f(Para.getSize().x, Para.getSize().y));
+		text.setPosition(Vector2f(850, buttonPara.getSize().y - 20));
+		control.setPosition(Vector2f(buttonPara.getSize().x, buttonPara.getSize().y));
 	}
 }
 

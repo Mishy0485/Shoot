@@ -9,6 +9,7 @@ using namespace sf;
 class Menu
 {
 public:
+
 	Texture fond_menu;
 
 	Texture button1;
@@ -29,7 +30,7 @@ public:
 
 	Event event;
 
-	RectangleShape Para;
+	RectangleShape buttonPara;
 	RectangleShape menu;
 	RectangleShape play;
 	RectangleShape regle;

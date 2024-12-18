@@ -2,7 +2,7 @@
 #ifndef BOSS3_H
 #define BOSS3_H
 
-#include <SFML/Graphics.hpp>
+/*#include <SFML/Graphics.hpp>
 #include "ennemi.h"
 using namespace sf;
 
@@ -20,6 +20,6 @@ public:
 
 	void capaciteSpe() override;
 
-};
+};*/
 
 #endif
