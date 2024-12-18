@@ -18,6 +18,14 @@ void Jeu::bossT()
 	Jeu::bossTime++;
 }
 
+void Jeu::score_maj() {
+	score_aff.setString("Score : " + to_string(score));
+	score_aff.setFont(police);
+	score_aff.setCharacterSize(50);
+	score_aff.setFillColor(Color(150, 150, 150));
+	score_aff.setPosition(500, 50);
+}
+
 void Jeu::enTeteVague()
 {
 	vague.setString(" Vague " + to_string((nb_vagues)));
@@ -126,7 +134,7 @@ void Jeu::manage_vague() {
 		spawnEnnemi(1, 4);
 	}
 	else {
-		spawnEnnemi(1, 4);
+		spawnEnnemi(6, 0);
 	}
 }
 

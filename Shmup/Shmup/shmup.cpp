@@ -7,7 +7,7 @@
 using namespace sf;
 using namespace std;
 bool alldead = false;
-bool play = false;
+bool play = true;
 bool close = false;
 
 int main()
@@ -96,8 +96,10 @@ int main()
                         FloatRect textRect = jeu.vague.getLocalBounds();
                         jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
                         jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
-                        if (jeu.nb_vagues != 1)
-                            jeu.score += 20000 - scoringint;
+                        if (jeu.nb_vagues != 1) {
+                            if (scoringint >= 10000) scoringint = 10000;
+                            jeu.score += 10000 - scoringint;
+                        }
                         rounddelay.restart();
                     }
                 }
@@ -140,6 +142,7 @@ int main()
 
                         if (jeu.ennemis[i]->EstMort()) {
                             jeu.score += jeu.ennemis[i]->getPoint();
+
                             delete jeu.ennemis[i];
                             jeu.ennemis.erase(jeu.ennemis.begin() + i);
                         }
@@ -210,6 +213,7 @@ int main()
 
                     window.draw(joueur.getSprite());
                     window.draw(jeu.vague);
+                    window.draw(jeu.score_aff);
                     barreDeVie.setSize(Vector2f(joueur.getVie() * 4, 50));
                     window.draw(barreDeVie);
                     window.draw(barreDeVieOutline);
@@ -241,6 +245,7 @@ int main()
             background.move(0, 2);
             background2.move(0, 2);
             window.display();
+            jeu.score_maj();
         }
 
     return 0;

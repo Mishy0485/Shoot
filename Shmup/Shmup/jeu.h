@@ -42,6 +42,8 @@ public:
 
 	vector<Ennemi*>& getEnnemis();
 	
+	void score_maj();
+
 	int nb_vagues = 0;
 	int bossTime;
 
