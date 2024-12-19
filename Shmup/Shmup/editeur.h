@@ -13,6 +13,12 @@ public:
 
 	Sprite choixEnnemi;
 
+	Sprite selecteurDr;
+	Sprite selecteurGch;
+
+	Sprite selecteurDrnb;
+	Sprite selecteurGchnb;
+
 	Texture base;
 	Texture advanced;
 	Texture expert1;
@@ -23,11 +29,24 @@ public:
 	Texture selecteurD;
 	Texture selecteurG;
 
+	Texture selecteurDnb;
+	Texture selecteurGnb;
+
+	RectangleShape bimBamBoom;
+
+	Font font;
 	Text nom;
+	Text next;
 
 	int selectNb;
+	int nbEnnemis;
+	int nbVague;
+	int tab[6];
 
-	void isClick();
+	bool isClick();
+	void nbVagues(RenderWindow& window);
+	void choix(RenderWindow& window);
+	void Next(RenderWindow& window);
 	void setEditeur();
 	void select();
 
