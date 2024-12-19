@@ -1,5 +1,7 @@
 #include "menu.h"
 
+
+
 void Menu::setMenu()
 {
 		if (!fond_menu.loadFromFile("back.png")) {}
@@ -72,13 +74,9 @@ void Menu::setMenu()
 
 bool Menu::isClick(RenderWindow& window)
 {
-	Event event;
-	while (window.pollEvent(event))
-	{
-		if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left) {
+		if (Mouse::isButtonPressed(Mouse::Left)) {
 			return true;
 		}
-	}
 	return false;
 }
 
@@ -88,7 +86,7 @@ bool Menu::isClick(RenderWindow& window)
 bool Menu::pressButtonPlay(RenderWindow& window)
 {
 	if (isClick(window)) {
-		if (play.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
+		if (play.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40)) {
 			return true;
 		}
 	}
@@ -100,7 +98,8 @@ bool Menu::pressButtonPlay(RenderWindow& window)
 bool Menu::pressButtonRegle(RenderWindow& window)
 {
 	if (isClick(window)) {
-		if (regle.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
+		if (regle.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
+
 			return true;
 		}
 	}
@@ -111,7 +110,7 @@ bool Menu::pressButtonRegle(RenderWindow& window)
 bool Menu::pressButtonParametre(RenderWindow& window)
 {
 	if (isClick(window)) {
-		if (parametre.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
+		if (parametre.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
 			return true;
 		}
 	}
@@ -122,22 +121,31 @@ bool Menu::pressButtonParametre(RenderWindow& window)
 bool Menu::pressButtonQuitter(RenderWindow& window)
 {
 	if (isClick(window)) {
-		if (quitter.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
+		if (quitter.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
+			cout << "close" << endl;
 			return true;
 		}
 	}
+
 	return false;
 }
 
 
 void Menu::createButton(int x, int y)
 {
-	buttonPara.setSize(Vector2f(50,20));
-	buttonPara.setPosition(Vector2f(x, y));
+	buttonPara1.setSize(Vector2f(50,15));
+	buttonPara1.setPosition(Vector2f(x, y));
+	buttonPara2.setSize(Vector2f(50, 15));
+	buttonPara2.setPosition(Vector2f(x, y + 50));
 	
-	control.setRadius(12);
-	control.setFillColor(Color::White);
-	control.setPosition(Vector2f(x + 26, y + 26));
+	Color color(107, 107, 107, 255);
+
+	control1.setRadius(12);
+	control1.setFillColor(color);
+	control1.setPosition(Vector2f(x + 26, y - 10));
+	control2.setRadius(12);
+	control2.setFillColor(color);
+	control2.setPosition(Vector2f(x + 26, y + 47));
 }
 
 
@@ -150,16 +158,16 @@ void Menu::onOff(Text text, bool on)
 		// musique ou son
 
 		text.setString("ON");
-		text.setPosition(Vector2f(850, buttonPara.getSize().y - 20));
-		control.setPosition(Vector2f(buttonPara.getSize().x + 26, buttonPara.getSize().y + 26));
+		text.setPosition(Vector2f(850, buttonPara1.getPosition().y - 20));
+		control1.setPosition(Vector2f(buttonPara1.getPosition().x + 26, buttonPara1.getPosition().y + 26));
 	}
 	else
 	{
 		// pas musique ou son
 
 		text.setString("OFF");
-		text.setPosition(Vector2f(850, buttonPara.getSize().y - 20));
-		control.setPosition(Vector2f(buttonPara.getSize().x, buttonPara.getSize().y));
+		text.setPosition(Vector2f(850, buttonPara1.getPosition().y - 20));
+		control1.setPosition(Vector2f(buttonPara1.getPosition().x, buttonPara1.getPosition().y));
 	}
 }
 
@@ -173,20 +181,23 @@ void Menu::affichage(RenderWindow& window)
 	fenetrePara.setPosition(710, 140);
 
 	parametreAffichage.setString(" Parametre ");
-	parametreAffichage.setPosition(Vector2f(876, 190));
+	parametreAffichage.setFont(font);
+	parametreAffichage.setPosition(Vector2f(800, 190));
+	parametreAffichage.setFillColor(Color::White);
 
 	son.setString(" SON ");
+	son.setFont(font);
 	son.setPosition(Vector2f(720, 435));
 
 	FX.setString(" FX ");
-	FX.setPosition(Vector2f(720, 535));
+	FX.setFont(font);
+	FX.setPosition(Vector2f(720, 635));
 
-	createButton(780, 440);
 	createButton(780, 540);
 
 	// music de fond on/off (booleen)
 
-	if (isClick(window) && 780 < mouse.getPosition().x < 830 && 440 < mouse.getPosition().x < 460)
+	if (isClick(window) && control1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y - 40))
 	{
 		onOff(onOffM, false);
 		// musique plus : ajout musique
@@ -194,7 +205,7 @@ void Menu::affichage(RenderWindow& window)
 
 	// son des explosions? on/off (booleen) 
 
-	if (isClick(window) && 780 < mouse.getPosition().x < 830 && 540 < mouse.getPosition().x < 560)
+	if (isClick(window) && control1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y))
 	{
 		onOff(onOffS, false);
 		// son plus : ajout effets
@@ -203,7 +214,7 @@ void Menu::affichage(RenderWindow& window)
 
 
 
-void Menu::actionMenu(bool& play, bool& close, RenderWindow& window)
+void Menu::actionMenu(bool& play, RenderWindow& window)
 {
 	if (pressButtonPlay(window))
 	{
@@ -224,7 +235,6 @@ void Menu::actionMenu(bool& play, bool& close, RenderWindow& window)
 
 	if (pressButtonQuitter(window))
 	{
-		// fermer la fenetre
-		close = true;
+		window.close();
 	}
 }
