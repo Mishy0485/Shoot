@@ -25,20 +25,25 @@ void Menu::setMenu()
 		
 		butPlay.setString("Play");
 		butPlay.setFont(font);
-		butPlay.setFillColor(Color(211, 211, 211, 255));
+		butPlay.setFillColor(Color::Black);
 		butPlay.setCharacterSize(50);
 		butPlay.setPosition(Vector2f(850, 450));
 
+		butEditor.setString("Editor");
+		butEditor.setFont(font);
+		butEditor.setFillColor(Color::Black);
+		butEditor.setCharacterSize(50);
+		butEditor.setPosition(Vector2f(800, 600));
 
 		butSet.setString("Parametres");
 		butSet.setFont(font);
-		butSet.setFillColor(Color(211,211,211,255));
+		butSet.setFillColor(Color::Black);
 		butSet.setCharacterSize(50);
 		butSet.setPosition(Vector2f(680, 750));
 
 		butQuit.setString("Quitter");
 		butQuit.setFont(font);
-		butQuit.setFillColor(Color(211, 211, 211, 255));
+		butQuit.setFillColor(Color::Black);
 		butQuit.setCharacterSize(50);
 		butQuit.setPosition(Vector2f(770, 900));
 
@@ -256,7 +261,6 @@ void Menu::actionMenu(bool& play, RenderWindow& window, Editeur editeur)
 				onOff(false, true);
 			}
 			cout << "clac" << endl;
-			// son plus : ajout effets
 		}
 		if (isClick(window) && !fenetrePara.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40)) {
 			parametreb = false;
