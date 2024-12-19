@@ -56,7 +56,9 @@ int main()
 
         RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
+
         window.setFramerateLimit(60);
+
         while (window.isOpen()) {
             barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
             int scoringint = scoring.getElapsedTime().asMilliseconds();
@@ -71,12 +73,39 @@ int main()
             {   
                 if (event.type == Event::Closed)
                     window.close();
-                else if (close) {}
+                else if (close) 
+                {
+                    window.close();
+                }
             }
 
+            window.clear();
+
             menuu.setMenu();
-            window.draw(menuu.menu);
-            menuu.actionMenu(play, close);
+            menuu.actionMenu(play, close, window);
+
+            window.draw(menuu.menutry);
+            window.draw(menuu.titre);
+            window.draw(menuu.play);
+            window.draw(menuu.butPlay);
+            window.draw(menuu.regle);
+            window.draw(menuu.butRules);
+            window.draw(menuu.parametre);
+            window.draw(menuu.butSet);
+            window.draw(menuu.quitter);
+            window.draw(menuu.butQuit);
+
+            window.draw(menuu.fenetrePara);
+            window.draw(menuu.parametreAffichage);
+            window.draw(menuu.buttonPara);
+            window.draw(menuu.control);
+            window.draw(menuu.son);
+            window.draw(menuu.FX);
+            window.draw(menuu.onOffM);
+            window.draw(menuu.onOffS);
+
+
+
 
 
 
@@ -108,6 +137,7 @@ int main()
                         rounddelay.restart();
                     }
                 }
+
                 else if (alldead && rounddelayint >= 2000) {
                     scoring.restart();
                     jeu.manage_vague();
@@ -117,6 +147,7 @@ int main()
 
 
                 window.clear();
+
                 window.draw(background);
                 window.draw(background2);
 
@@ -125,6 +156,7 @@ int main()
                     window.draw(jeu.powerup2);
                     window.draw(jeu.powerup3);
                 }
+
                 if (!jeu.getGameOver() && !jeu.getBonusScreen()) {
                     for (int i = 0; i < jeu.ennemis.size(); ) {
                         jeu.ennemis[i]->mouvement();
