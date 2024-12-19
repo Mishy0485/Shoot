@@ -142,6 +142,7 @@
     <ClCompile Include="boss1.cpp" />
     <ClCompile Include="boss2.cpp" />
     <ClCompile Include="boss3.cpp" />
+    <ClCompile Include="editeur.cpp" />
     <ClCompile Include="ennemi.cpp" />
     <ClCompile Include="expertEnnemi1.cpp" />
     <ClCompile Include="expertEnnemi2.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="boss1.h" />
     <ClInclude Include="boss2.h" />
     <ClInclude Include="boss3.h" />
+    <ClInclude Include="editeur.h" />
     <ClInclude Include="ennemi.h" />
     <ClInclude Include="expertEnnemi1.h" />
     <ClInclude Include="expertEnnemi2.h" />

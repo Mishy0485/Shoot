@@ -80,7 +80,7 @@ int main()
                 if (event.type == Event::Closed)
                     window.close();
 
-                else if (close) 
+                if (close) 
                 {
                     window.close();
                 }
