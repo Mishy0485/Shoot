@@ -348,7 +348,7 @@ int main()
             background2.move(0, 1);
             earth.move(0, 2);
             mars.move(0, 2);
-            moon.move(0, 2);
+            moon.move(0, 3);
             window.display();
             jeu.score_maj();
         }
