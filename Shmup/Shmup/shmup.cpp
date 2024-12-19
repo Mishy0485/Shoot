@@ -124,7 +124,8 @@ int main()
                 window.draw(menuu.editor);
                 window.draw(menuu.butEditor);
 
-                if (menuu.parametreb) {
+                if (menuu.parametreb) 
+                {
                     window.draw(menuu.fenetrePara);
                     window.draw(menuu.parametreAffichage);
                     window.draw(menuu.buttonPara1);
