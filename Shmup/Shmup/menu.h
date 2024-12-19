@@ -20,6 +20,11 @@ public:
 	Text titre;
 	Font font;
 
+	Text butPlay;
+	Text butRules;
+	Text butSet;
+	Text butQuit;
+
 	Text parametreAffichage;
 
 	Text son;
@@ -31,12 +36,11 @@ public:
 	Event event;
 
 	RectangleShape buttonPara;
-	RectangleShape menu;
+	RectangleShape menutry;
 	RectangleShape play;
 	RectangleShape regle;
 	RectangleShape parametre;
 	RectangleShape fenetrePara;
-	RectangleShape Param;
 	RectangleShape quitter;
 	CircleShape control;
 	
@@ -45,16 +49,17 @@ public:
 	void onOff(Text text, bool on);
 
 	void setMenu();
-	bool isClick();
+	bool isClick(RenderWindow& window);
 
 	void createButton(int x, int y);
+	void affichage(RenderWindow& window);
 
-	bool pressButtonPlay(bool play);
-	bool pressButtonRegle();
-	bool pressButtonParametre();
-	bool pressButtonQuitter();
+	bool pressButtonPlay(RenderWindow& window);
+	bool pressButtonRegle(RenderWindow& window);
+	bool pressButtonParametre(RenderWindow& window);
+	bool pressButtonQuitter(RenderWindow& window);
 
-	void actionMenu(bool play, bool close);
+	void actionMenu(bool& play, bool& close, RenderWindow& window);
 };
 
 #endif
