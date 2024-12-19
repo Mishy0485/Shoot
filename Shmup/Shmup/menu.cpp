@@ -88,8 +88,7 @@ bool Menu::isClick(RenderWindow& window)
 bool Menu::pressButtonPlay(RenderWindow& window)
 {
 	if (isClick(window)) {
-		Vector2i mousePos = Mouse::getPosition(window);
-		if (mousePos.x > 660 && mousePos.x < 1260 && mousePos.y > 440 && mousePos.y < 540) {
+		if (play.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
 			return true;
 		}
 	}
@@ -101,8 +100,7 @@ bool Menu::pressButtonPlay(RenderWindow& window)
 bool Menu::pressButtonRegle(RenderWindow& window)
 {
 	if (isClick(window)) {
-		Vector2i mousePos = Mouse::getPosition(window);
-		if (mousePos.x > 660 && mousePos.x < 1260 && mousePos.y > 590 && mousePos.y < 690) {
+		if (regle.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
 			return true;
 		}
 	}
@@ -113,8 +111,7 @@ bool Menu::pressButtonRegle(RenderWindow& window)
 bool Menu::pressButtonParametre(RenderWindow& window)
 {
 	if (isClick(window)) {
-		Vector2i mousePos = Mouse::getPosition(window);
-		if (mousePos.x > 660 && mousePos.x < 1260 && mousePos.y > 740 && mousePos.y < 840) {
+		if (parametre.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
 			return true;
 		}
 	}
@@ -125,8 +122,7 @@ bool Menu::pressButtonParametre(RenderWindow& window)
 bool Menu::pressButtonQuitter(RenderWindow& window)
 {
 	if (isClick(window)) {
-		Vector2i mousePos = Mouse::getPosition(window);
-		if (mousePos.x > 660 && mousePos.x < 1260 && mousePos.y > 890 && mousePos.y < 990) {
+		if (quitter.getGlobalBounds().contains(Mouse::getPosition().x, Mouse::getPosition().y)) {
 			return true;
 		}
 	}

@@ -11,6 +11,7 @@ using namespace std;
 bool alldead = false;
 bool play = false;
 bool close = false;
+bool menu = true;
 bool deathsound = false;
 
 int main()
@@ -86,29 +87,30 @@ int main()
 
             window.clear();
 
-            menuu.setMenu();
-            menuu.actionMenu(play, close, window);
+            if (menu) {
+                menuu.setMenu();
+                menuu.actionMenu(play, close, window);
 
-            window.draw(menuu.menutry);
-            window.draw(menuu.titre);
-            window.draw(menuu.play);
-            window.draw(menuu.butPlay);
-            window.draw(menuu.regle);
-            window.draw(menuu.butRules);
-            window.draw(menuu.parametre);
-            window.draw(menuu.butSet);
-            window.draw(menuu.quitter);
-            window.draw(menuu.butQuit);
+                window.draw(menuu.menutry);
+                window.draw(menuu.titre);
+                window.draw(menuu.play);
+                window.draw(menuu.butPlay);
+                window.draw(menuu.regle);
+                window.draw(menuu.butRules);
+                window.draw(menuu.parametre);
+                window.draw(menuu.butSet);
+                window.draw(menuu.quitter);
+                window.draw(menuu.butQuit);
 
-            window.draw(menuu.fenetrePara);
-            window.draw(menuu.parametreAffichage);
-            window.draw(menuu.buttonPara);
-            window.draw(menuu.control);
-            window.draw(menuu.son);
-            window.draw(menuu.FX);
-            window.draw(menuu.onOffM);
-            window.draw(menuu.onOffS);
-
+                window.draw(menuu.fenetrePara);
+                window.draw(menuu.parametreAffichage);
+                window.draw(menuu.buttonPara);
+                window.draw(menuu.control);
+                window.draw(menuu.son);
+                window.draw(menuu.FX);
+                window.draw(menuu.onOffM);
+                window.draw(menuu.onOffS);
+            }
 
 
             if (jukebox.music.getStatus() != Sound::Playing && !jeu.getGameOver()) {
@@ -119,7 +121,7 @@ int main()
 
             if (play)
             {
-
+                menu = false;
                 if (Keyboard::isKeyPressed(Keyboard::Space) && shootdelayint >= 200) {
                     joueur.tir(jeu.bulleta);
                     shootdelayPlayer.restart();
