@@ -22,9 +22,20 @@ int main()
         Clock spedelay;
         Clock rounddelay;
         Texture backTexture;
+        Texture eartht;
+        Texture marst;
+        Texture moont;
 
-        if (!backTexture.loadFromFile("seamless_background.jpg"))
-            return -1;
+        if (!backTexture.loadFromFile("seamless_background.jpg"))return -1;
+        if (!eartht.loadFromFile("earth.png")) return -1;
+        if (!marst.loadFromFile("mars.png")) return -1;
+        if (!moont.loadFromFile("moon.png")) return -1;
+
+        RectangleShape mask;
+        mask.setSize(Vector2f(3000, 2000));
+        mask.setPosition(-100, -100);
+        mask.setFillColor(Color(0, 0, 0, 150));
+
         RectangleShape background;
         background.setTexture(&backTexture);
         background.setPosition(0, 0);
@@ -42,6 +53,20 @@ int main()
         barreDeVieOutline.setOutlineThickness(10);
         barreDeVieOutline.setPosition(100, 900);
 
+        Sprite earth;
+        earth.setTexture(eartht);
+        earth.setPosition(1600, -2500);
+        earth.setScale(0.6, 0.6);
+
+        Sprite mars;
+        mars.setTexture(marst);
+        mars.setPosition(200, -1000);
+        mars.setScale(0.6, 0.6);
+
+        Sprite moon;
+        moon.setTexture(moont);
+        moon.setPosition(1500, -2000);
+        moon.setScale(0.3, 0.3);
 
         RectangleShape barreDeVie;
         barreDeVie.setFillColor(Color::Red);
@@ -172,6 +197,10 @@ int main()
 
                 window.draw(background);
                 window.draw(background2);
+                window.draw(earth);
+                window.draw(mars);
+                window.draw(moon);
+                window.draw(mask);
 
                 if (jeu.getBonusScreen()) {
                     window.draw(jeu.powerup1);
@@ -304,10 +333,22 @@ int main()
             if (background2.getPosition().y >= 1500) {
                 background2.setPosition(0, background.getPosition().y - 4800);
             }
+            if (earth.getPosition().y >= 1500) {
+                earth.setPosition(earth.getPosition().x, -2000);
+            }
+            if (mars.getPosition().y >= 3500) {
+                mars.setPosition(mars.getPosition().x, -2000);
+            }
+            if (moon.getPosition().y >= 1500) {
+                moon.setPosition(moon.getPosition().x, -2500);
+            }
 
 
-            background.move(0, 2);
-            background2.move(0, 2);
+            background.move(0, 1);
+            background2.move(0, 1);
+            earth.move(0, 2);
+            mars.move(0, 2);
+            moon.move(0, 2);
             window.display();
             jeu.score_maj();
         }

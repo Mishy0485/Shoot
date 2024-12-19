@@ -218,7 +218,6 @@ void Menu::onOff(bool button, bool on)
 
 void Menu::affichage()
 {
-	// afficher les parametres 
 	parametreb = true;
 	fenetrePara.setSize(Vector2f(500, 650));
 	fenetrePara.setTexture(&back_para);
