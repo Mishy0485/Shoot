@@ -229,6 +229,7 @@ void Menu::actionMenu(bool& play, bool& close, RenderWindow& window)
 	if (pressButtonQuitter(window))
 	{
 		// fermer la fenetre
-		close = true;
+		// close = true;
+		event.type == Event::Closed;
 	}
 }
