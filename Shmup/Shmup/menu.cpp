@@ -47,6 +47,11 @@ void Menu::setMenu()
 		butQuit.setCharacterSize(50);
 		butQuit.setPosition(Vector2f(770, 900));
 
+		butEditor.setString("Editer");
+		butEditor.setFont(font);
+		butEditor.setFillColor(Color::Black);
+		butEditor.setCharacterSize(40);
+		butEditor.setPosition(Vector2f(1490, 650));
 
 		// Initialisation des boutons
 
@@ -69,6 +74,10 @@ void Menu::setMenu()
 		quitter.setFillColor(Color(211, 211, 211));
 		quitter.setSize(Vector2f(600.f, 100.f));
 		quitter.setPosition(Vector2f(660.f, 890.f));
+
+		editor.setFillColor(Color(211, 211, 211));
+		editor.setRadius(150);
+		editor.setPosition(Vector2f(1460.f, 540.f));
 }
 
 
@@ -125,6 +134,17 @@ bool Menu::pressButtonQuitter(RenderWindow& window)
 	if (isClick(window)) {
 		if (quitter.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
 			cout << "close" << endl;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Menu::pressButtonEditor(RenderWindow& window)
+{
+	if (isClick(window)) {
+		if (quitter.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40)) {
 			return true;
 		}
 	}
@@ -196,7 +216,7 @@ void Menu::onOff(bool button, bool on)
 }
 
 
-void Menu::affichage(RenderWindow& window)
+void Menu::affichage()
 {
 	// afficher les parametres 
 	parametreb = true;
@@ -245,7 +265,7 @@ void Menu::actionMenu(bool& play, RenderWindow& window)
 
 	if (pressButtonParametre(window) && !parametreb)
 	{
-		affichage(window);
+		affichage();
 	}
 
 	if (parametreb){
@@ -274,6 +294,10 @@ void Menu::actionMenu(bool& play, RenderWindow& window)
 		if (isClick(window) && !fenetrePara.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40)) {
 			parametreb = false;
 		}
+	}
+	if (pressButtonEditor(window))
+	{
+
 	}
 
 	if (pressButtonQuitter(window) && !parametreb)

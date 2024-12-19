@@ -27,15 +27,19 @@ void Editeur::setEditeur()
 
 	selecteurD.loadFromFile("selecteurD.png");
 	selecteurDr.setTexture(selecteurD);
+	selecteurDr.setPosition(Vector2f(800, 600));
 
 	selecteurG.loadFromFile("selecteur.png");
 	selecteurGch.setTexture(selecteurG);
+	selecteurGch.setPosition(Vector2f());
 
 	selecteurDnb.loadFromFile("selecteurD.png");
 	selecteurDrnb.setTexture(selecteurDnb);
+	selecteurDrnb.setPosition(Vector2f());
 
 	selecteurGnb.loadFromFile("selecteur.png");
 	selecteurGchnb.setTexture(selecteurGnb);
+	selecteurGchnb.setPosition(Vector2f());
 
 	bimBamBoom.setSize(Vector2f(500, 200));
 	bimBamBoom.setFillColor(Color::Magenta);
@@ -150,4 +154,12 @@ void Editeur::select()
 		default:
 			break;
 	}
+}
+
+void Editeur::levelEdit(RenderWindow& window)
+{
+	setEditeur();
+	choix(window);
+	nbVagues(window);
+	Next(window);
 }

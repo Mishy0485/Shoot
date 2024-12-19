@@ -49,6 +49,7 @@ public:
 	void Next(RenderWindow& window);
 	void setEditeur();
 	void select();
+	void levelEdit(RenderWindow& window);
 
 };
 
