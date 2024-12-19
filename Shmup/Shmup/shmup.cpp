@@ -9,8 +9,9 @@
 using namespace sf;
 using namespace std;
 bool alldead = false;
-bool play = true;
+bool play = false;
 bool close = false;
+bool deathsound = false;
 
 int main()
 {
@@ -51,6 +52,10 @@ int main()
         Jeu jeu;
         Jukebox jukebox;
         jukebox.music_m();
+        jukebox.spawn_m();
+        jukebox.explosion_m();
+        jukebox.start_m();
+        jukebox.death_m();
         jeu.police.loadFromFile("Daydream.ttf");
         Plane joueur(500, 500, 100, 10);
 
@@ -106,6 +111,9 @@ int main()
 
 
 
+            if (jukebox.music.getStatus() != Sound::Playing && !jeu.getGameOver()) {
+                jukebox.music.play();
+            }
 
 
 
@@ -130,6 +138,10 @@ int main()
                         FloatRect textRect = jeu.vague.getLocalBounds();
                         jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
                         jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
+                        if (jeu.nb_vagues == 1) {
+                            jukebox.starts.play();
+                            jukebox.music.setVolume(0);
+                        }
                         if (jeu.nb_vagues != 1) {
                             if (scoringint >= 10000) scoringint = 10000;
                             jeu.score += 10000 - scoringint;
@@ -141,6 +153,8 @@ int main()
                 else if (alldead && rounddelayint >= 2000) {
                     scoring.restart();
                     jeu.manage_vague();
+                    jukebox.spawns.play();
+                    jukebox.music.setVolume(100);
                     jeu.vague.setPosition(200, 50);
                     alldead = false;
                 }
@@ -179,7 +193,7 @@ int main()
 
                         if (jeu.ennemis[i]->EstMort()) {
                             jeu.score += jeu.ennemis[i]->getPoint();
-
+                            jukebox.explosion.play();
                             delete jeu.ennemis[i];
                             jeu.ennemis.erase(jeu.ennemis.begin() + i);
                         }
@@ -257,7 +271,11 @@ int main()
                 }
             }
             if (jeu.getGameOver()) {
-
+                if (!deathsound) {
+                    jukebox.deaths.play();
+                    deathsound = true;
+                }
+                jukebox.music.stop();
                 Texture fin;
                 if (!fin.loadFromFile("game_over_final.png"))
                     return -1;
