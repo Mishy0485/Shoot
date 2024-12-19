@@ -15,10 +15,9 @@ public:
 
 	Texture fond_menu;
 
-	Texture button1;
-	Texture button2;
-	Texture button3;
-	Texture button4;
+	Texture button;
+	Texture back_para;
+
 
 	Text titre;
 	Font font;

@@ -4,7 +4,9 @@
 
 void Menu::setMenu()
 {
-		if (!fond_menu.loadFromFile("back.png")) {}
+	if (!button.loadFromFile("button.png")) { return; }
+	if (!fond_menu.loadFromFile("back.png")) { return; }
+	if (!back_para.loadFromFile("backpara.png")) { return; }
 
 		menutry.setFillColor(Color::Red);
 		menutry.setTexture(&fond_menu);
@@ -23,47 +25,47 @@ void Menu::setMenu()
 		
 		butPlay.setString("Play");
 		butPlay.setFont(font);
-		butPlay.setFillColor(Color::Black);
+		butPlay.setFillColor(Color(211, 211, 211, 255));
 		butPlay.setCharacterSize(50);
 		butPlay.setPosition(Vector2f(850, 450));
 
 		butRules.setString("Regles");
 		butRules.setFont(font);
-		butRules.setFillColor(Color::Black);
+		butRules.setFillColor(Color(211, 211, 211, 255));
 		butRules.setCharacterSize(50);
 		butRules.setPosition(Vector2f(800, 600));
 
 		butSet.setString("Parametres");
 		butSet.setFont(font);
-		butSet.setFillColor(Color::Black);
+		butSet.setFillColor(Color(211,211,211,255));
 		butSet.setCharacterSize(50);
 		butSet.setPosition(Vector2f(680, 750));
 
 		butQuit.setString("Quitter");
 		butQuit.setFont(font);
-		butQuit.setFillColor(Color::Black);
+		butQuit.setFillColor(Color(211, 211, 211, 255));
 		butQuit.setCharacterSize(50);
 		butQuit.setPosition(Vector2f(770, 900));
 
 
 		// Initialisation des boutons
 
-		play.setTexture(&button1);
+		play.setTexture(&button);
 		play.setFillColor(Color(211, 211, 211));
 		play.setSize(Vector2f(600.f, 100.f));
 		play.setPosition(Vector2f(660.f, 440.f));
 
-		regle.setTexture(&button2);
+		regle.setTexture(&button);
 		regle.setFillColor(Color(211, 211, 211));
 		regle.setSize(Vector2f(600.f, 100.f));
 		regle.setPosition(Vector2f(660.f, 590.f));
 
-		parametre.setTexture(&button3);
+		parametre.setTexture(&button);
 		parametre.setFillColor(Color(211, 211, 211));
 		parametre.setSize(Vector2f(600.f, 100.f));
 		parametre.setPosition(Vector2f(660.f, 740.f));
 
-		quitter.setTexture(&button4);
+		quitter.setTexture(&button);
 		quitter.setFillColor(Color(211, 211, 211));
 		quitter.setSize(Vector2f(600.f, 100.f));
 		quitter.setPosition(Vector2f(660.f, 890.f));
@@ -135,16 +137,18 @@ void Menu::createButton(int x, int y)
 {
 	buttonPara1.setSize(Vector2f(50,15));
 	buttonPara1.setPosition(Vector2f(x, y));
+	buttonPara1.setFillColor(Color::Green);
 	buttonPara2.setSize(Vector2f(50, 15));
 	buttonPara2.setPosition(Vector2f(x, y + 100));
+	buttonPara2.setFillColor(Color::Green);
 	
 	Color color(107, 107, 107, 255);
 
-	control1.setRadius(12);
+	control1.setRadius(14);
 	control1.setFillColor(color);
 	control1.setPosition(Vector2f(x + 26, y - 5));
 	if (!music_on) control1.setPosition(Vector2f(x, y - 5));
-	control2.setRadius(12);
+	control2.setRadius(14);
 	control2.setFillColor(color);
 	control2.setPosition(Vector2f(x + 26, y + 97));
 	if (!sfx_on) control2.setPosition(Vector2f(x, y + 97));
@@ -161,12 +165,14 @@ void Menu::onOff(bool button, bool on)
 			// musique ou son
 
 			music_on = true;
-			control1.move(26, 0);
+			control1.move(30, 0);
+			buttonPara1.setFillColor(Color::Green);
 		}
 		else
 		{
 			music_on = false;
-			control1.move(-26, 0);
+			control1.move(-30, 0);
+			buttonPara1.setFillColor(Color::Red);
 		}
 	}
 	else {
@@ -175,15 +181,16 @@ void Menu::onOff(bool button, bool on)
 			// musique ou son
 
 			sfx_on = true;
-			
-			control2.move(26, 0);
+			control2.move(30, 0);
+			buttonPara2.setFillColor(Color::Green);
 		}
 		else
 		{
 			// pas musique ou son
 
 			sfx_on = false;
-			control2.move(-26, 0);
+			control2.move(-30, 0);
+			buttonPara2.setFillColor(Color::Red);
 		}
 	}
 }
@@ -194,16 +201,16 @@ void Menu::affichage(RenderWindow& window)
 	// afficher les parametres 
 	parametreb = true;
 	fenetrePara.setSize(Vector2f(500, 650));
-	fenetrePara.setFillColor(Color::Black);
+	fenetrePara.setTexture(&back_para);
 	fenetrePara.setPosition(710, 140);
 
-	parametreAffichage.setString(" Parametre ");
+	parametreAffichage.setString(" Parametres ");
 	parametreAffichage.setFont(font);
-	parametreAffichage.setPosition(Vector2f(750, 190));
+	parametreAffichage.setPosition(Vector2f(730, 190));
 	parametreAffichage.setFillColor(Color::White);
 	parametreAffichage.setCharacterSize(40);
 
-	son.setString(" SON ");
+	son.setString(" MUSIQUE ");
 	son.setFont(font);
 	son.setPosition(Vector2f(720, 435));
 

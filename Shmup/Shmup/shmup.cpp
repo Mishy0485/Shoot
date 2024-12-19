@@ -117,9 +117,10 @@ int main()
             if (!menuu.music_on) {
                 jukebox.music.setVolume(0);
             }
-            else {
+            else if (menuu.music_on) {
                 jukebox.music.setVolume(100);
             }
+
 
             if (play)
             {
