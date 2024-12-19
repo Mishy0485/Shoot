@@ -23,7 +23,7 @@ void Jeu::score_maj() {
 	score_aff.setFont(police);
 	score_aff.setCharacterSize(50);
 	score_aff.setFillColor(Color(150, 150, 150));
-	score_aff.setPosition(500, 0);
+	score_aff.setPosition(500, 10);
 	score_aff.setOutlineColor(Color(0, 0, 0));
 	score_aff.setOutlineThickness(10);
 }

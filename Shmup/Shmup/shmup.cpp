@@ -11,6 +11,7 @@ using namespace std;
 bool alldead = false;
 bool play = false;
 bool menu = true;
+bool finish;
 bool deathsound = false;
 
 int main()
@@ -30,6 +31,7 @@ int main()
         if (!eartht.loadFromFile("earth.png")) return -1;
         if (!marst.loadFromFile("mars.png")) return -1;
         if (!moont.loadFromFile("moon.png")) return -1;
+
 
         RectangleShape mask;
         mask.setSize(Vector2f(3000, 2000));
@@ -83,7 +85,10 @@ int main()
         jukebox.start_m();
         jukebox.death_m();
         jeu.police.loadFromFile("Daydream.ttf");
-        Plane joueur(500, 500, 100, 10);
+        jeu.congrats.setString(" FELICITATIONS ");
+        jeu.congrats.setPosition(700, 400);
+        jeu.congrats.setCharacterSize(100);
+        Plane joueur(500, 500, 200, 10);
 
         RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
@@ -136,8 +141,8 @@ int main()
                     window.draw(menuu.FX);
                 }
 
-                if (editeur.editeurb) {
-
+                if (editeur.editeurb)
+                {
                     editeur.setEditeur();
                     window.draw(editeur.fenetre);
                     window.draw(editeur.choixEnnemi);
@@ -177,7 +182,11 @@ int main()
                         jeu.setBonusScreen(true);
                         jeu.bonus_screen(0, window, joueur);
                     }
-                    if (!jeu.getBonusScreen()) {
+                    if (jeu.nb_vagues == 10) {
+                        play = false;
+                        finish = true;
+                    }
+                    if (!jeu.getBonusScreen() && jeu.nb_vagues != 10) {
                         alldead = true;
                         jeu.incrVague();
                         jeu.enTeteVague();
@@ -350,6 +359,11 @@ int main()
                 jeu.end.setPosition(Vector2f(660.f, 440.f));
 
                 window.draw(jeu.end);
+            }
+            if (finish) {
+                window.draw(jeu.congrats);
+                jeu.score_aff.setPosition(jeu.congrats.getPosition().x, jeu.congrats.getPosition().y + 300);
+                window.draw(jeu.score_aff);
             }
             if (background.getPosition().y >= 1500) {
                 background.setPosition(0, background2.getPosition().y - 4800);

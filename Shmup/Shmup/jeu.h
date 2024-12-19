@@ -23,6 +23,8 @@ public:
 
 	int score = 0;
 
+	Text congrats;
+
 	Texture powerup1_t;
 	Texture powerup2_t;
 	Texture powerup3_t;

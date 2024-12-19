@@ -11,7 +11,7 @@ void Editeur::setEditeur()
 	
 	fenetre.setSize(Vector2f(700, 700));
 	fenetre.setPosition(Vector2f(610, 190));
-	fenetre.setFillColor(Color::Yellow);
+	fenetre.setFillColor(Color(211,211,211));
 
 	// load texture ennemis
 	
@@ -32,7 +32,7 @@ void Editeur::setEditeur()
 
 	selecteurG.loadFromFile("selecteur.png");
 	selecteurGch.setTexture(selecteurG);
-	selecteurGch.setPosition(Vector2f());
+	selecteurGch.setPosition(Vector2f(800, 600));
 
 	selecteurDnb.loadFromFile("selecteurD.png");
 	selecteurDrnb.setTexture(selecteurDnb);
@@ -43,13 +43,13 @@ void Editeur::setEditeur()
 	selecteurGchnb.setPosition(Vector2f());
 
 	bimBamBoom.setSize(Vector2f(500, 200));
-	bimBamBoom.setFillColor(Color::Magenta);
+	bimBamBoom.setFillColor(Color(111,111,111));
 	bimBamBoom.setPosition(Vector2f(710, 600));
 
 	next.setString(" A La Prochaine");
 	next.setFont(font);
 	next.setCharacterSize(50);
-	next.setFillColor(Color::Green);
+	next.setFillColor(Color(150,150,150));
 	next.setPosition(Vector2f(750, 620));
 
 
@@ -119,13 +119,13 @@ void Editeur::select()
 		case 0:
 
 			choixEnnemi.setTexture(base);
-			//choixEnnemi.setScale(1,1);
+			choixEnnemi.setScale(5,5);
 			break;
 
 		case 1:
 
 			choixEnnemi.setTexture(advanced);
-			choixEnnemi.setScale(-1,-1);
+			choixEnnemi.setScale(1,1);
 			break;
 
 		case 2:
@@ -143,13 +143,13 @@ void Editeur::select()
 		case 4:
 
 			choixEnnemi.setTexture(boss1);
-			choixEnnemi.setScale(-11,-11);
+			choixEnnemi.setScale(3,3);
 			break;
 
 		case 5:
 
 			choixEnnemi.setTexture(boss2);
-			choixEnnemi.setScale(-11, -11);
+			choixEnnemi.setScale(3, 3);
 			break;
 
 		default:
