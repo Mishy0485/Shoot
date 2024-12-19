@@ -29,11 +29,6 @@ void Menu::setMenu()
 		butPlay.setCharacterSize(50);
 		butPlay.setPosition(Vector2f(850, 450));
 
-		butRules.setString("Regles");
-		butRules.setFont(font);
-		butRules.setFillColor(Color(211, 211, 211, 255));
-		butRules.setCharacterSize(50);
-		butRules.setPosition(Vector2f(800, 600));
 
 		butSet.setString("Parametres");
 		butSet.setFont(font);
@@ -52,19 +47,22 @@ void Menu::setMenu()
 		play.setFillColor(Color(211, 211, 211));
 		play.setSize(Vector2f(600.f, 100.f));
 		play.setPosition(Vector2f(660.f, 440.f));
+		play.setTexture(&button);
 
 		editor.setFillColor(Color(211, 211, 211));
 		editor.setSize(Vector2f(600.f, 100.f));
 		editor.setPosition(Vector2f(660.f, 590.f));
+		editor.setTexture(&button);
 
 		parametre.setFillColor(Color(211, 211, 211));
 		parametre.setSize(Vector2f(600.f, 100.f));
 		parametre.setPosition(Vector2f(660.f, 740.f));
+		parametre.setTexture(&button);
 
 		quitter.setFillColor(Color(211, 211, 211));
 		quitter.setSize(Vector2f(600.f, 100.f));
 		quitter.setPosition(Vector2f(660.f, 890.f));
-
+		quitter.setTexture(&button);
 }
 
 

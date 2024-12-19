@@ -318,8 +318,18 @@ int main()
                     window.draw(barreDeVie);
                     window.draw(barreDeVieOutline);
                 }
+                background.move(0, 1);
+                background2.move(0, 1);
+                earth.move(0, 2);
+                mars.move(0, 2);
+                moon.move(0, 3);
             }
             if (jeu.getGameOver()) {
+                background.move(0, 1);
+                background2.move(0, 1);
+                earth.move(0, 2);
+                mars.move(0, 2);
+                moon.move(0, 3);
                 if (!deathsound && menuu.sfx_on) {
                     jukebox.deaths.play();
                     deathsound = true;
@@ -355,11 +365,7 @@ int main()
             }
 
 
-            background.move(0, 1);
-            background2.move(0, 1);
-            earth.move(0, 2);
-            mars.move(0, 2);
-            moon.move(0, 3);
+
             window.display();
             jeu.score_maj();
         }
