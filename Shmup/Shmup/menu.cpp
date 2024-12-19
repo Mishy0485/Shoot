@@ -227,7 +227,7 @@ void Menu::affichage()
 
 
 
-void Menu::actionMenu(bool& play, RenderWindow& window, Editeur editeur)
+void Menu::actionMenu(bool& play, RenderWindow& window, Editeur& editeur)
 {
 	if (pressButtonPlay(window) && !parametreb && !editeur.editeurb)
 	{
@@ -267,8 +267,9 @@ void Menu::actionMenu(bool& play, RenderWindow& window, Editeur editeur)
 		}
 	}
 
-	if (pressButtonEditer(window) && !parametreb && editeur.editeurb)
+	if (pressButtonEditer(window) && !parametreb && !editeur.editeurb)
 	{
+		editeur.editeurb = true;
 		editeur.choix(window);
 		editeur.nbVagues(window);
 		editeur.Next(window);

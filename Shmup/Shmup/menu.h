@@ -65,7 +65,7 @@ public:
 	bool pressButtonParametre(RenderWindow& window);
 	bool pressButtonQuitter(RenderWindow& window);
 
-	void actionMenu(bool& play, RenderWindow& window, Editeur editeur);
+	void actionMenu(bool& play, RenderWindow& window, Editeur& editeur);
 };
 
 #endif

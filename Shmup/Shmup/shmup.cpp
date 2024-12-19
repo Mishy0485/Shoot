@@ -136,8 +136,8 @@ int main()
                     window.draw(menuu.FX);
                 }
 
+                if (editeur.editeurb) {
 
-                
                     editeur.setEditeur();
                     window.draw(editeur.fenetre);
                     window.draw(editeur.choixEnnemi);
@@ -147,7 +147,7 @@ int main()
                     window.draw(editeur.selecteurGchnb);
                     window.draw(editeur.bimBamBoom);
                     window.draw(editeur.next);
-                
+                }
             }
 
 
