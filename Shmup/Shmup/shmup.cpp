@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "jeu.h"
+#include "jukebox.h"
 #include "menu.h"
 #include <ctime>
 #include <iostream>
@@ -9,15 +11,18 @@ using namespace std;
 bool alldead = false;
 bool play = false;
 bool close = false;
+bool deathsound = false;
 
 int main()
 {
         srand(time(NULL));
+        Clock scoring;
         Clock shootdelayPlayer;
         Clock shootdelayEnnemi;
         Clock spedelay;
         Clock rounddelay;
         Texture backTexture;
+
         if (!backTexture.loadFromFile("seamless_background.jpg"))
             return -1;
         RectangleShape background;
@@ -43,16 +48,25 @@ int main()
         barreDeVie.setPosition(100, 900);
 
 
-        Menu menu;
+        Menu menuu;
         Jeu jeu;
+        Jukebox jukebox;
+        jukebox.music_m();
+        jukebox.spawn_m();
+        jukebox.explosion_m();
+        jukebox.start_m();
+        jukebox.death_m();
         jeu.police.loadFromFile("Daydream.ttf");
         Plane joueur(500, 500, 100, 10);
 
         RenderWindow window(VideoMode(1920, 1080), "Fenêtre SFML", Style::Default);
 
+
         window.setFramerateLimit(60);
+
         while (window.isOpen()) {
             barreDeVieOutline.setSize(Vector2f(joueur.getMaxVie() * 4, 50));
+            int scoringint = scoring.getElapsedTime().asMilliseconds();
             int shootdelayint = shootdelayPlayer.getElapsedTime().asMilliseconds();
             int shootdelayint2 = shootdelayEnnemi.getElapsedTime().asSeconds();
             int rounddelayint = rounddelay.getElapsedTime().asMilliseconds();
@@ -64,11 +78,43 @@ int main()
             {   
                 if (event.type == Event::Closed)
                     window.close();
-                else if (close) {}
+                else if (close) 
+                {
+                    window.close();
+                }
             }
 
-            menu.setMenu();
-            menu.actionMenu(play, close);
+            window.clear();
+
+            menuu.setMenu();
+            menuu.actionMenu(play, close, window);
+
+            window.draw(menuu.menutry);
+            window.draw(menuu.titre);
+            window.draw(menuu.play);
+            window.draw(menuu.butPlay);
+            window.draw(menuu.regle);
+            window.draw(menuu.butRules);
+            window.draw(menuu.parametre);
+            window.draw(menuu.butSet);
+            window.draw(menuu.quitter);
+            window.draw(menuu.butQuit);
+
+            window.draw(menuu.fenetrePara);
+            window.draw(menuu.parametreAffichage);
+            window.draw(menuu.buttonPara);
+            window.draw(menuu.control);
+            window.draw(menuu.son);
+            window.draw(menuu.FX);
+            window.draw(menuu.onOffM);
+            window.draw(menuu.onOffS);
+
+
+
+            if (jukebox.music.getStatus() != Sound::Playing && !jeu.getGameOver()) {
+                jukebox.music.play();
+            }
+
 
 
             if (play)
@@ -81,7 +127,7 @@ int main()
 
                 if (jeu.ennemis.size() == 0 && alldead == false) {
                     jeu.bulleta.clear();
-                    if (jeu.nb_vagues == 3) {
+                    if (jeu.nb_vagues == 5) {
                         jeu.setBonusScreen(true);
                         jeu.bonus_screen(0, window, joueur);
                     }
@@ -92,25 +138,30 @@ int main()
                         FloatRect textRect = jeu.vague.getLocalBounds();
                         jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
                         jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
+                        if (jeu.nb_vagues == 1) {
+                            jukebox.starts.play();
+                            jukebox.music.setVolume(0);
+                        }
+                        if (jeu.nb_vagues != 1) {
+                            if (scoringint >= 10000) scoringint = 10000;
+                            jeu.score += 10000 - scoringint;
+                        }
                         rounddelay.restart();
                     }
                 }
+
                 else if (alldead && rounddelayint >= 2000) {
-                    if (jeu.nb_vagues == 3) {
-                        jeu.spawnEnnemi(1, 3);
-                    }
-                    else if (jeu.nb_vagues == 4) {
-                        jeu.spawnEnnemi(3, 1);
-                    }
-                    else {
-                        jeu.spawnEnnemi(6, 0);
-                    }
+                    scoring.restart();
+                    jeu.manage_vague();
+                    jukebox.spawns.play();
+                    jukebox.music.setVolume(100);
                     jeu.vague.setPosition(200, 50);
                     alldead = false;
                 }
 
 
                 window.clear();
+
                 window.draw(background);
                 window.draw(background2);
 
@@ -119,6 +170,7 @@ int main()
                     window.draw(jeu.powerup2);
                     window.draw(jeu.powerup3);
                 }
+
                 if (!jeu.getGameOver() && !jeu.getBonusScreen()) {
                     for (int i = 0; i < jeu.ennemis.size(); ) {
                         jeu.ennemis[i]->mouvement();
@@ -128,14 +180,20 @@ int main()
                             shootdelayEnnemi.restart();
                         }
 
-                        if (jeu.ennemis[i]->getType() == 3 && spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
+                        if (spedelayint >= 10000 && !jeu.ennemis[i]->spe) {
                             spedelay.restart();
                             jeu.ennemis[i]->capaciteSpe();
                             spedelayint = spedelay.getElapsedTime().asMilliseconds();
+                            cout << jeu.ennemis[i]->getType() << endl;
+                            if (jeu.ennemis[i]->getType() == 4) {
+                                jeu.capaSpeBoss2(jeu.ennemis[i]->getSprite().getPosition().x, jeu.ennemis[i]->getSprite().getPosition().y, jeu.ennemis[i]);
+                            }
                         }
 
 
                         if (jeu.ennemis[i]->EstMort()) {
+                            jeu.score += jeu.ennemis[i]->getPoint();
+                            jukebox.explosion.play();
                             delete jeu.ennemis[i];
                             jeu.ennemis.erase(jeu.ennemis.begin() + i);
                         }
@@ -163,22 +221,28 @@ int main()
                         if (jeu.bulleta[i]->getSide()) {
                             jeu.bulleta[i]->fuse(true);
                         }
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 0) {
+                        else if (!jeu.bulleta[i]->getSide()){
+                            if (jeu.bulleta[i]->getType() == 0) {
                             jeu.bulleta[i]->fuse(false);
-                        }
-
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 1) {
-                            if (jeu.bulleta[i]->getPositionY() > 475 && !jeu.bulleta[i]->getSepState()) {
-                                jeu.bulleta[i]->separation(jeu.bulleta, *jeu.bulleta[i]);
-                                jeu.bulleta[i]->setSepState();
                             }
-                            jeu.bulleta[i]->fuse(false);
-                        }
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 2) {
-                            jeu.bulleta[i]->fuse1(true);
-                        }
-                        else if (!jeu.bulleta[i]->getSide() && jeu.bulleta[i]->getType() == 3) {
-                            jeu.bulleta[i]->fuse1(false);
+
+                            else if (jeu.bulleta[i]->getType() == 1) {
+                                if (jeu.bulleta[i]->getSprite().getPosition().y > 475 && !jeu.bulleta[i]->getSepState()) {
+                                    jeu.bulleta[i]->separation(jeu.bulleta);
+                                    jeu.bulleta[i]->setSepState();
+                                }
+                                jeu.bulleta[i]->fuse(false);
+                            }
+                            else if (jeu.bulleta[i]->getType() == 2) {
+                                jeu.bulleta[i]->fuse1(true);
+                            }
+                            else if (jeu.bulleta[i]->getType() == 3) {
+                                jeu.bulleta[i]->fuse1(false);
+                            }
+
+                            else if (jeu.bulleta[i]->getType() == 4) {
+                                jeu.bulleta[i]->deplacementLaser();
+                            }
                         }
 
                         if (jeu.bulleta[i]->isOutOfScreen() or jeu.bulleta[i]->getHitValue()) {
@@ -200,13 +264,18 @@ int main()
 
                     window.draw(joueur.getSprite());
                     window.draw(jeu.vague);
+                    window.draw(jeu.score_aff);
                     barreDeVie.setSize(Vector2f(joueur.getVie() * 4, 50));
                     window.draw(barreDeVie);
                     window.draw(barreDeVieOutline);
                 }
             }
             if (jeu.getGameOver()) {
-
+                if (!deathsound) {
+                    jukebox.deaths.play();
+                    deathsound = true;
+                }
+                jukebox.music.stop();
                 Texture fin;
                 if (!fin.loadFromFile("game_over_final.png"))
                     return -1;
@@ -231,6 +300,7 @@ int main()
             background.move(0, 2);
             background2.move(0, 2);
             window.display();
+            jeu.score_maj();
         }
 
     return 0;

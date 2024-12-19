@@ -2,7 +2,7 @@
 
 
 
-ExpertEnnemi1::ExpertEnnemi1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 0, s)
+ExpertEnnemi1::ExpertEnnemi1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 0, s, 400)
 {
 	eEnnemi1Texture.loadFromFile("ennemi2.PNG");
 	eEnnemi1TextureHit.loadFromFile("ennemi2_hit.png");

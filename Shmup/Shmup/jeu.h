@@ -19,6 +19,9 @@ private:
 	bool bonus_screen_bool = false;
 
 public:
+
+	int score = 0;
+
 	Texture powerup1_t;
 	Texture powerup2_t;
 	Texture powerup3_t;
@@ -31,12 +34,16 @@ public:
 
 	Font police;
 
+	Text score_aff;
+
 	Text vague;
 
 	Text boss;
 
 	vector<Ennemi*>& getEnnemis();
 	
+	void score_maj();
+
 	int nb_vagues = 0;
 	int bossTime;
 
@@ -65,7 +72,7 @@ public:
 	bool bottom(Projectile* currentBulleta);
 	void collisionPlane(Plane& joueur, Projectile* currentBulleta);
 
-	void capaSpeBoss2(int x, int y);
+	void capaSpeBoss2(int x, int y, Ennemi* ennemi);
 
 };
 

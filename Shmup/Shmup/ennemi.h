@@ -19,6 +19,7 @@ protected:
 	bool droite = true;
 	int vie;
 	Texture texture;
+	int point;
 
 public:
 
@@ -32,7 +33,9 @@ public:
 
 	int getType();
 
-	Ennemi(int x, int y, int v, int t, int s);
+	int getPoint();
+
+	Ennemi(int x, int y, int v, int t, int s, int p);
 
 	virtual Sprite& getSpeSprite() = 0;
 

@@ -1,7 +1,7 @@
 #include "ennemi.h"
 #include <iostream>
 
-	Ennemi::Ennemi(int x, int y, int v, int t, int s) : x(x), y(y), vie(v), type(t), attackspeed(s){}
+	Ennemi::Ennemi(int x, int y, int v, int t, int s, int p) : x(x), y(y), vie(v), type(t), attackspeed(s), point (p){}
 
 	void Ennemi::degats(int degats)
 	{
@@ -27,4 +27,8 @@
 
 	int Ennemi::getType() {
 		return type;
+	}
+
+	int Ennemi::getPoint() {
+		return point;
 	}

@@ -23,16 +23,10 @@ public:
 	Texture bullet;
 	Sprite getSprite();
 
-	int getPositionX();
-	int getPositionY();
-
-	int setPositionX(int n);
-	int setPositionY(int n);
+	Projectile(int x, int y, int v, int t, bool s);
 
 	bool getSepState();
 	void setSepState();
-
-	Projectile(int x, int y, int v, int t, bool s);
 
 	bool isOutOfScreen();
 
@@ -52,7 +46,7 @@ public:
 
 	void deplacementLaser();
 
-	void separation(vector<Projectile*>& bulleta, Projectile bullet);
+	void separation(vector<Projectile*>& bulleta);
 };
 
 #endif

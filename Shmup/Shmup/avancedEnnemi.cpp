@@ -1,6 +1,6 @@
 #include "AvancedEnnemi.h"
 
-AdvancedEnnemi::AdvancedEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y , v, 1, s) 
+AdvancedEnnemi::AdvancedEnnemi(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 1, s, 200)
 {
 	aEnnemiTexture.loadFromFile("ennemi2.PNG");
 	aEnnemiTextureHit.loadFromFile("ennemi2_hit.png");

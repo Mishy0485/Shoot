@@ -1,6 +1,6 @@
 #include "boss1.h"
 
-Boss1::Boss1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 3, s)
+Boss1::Boss1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 3, s, 2000)
 {
 	
 	boss1.loadFromFile("boss1.png");
@@ -12,7 +12,7 @@ Boss1::Boss1(int x, int y, int v, int t, int s) : Ennemi(x, y, v, 3, s)
 
 void Boss1::tir(vector<Projectile*>& bulleta) {
 
-	bulleta.push_back(new Projectile(colonel.getPosition().x, colonel.getPosition().y, 20, 1, false));
+	bulleta.push_back(new Projectile(colonel.getPosition().x + 80, colonel.getPosition().y + 150, 20, 1, false));
 }
 
 
