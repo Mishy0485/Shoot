@@ -15,10 +15,10 @@ public:
 
 	Texture fond_menu;
 
-	Texture button1;
-	Texture button2;
-	Texture button3;
-	Texture button4;
+	//Texture button1;
+	//Texture button2;
+	//Texture button3;
+	//Texture button4;
 
 	Text titre;
 	Font font;
@@ -26,6 +26,7 @@ public:
 	Text butPlay;
 	Text butRules;
 	Text butSet;
+	Text butEditor;
 	Text butQuit;
 
 	Text parametreAffichage;
@@ -38,6 +39,7 @@ public:
 
 	Event event;
 
+	CircleShape editor;
 	RectangleShape buttonPara1;
 	RectangleShape buttonPara2;
 	RectangleShape menutry;
@@ -57,12 +59,13 @@ public:
 	bool isClick(RenderWindow& window);
 
 	void createButton(int x, int y);
-	void affichage(RenderWindow& window);
+	void affichage();
 
 	bool pressButtonPlay(RenderWindow& window);
 	bool pressButtonRegle(RenderWindow& window);
 	bool pressButtonParametre(RenderWindow& window);
 	bool pressButtonQuitter(RenderWindow& window);
+	bool pressButtonEditor(RenderWindow& window);
 
 	void actionMenu(bool& play, RenderWindow& window);
 };

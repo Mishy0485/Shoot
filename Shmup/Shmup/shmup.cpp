@@ -96,6 +96,8 @@ int main()
                 window.draw(menuu.butSet);
                 window.draw(menuu.quitter);
                 window.draw(menuu.butQuit);
+                window.draw(menuu.editor);
+                window.draw(menuu.butEditor);
 
                 if (menuu.parametreb) {
                     window.draw(menuu.fenetrePara);
