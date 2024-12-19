@@ -11,7 +11,7 @@ using namespace std;
 class Menu
 {
 public:
-	bool close = false;
+	bool parametreb = false;
 
 	Texture fond_menu;
 
@@ -33,8 +33,8 @@ public:
 	Text son;
 	Text FX;
 
-	Text onOffM;
-	Text onOffS;
+	bool music_on = true;
+	bool sfx_on = true;
 
 	Event event;
 
@@ -51,7 +51,7 @@ public:
 	
 	Mouse mouse;
 
-	void onOff(Text text, bool on);
+	void onOff(bool button, bool on);
 
 	void setMenu();
 	bool isClick(RenderWindow& window);

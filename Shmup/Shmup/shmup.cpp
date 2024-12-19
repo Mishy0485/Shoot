@@ -51,7 +51,7 @@ int main()
         Menu menuu;
         Jeu jeu;
         Jukebox jukebox;
-        //jukebox.music_m();
+        jukebox.music_m();
         jukebox.spawn_m();
         jukebox.explosion_m();
         jukebox.start_m();
@@ -97,16 +97,16 @@ int main()
                 window.draw(menuu.quitter);
                 window.draw(menuu.butQuit);
 
-                window.draw(menuu.fenetrePara);
-                window.draw(menuu.parametreAffichage);
-                window.draw(menuu.buttonPara1);
-                window.draw(menuu.buttonPara2);
-                window.draw(menuu.control1);
-                window.draw(menuu.control2);
-                window.draw(menuu.son);
-                window.draw(menuu.FX);
-                window.draw(menuu.onOffM);
-                window.draw(menuu.onOffS);
+                if (menuu.parametreb) {
+                    window.draw(menuu.fenetrePara);
+                    window.draw(menuu.parametreAffichage);
+                    window.draw(menuu.buttonPara1);
+                    window.draw(menuu.buttonPara2);
+                    window.draw(menuu.control1);
+                    window.draw(menuu.control2);
+                    window.draw(menuu.son);
+                    window.draw(menuu.FX);
+                }
             }
 
 
@@ -114,7 +114,12 @@ int main()
                 jukebox.music.play();
             }
 
-
+            if (!menuu.music_on) {
+                jukebox.music.setVolume(0);
+            }
+            else {
+                jukebox.music.setVolume(100);
+            }
 
             if (play)
             {
@@ -137,7 +142,7 @@ int main()
                         FloatRect textRect = jeu.vague.getLocalBounds();
                         jeu.vague.setOrigin(textRect.width / 2, textRect.height / 2);
                         jeu.vague.setPosition(sf::Vector2f(1920 / 2.0f, 1080 / 2.0f));
-                        if (jeu.nb_vagues == 1) {
+                        if (jeu.nb_vagues == 1 && menuu.sfx_on) {
                             jukebox.starts.play();
                             jukebox.music.setVolume(0);
                         }
@@ -152,6 +157,7 @@ int main()
                 else if (alldead && rounddelayint >= 2000) {
                     scoring.restart();
                     jeu.manage_vague();
+                    if (menuu.sfx_on)
                     jukebox.spawns.play();
                     jukebox.music.setVolume(100);
                     jeu.vague.setPosition(200, 50);
@@ -192,6 +198,7 @@ int main()
 
                         if (jeu.ennemis[i]->EstMort()) {
                             jeu.score += jeu.ennemis[i]->getPoint();
+                            if ( menuu.sfx_on)
                             jukebox.explosion.play();
                             delete jeu.ennemis[i];
                             jeu.ennemis.erase(jeu.ennemis.begin() + i);
@@ -270,7 +277,7 @@ int main()
                 }
             }
             if (jeu.getGameOver()) {
-                if (!deathsound) {
+                if (!deathsound && menuu.sfx_on) {
                     jukebox.deaths.play();
                     deathsound = true;
                 }

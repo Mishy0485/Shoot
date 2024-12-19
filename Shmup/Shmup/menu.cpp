@@ -136,38 +136,55 @@ void Menu::createButton(int x, int y)
 	buttonPara1.setSize(Vector2f(50,15));
 	buttonPara1.setPosition(Vector2f(x, y));
 	buttonPara2.setSize(Vector2f(50, 15));
-	buttonPara2.setPosition(Vector2f(x, y + 50));
+	buttonPara2.setPosition(Vector2f(x, y + 100));
 	
 	Color color(107, 107, 107, 255);
 
 	control1.setRadius(12);
 	control1.setFillColor(color);
-	control1.setPosition(Vector2f(x + 26, y - 10));
+	control1.setPosition(Vector2f(x + 26, y - 5));
+	if (!music_on) control1.setPosition(Vector2f(x, y - 5));
 	control2.setRadius(12);
 	control2.setFillColor(color);
-	control2.setPosition(Vector2f(x + 26, y + 47));
+	control2.setPosition(Vector2f(x + 26, y + 97));
+	if (!sfx_on) control2.setPosition(Vector2f(x, y + 97));
 }
 
 
 
 
-void Menu::onOff(Text text, bool on)
+void Menu::onOff(bool button, bool on)
 {
-	if (on)
-	{
-		// musique ou son
+	if (button) {
+		if (on)
+		{
+			// musique ou son
 
-		text.setString("ON");
-		text.setPosition(Vector2f(850, buttonPara1.getPosition().y - 20));
-		control1.setPosition(Vector2f(buttonPara1.getPosition().x + 26, buttonPara1.getPosition().y + 26));
+			music_on = true;
+			control1.move(26, 0);
+		}
+		else
+		{
+			music_on = false;
+			control1.move(-26, 0);
+		}
 	}
-	else
-	{
-		// pas musique ou son
+	else {
+		if (on)
+		{
+			// musique ou son
 
-		text.setString("OFF");
-		text.setPosition(Vector2f(850, buttonPara1.getPosition().y - 20));
-		control1.setPosition(Vector2f(buttonPara1.getPosition().x, buttonPara1.getPosition().y));
+			sfx_on = true;
+			
+			control2.move(26, 0);
+		}
+		else
+		{
+			// pas musique ou son
+
+			sfx_on = false;
+			control2.move(-26, 0);
+		}
 	}
 }
 
@@ -175,15 +192,16 @@ void Menu::onOff(Text text, bool on)
 void Menu::affichage(RenderWindow& window)
 {
 	// afficher les parametres 
-
-	fenetrePara.setSize(Vector2f(500, 800));
+	parametreb = true;
+	fenetrePara.setSize(Vector2f(500, 650));
 	fenetrePara.setFillColor(Color::Black);
 	fenetrePara.setPosition(710, 140);
 
 	parametreAffichage.setString(" Parametre ");
 	parametreAffichage.setFont(font);
-	parametreAffichage.setPosition(Vector2f(800, 190));
+	parametreAffichage.setPosition(Vector2f(750, 190));
 	parametreAffichage.setFillColor(Color::White);
+	parametreAffichage.setCharacterSize(40);
 
 	son.setString(" SON ");
 	son.setFont(font);
@@ -191,49 +209,67 @@ void Menu::affichage(RenderWindow& window)
 
 	FX.setString(" FX ");
 	FX.setFont(font);
-	FX.setPosition(Vector2f(720, 635));
+	FX.setPosition(Vector2f(720, 535));
 
-	createButton(780, 540);
+	createButton(780, 500);
 
 	// music de fond on/off (booleen)
 
-	if (isClick(window) && control1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y - 40))
-	{
-		onOff(onOffM, false);
-		// musique plus : ajout musique
-	}
-
 	// son des explosions? on/off (booleen) 
 
-	if (isClick(window) && control1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y))
-	{
-		onOff(onOffS, false);
-		// son plus : ajout effets
-	}
+
 }
 
 
 
 void Menu::actionMenu(bool& play, RenderWindow& window)
 {
-	if (pressButtonPlay(window))
+	if (pressButtonPlay(window) && !parametreb)
 	{
 		// debut du jeu
 		play = true;
 	}
 
-	if (pressButtonRegle(window))
+	if (pressButtonRegle(window) && !parametreb)
 	{
 		// apparition des regles ( ajout d'un fichier )
 		reglesDejeu();
 	}
 
-	if (pressButtonParametre(window))
+	if (pressButtonParametre(window) && !parametreb)
 	{
 		affichage(window);
 	}
 
-	if (pressButtonQuitter(window))
+	if (parametreb){
+		if (isClick(window) && control1.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40))
+		{
+			if (music_on) {
+				onOff(true, false);
+
+			}
+			else {
+				onOff(true, true);
+			}
+			cout << "clique" << endl;
+		}
+
+		if (isClick(window) && control2.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40))
+		{
+			if (sfx_on){
+			onOff(false, false);}
+			else {
+				onOff(false, true);
+			}
+			cout << "clac" << endl;
+			// son plus : ajout effets
+		}
+		if (isClick(window) && !fenetrePara.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40)) {
+			parametreb = false;
+		}
+	}
+
+	if (pressButtonQuitter(window) && !parametreb)
 	{
 		window.close();
 	}
