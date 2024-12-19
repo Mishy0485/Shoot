@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "jeu.h"
+#include "jukebox.h"
 #include "menu.h"
 #include <ctime>
 #include <iostream>
@@ -47,6 +49,8 @@ int main()
 
         Menu menuu;
         Jeu jeu;
+        Jukebox jukebox;
+        jukebox.music_m();
         jeu.police.loadFromFile("Daydream.ttf");
         Plane joueur(500, 500, 100, 10);
 
@@ -73,6 +77,7 @@ int main()
             menuu.setMenu();
             window.draw(menuu.menu);
             menuu.actionMenu(play, close);
+
 
 
             if (play)

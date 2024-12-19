@@ -147,6 +147,7 @@
     <ClCompile Include="expertEnnemi1.cpp" />
     <ClCompile Include="expertEnnemi2.cpp" />
     <ClCompile Include="jeu.cpp" />
+    <ClCompile Include="jukebox.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="projectile.cpp" />
     <ClCompile Include="regles.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="expertEnnemi1.h" />
     <ClInclude Include="expertEnnemi2.h" />
     <ClInclude Include="jeu.h" />
+    <ClInclude Include="jukebox.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="projectile.h" />
     <ClInclude Include="regles.h" />
