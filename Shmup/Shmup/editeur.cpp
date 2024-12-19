@@ -2,6 +2,7 @@
 
 void Editeur::setEditeur()
 {
+
 	// Font 
 	
 	font.loadFromFile("Daydream.ttf");

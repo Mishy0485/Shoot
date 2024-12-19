@@ -75,6 +75,7 @@ int main()
 
         Menu menuu;
         Jeu jeu;
+        Editeur editeur;
         Jukebox jukebox;
         jukebox.music_m();
         jukebox.spawn_m();
@@ -109,14 +110,13 @@ int main()
 
             if (menu) {
                 menuu.setMenu();
-                menuu.actionMenu(play, window);
+                menuu.actionMenu(play, window, editeur);
+              
 
                 window.draw(menuu.menutry);
                 window.draw(menuu.titre);
                 window.draw(menuu.play);
                 window.draw(menuu.butPlay);
-                window.draw(menuu.regle);
-                window.draw(menuu.butRules);
                 window.draw(menuu.parametre);
                 window.draw(menuu.butSet);
                 window.draw(menuu.quitter);
@@ -134,6 +134,17 @@ int main()
                     window.draw(menuu.son);
                     window.draw(menuu.FX);
                 }
+
+                
+                    window.draw(editeur.fenetre);
+                    window.draw(editeur.choixEnnemi);
+                    window.draw(editeur.selecteurDr);
+                    window.draw(editeur.selecteurDrnb);
+                    window.draw(editeur.selecteurGch);
+                    window.draw(editeur.selecteurGchnb);
+                    window.draw(editeur.bimBamBoom);
+                    window.draw(editeur.next);
+                
             }
 
 

@@ -8,6 +8,7 @@
 #include "projectile.h"
 #include "ennemi.h"
 #include "avion.h"
+#include "editeur.h"
 
 using namespace std;
 using namespace sf;
@@ -64,6 +65,7 @@ public:
 	vector<Ennemi*> ennemis;
 	void spawnEnnemi(int n, int type);
 	void manage_vague();
+	void createLevel(int tab[6]);
 
 	void bonus_screen(int i, RenderWindow& window, Plane& joueur);
 	bool isInCollisionPlane(Plane joueur, Projectile* currentBulleta);

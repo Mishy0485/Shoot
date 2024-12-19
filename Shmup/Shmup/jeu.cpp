@@ -140,6 +140,29 @@ void Jeu::manage_vague() {
 	}
 }
 
+void Jeu::createLevel(int tab[6])
+{
+	/*for (int i = 0; i < tab.size(); i++)
+	if (nb_vagues == 0) {
+		spawnEnnemi(tab[0][0], tab[0][1]);
+	}
+	else if (nb_vagues == 1) {
+		spawnEnnemi(4, 1);
+	}
+	else if (nb_vagues == 2) {
+		spawnEnnemi(1, 4);
+	}
+	else if (nb_vagues == 3) {
+		spawnEnnemi(4, 1);
+	}
+	else if (nb_vagues == 4) {
+		spawnEnnemi(4, 1);
+	}
+	else {
+		spawnEnnemi(6, 0);
+	}*/
+}
+
 bool Jeu::isInCollisionPlane(Plane joueur, Projectile* currentBulleta)
 {
 	if (currentBulleta->getSprite().getGlobalBounds().intersects(joueur.getSprite().getGlobalBounds()) && !currentBulleta->getSide())

@@ -3,6 +3,7 @@
 #define MENU_H
 
 #include"regles.h"
+#include"editeur.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 using namespace sf;
@@ -18,12 +19,12 @@ public:
 	Texture button;
 	Texture back_para;
 
+	//Texture button4;
 
 	Text titre;
 	Font font;
 
 	Text butPlay;
-	Text butRules;
 	Text butSet;
 	Text butEditor;
 	Text butQuit;
@@ -38,12 +39,11 @@ public:
 
 	Event event;
 
-	CircleShape editor;
 	RectangleShape buttonPara1;
 	RectangleShape buttonPara2;
 	RectangleShape menutry;
 	RectangleShape play;
-	RectangleShape regle;
+	RectangleShape editor;
 	RectangleShape parametre;
 	RectangleShape fenetrePara;
 	RectangleShape quitter;
@@ -61,12 +61,11 @@ public:
 	void affichage();
 
 	bool pressButtonPlay(RenderWindow& window);
-	bool pressButtonRegle(RenderWindow& window);
+	bool pressButtonEditer(RenderWindow& window);
 	bool pressButtonParametre(RenderWindow& window);
 	bool pressButtonQuitter(RenderWindow& window);
-	bool pressButtonEditor(RenderWindow& window);
 
-	void actionMenu(bool& play, RenderWindow& window);
+	void actionMenu(bool& play, RenderWindow& window, Editeur editeur);
 };
 
 #endif

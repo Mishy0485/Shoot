@@ -9,6 +9,8 @@ class Editeur
 {
 public:
 
+	bool editeurb = false;
+
 	RectangleShape fenetre;
 
 	Sprite choixEnnemi;
@@ -35,7 +37,6 @@ public:
 	RectangleShape bimBamBoom;
 
 	Font font;
-	Text nom;
 	Text next;
 
 	int selectNb;

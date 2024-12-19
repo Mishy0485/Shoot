@@ -47,37 +47,24 @@ void Menu::setMenu()
 		butQuit.setCharacterSize(50);
 		butQuit.setPosition(Vector2f(770, 900));
 
-		butEditor.setString("Editer");
-		butEditor.setFont(font);
-		butEditor.setFillColor(Color::Black);
-		butEditor.setCharacterSize(40);
-		butEditor.setPosition(Vector2f(1490, 650));
-
 		// Initialisation des boutons
 
-		play.setTexture(&button);
 		play.setFillColor(Color(211, 211, 211));
 		play.setSize(Vector2f(600.f, 100.f));
 		play.setPosition(Vector2f(660.f, 440.f));
 
-		regle.setTexture(&button);
-		regle.setFillColor(Color(211, 211, 211));
-		regle.setSize(Vector2f(600.f, 100.f));
-		regle.setPosition(Vector2f(660.f, 590.f));
+		editor.setFillColor(Color(211, 211, 211));
+		editor.setSize(Vector2f(600.f, 100.f));
+		editor.setPosition(Vector2f(660.f, 590.f));
 
-		parametre.setTexture(&button);
 		parametre.setFillColor(Color(211, 211, 211));
 		parametre.setSize(Vector2f(600.f, 100.f));
 		parametre.setPosition(Vector2f(660.f, 740.f));
 
-		quitter.setTexture(&button);
 		quitter.setFillColor(Color(211, 211, 211));
 		quitter.setSize(Vector2f(600.f, 100.f));
 		quitter.setPosition(Vector2f(660.f, 890.f));
 
-		editor.setFillColor(Color(211, 211, 211));
-		editor.setRadius(150);
-		editor.setPosition(Vector2f(1460.f, 540.f));
 }
 
 
@@ -106,11 +93,11 @@ bool Menu::pressButtonPlay(RenderWindow& window)
 
 
 
-bool Menu::pressButtonRegle(RenderWindow& window)
+bool Menu::pressButtonEditer(RenderWindow& window)
 {
 	if (isClick(window)) {
-		if (regle.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
-
+		if (editor.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
+			cout << "close" << endl;
 			return true;
 		}
 	}
@@ -134,17 +121,6 @@ bool Menu::pressButtonQuitter(RenderWindow& window)
 	if (isClick(window)) {
 		if (quitter.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y +40)) {
 			cout << "close" << endl;
-			return true;
-		}
-	}
-
-	return false;
-}
-
-bool Menu::pressButtonEditor(RenderWindow& window)
-{
-	if (isClick(window)) {
-		if (quitter.getGlobalBounds().contains(Mouse::getPosition(window).x, Mouse::getPosition(window).y + 40)) {
 			return true;
 		}
 	}
@@ -248,21 +224,15 @@ void Menu::affichage()
 
 
 
-void Menu::actionMenu(bool& play, RenderWindow& window)
+void Menu::actionMenu(bool& play, RenderWindow& window, Editeur editeur)
 {
-	if (pressButtonPlay(window) && !parametreb)
+	if (pressButtonPlay(window) && !parametreb && !editeur.editeurb)
 	{
 		// debut du jeu
 		play = true;
 	}
 
-	if (pressButtonRegle(window) && !parametreb)
-	{
-		// apparition des regles ( ajout d'un fichier )
-		reglesDejeu();
-	}
-
-	if (pressButtonParametre(window) && !parametreb)
+	if (pressButtonParametre(window) && !parametreb && !editeur.editeurb)
 	{
 		affichage();
 	}
@@ -294,12 +264,13 @@ void Menu::actionMenu(bool& play, RenderWindow& window)
 			parametreb = false;
 		}
 	}
-	if (pressButtonEditor(window))
-	{
 
+	if (pressButtonEditer(window) && !parametreb && editeur.editeurb)
+	{
+		editeur.levelEdit(window);
 	}
 
-	if (pressButtonQuitter(window) && !parametreb)
+	if (pressButtonQuitter(window) && !parametreb && !editeur.editeurb)
 	{
 		window.close();
 	}
