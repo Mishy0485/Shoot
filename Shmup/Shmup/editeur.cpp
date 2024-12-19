@@ -156,11 +156,3 @@ void Editeur::select()
 			break;
 	}
 }
-
-void Editeur::levelEdit(RenderWindow& window)
-{
-	setEditeur();
-	choix(window);
-	nbVagues(window);
-	Next(window);
-}

@@ -269,7 +269,9 @@ void Menu::actionMenu(bool& play, RenderWindow& window, Editeur editeur)
 
 	if (pressButtonEditer(window) && !parametreb && editeur.editeurb)
 	{
-		editeur.levelEdit(window);
+		editeur.choix(window);
+		editeur.nbVagues(window);
+		editeur.Next(window);
 	}
 
 	if (pressButtonQuitter(window) && !parametreb && !editeur.editeurb)

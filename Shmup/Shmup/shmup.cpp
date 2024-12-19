@@ -136,7 +136,9 @@ int main()
                     window.draw(menuu.FX);
                 }
 
+
                 
+                    editeur.setEditeur();
                     window.draw(editeur.fenetre);
                     window.draw(editeur.choixEnnemi);
                     window.draw(editeur.selecteurDr);
