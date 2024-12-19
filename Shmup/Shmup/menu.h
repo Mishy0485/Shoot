@@ -3,12 +3,15 @@
 #define MENU_H
 
 #include"regles.h"
+#include <iostream>
 #include <SFML/Graphics.hpp>
 using namespace sf;
+using namespace std;
 
 class Menu
 {
 public:
+	bool close = false;
 
 	Texture fond_menu;
 
@@ -35,14 +38,16 @@ public:
 
 	Event event;
 
-	RectangleShape buttonPara;
+	RectangleShape buttonPara1;
+	RectangleShape buttonPara2;
 	RectangleShape menutry;
 	RectangleShape play;
 	RectangleShape regle;
 	RectangleShape parametre;
 	RectangleShape fenetrePara;
 	RectangleShape quitter;
-	CircleShape control;
+	CircleShape control1;
+	CircleShape control2;
 	
 	Mouse mouse;
 
@@ -59,7 +64,7 @@ public:
 	bool pressButtonParametre(RenderWindow& window);
 	bool pressButtonQuitter(RenderWindow& window);
 
-	void actionMenu(bool& play, bool& close, RenderWindow& window);
+	void actionMenu(bool& play, RenderWindow& window);
 };
 
 #endif

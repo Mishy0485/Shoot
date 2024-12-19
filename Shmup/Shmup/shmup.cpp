@@ -10,7 +10,6 @@ using namespace sf;
 using namespace std;
 bool alldead = false;
 bool play = false;
-bool close = false;
 bool menu = true;
 bool deathsound = false;
 
@@ -52,7 +51,7 @@ int main()
         Menu menuu;
         Jeu jeu;
         Jukebox jukebox;
-        jukebox.music_m();
+        //jukebox.music_m();
         jukebox.spawn_m();
         jukebox.explosion_m();
         jukebox.start_m();
@@ -79,18 +78,13 @@ int main()
             {   
                 if (event.type == Event::Closed)
                     window.close();
-
-                else if (close) 
-                {
-                    window.close();
-                }
             }
 
             window.clear();
 
             if (menu) {
                 menuu.setMenu();
-                menuu.actionMenu(play, close, window);
+                menuu.actionMenu(play, window);
 
                 window.draw(menuu.menutry);
                 window.draw(menuu.titre);
@@ -105,8 +99,10 @@ int main()
 
                 window.draw(menuu.fenetrePara);
                 window.draw(menuu.parametreAffichage);
-                window.draw(menuu.buttonPara);
-                window.draw(menuu.control);
+                window.draw(menuu.buttonPara1);
+                window.draw(menuu.buttonPara2);
+                window.draw(menuu.control1);
+                window.draw(menuu.control2);
                 window.draw(menuu.son);
                 window.draw(menuu.FX);
                 window.draw(menuu.onOffM);
